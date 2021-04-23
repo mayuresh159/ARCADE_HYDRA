@@ -15,12 +15,6 @@
 		<frame name="TCPacket"/>
 	</decoderDef>-->
 
-  <hwOutFile name="EPSlogfile" prefix="EPS" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
-  <hwOutFile name="ProcComplogfile" prefix="ProcComp" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
-  <hwOutFile name="Thrusterlogfile" prefix="Thruster" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
-  <hwOutFile name="SQUHFlogfile" prefix="SQUHF" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
-  <hwOutFile name="XBandlogfile" prefix="XBand" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
-
 	<decoderDef name="CCSDSDecoder" updateDB="true">
 		<frameID name="CCSDSHeader.APID"/>
     <outputDevice name="EPSlogfile" frameID="#EPS_HK_APID"/>
@@ -30,7 +24,6 @@
     <outputDevice name="XBandlogfile" frameID="#XBAND_HK_APID"/>
 	</decoderDef>
 
-  <hwOutFile name="cmdSentFile" prefix="cmdSent" maxSize="#MAX_OUTPUT_FILE_SIZE"/> -->
 	<decoderDef name="cmdDecoder">
 	    <description text="Send command to hardline serial"/>
 		<outBuffer size="1024"/>

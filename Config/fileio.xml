@@ -2,4 +2,14 @@
 
 	<hwOutFile name="SerialLogFile" prefix="SerialRaw" maxSize="#MAX_OUTPUT_FILE_SIZE" filename="SerialLogfile.out"/>
 
+
+	<hwOutFile name="EPSlogfile" prefix="EPS" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
+  <hwOutFile name="ProcComplogfile" prefix="ProcComp" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
+  <hwOutFile name="Thrusterlogfile" prefix="Thruster" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
+  <hwOutFile name="SQUHFlogfile" prefix="SQUHF" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
+  <hwOutFile name="XBandlogfile" prefix="XBand" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
+
+
+	<hwOutFile name="cmdSentFile" prefix="cmdSent" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
+
 </hydraDef>
