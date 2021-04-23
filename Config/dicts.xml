@@ -1,0 +1,25 @@
+<hydraDef>
+
+  <dictionary name="ON_OFF_Dict">
+    <pair key="0" str="OFF"/>
+    <pair key="1" str="ON"/>
+  </dictionary>
+
+  <!-- Dictionaries useful to decoder thruster telemetry -->
+  <dictionary name="ThrusterStatus_Dict">
+    <pair key="0" str="STANDBY"/>
+    <pair key="1" str="SELF_TEST"/>
+    <pair key="2" str="IGNITION"/>
+    <pair key="3" str="PREPARATION"/>
+    <pair key="4" str="OPERATION"/>
+    <pair key="5" str="GROUND_TEST"/>
+  </dictionary>
+
+  <dictionary name="ThrusterFiringMode_Dict">
+    <pair key="1" str="NORMAL"/>
+    <pair key="2" str="FULL_CAPACITY"/>
+    <pair key="3" str="FAIL_SAFE"/>
+  </dictionary>
+
+
+</hydraDef>

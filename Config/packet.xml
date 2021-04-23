@@ -1,0 +1,166 @@
+<hydraDef>
+
+  <!-- Common items and packet header to be used in all Hk frames -->
+  <itemDef name="SyncWord" type="dn24b"/>
+  <itemDef name="Version" type="dn8"/>
+  <itemDef name="APID" type="dn8"/>
+  <itemDef name="SeqNumber" type="dn16b"/>
+	<itemDef name="PacketSize" type="dn16b"/>
+
+  <frameDef name="CCSDSHeader">
+    <field>
+      <item name="SyncWord"/>
+      <item name="Version"/>
+      <item name="APID"/>
+      <item name="SeqNumber"/>
+      <item name="PacketSize"/>
+    </field>
+  </frameDef>
+
+
+
+  <!-- EPS Hk Packet definition -->
+  <frameDef name="EPSHkPacket">
+    <field>
+      <!-- Add field/ item definitions here -->
+      <itemDef name="EPSHk_ATMCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="EPSHk_ATMVolt" type="INA3221Volt_EUType"/>
+      <itemDef name="EPSHk_CIPCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="EPSHk_CIPVolt" type="INA3221Volt_EUType"/>
+      <itemDef name="EPSHk_GeckoCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="EPSHk_GeckoVolt" type="INA3221Volt_EUType"/>
+
+      <itemDef name="EPSHk_EndUHFCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="EPSHk_EndUHFVolt" type="INA3221Volt_EUType"/>
+      <itemDef name="EPSHk_ADCSCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="EPSHk_ADCSVolt" type="INA3221Volt_EUType"/>
+      <itemDef name="EPSHk_CDHCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="EPSHk_CDHVolt" type="INA3221Volt_EUType"/>
+
+      <itemDef name="EPSHk_GPS3v3Curr" type="INA3221Curr_EUType"/>
+      <itemDef name="EPSHk_GPS3v3Volt" type="INA3221Volt_EUType"/>
+      <itemDef name="EPSHk_GPS12v1Curr" type="INA3221Curr_EUType"/>
+      <itemDef name="EPSHk_GPS12v1Volt" type="INA3221Volt_EUType"/>
+      <itemDef name="EPSHk_GPS12v2Curr" type="INA3221Curr_EUType"/>
+      <itemDef name="EPSHk_GPS12v2Volt" type="INA3221Volt_EUType"/>
+
+      <itemDef name="EPSHk_XBandCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="EPSHk_XBandVolt" type="INA3221Volt_EUType"/>
+      <itemDef name="EPSHk_SQUHFCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="EPSHk_SQUHFVolt" type="INA3221Volt_EUType"/>
+    </field>
+  </frameDef>
+
+  <frameDef name="EPSHk_frame" id="#EPS_HK_APID">
+    <field>
+      <frameCopy name="CCSDSHeader" prefix="EPSHk_"/>
+      <item name="EPSHkPacket"/>
+    </field>
+  </frameDef>
+
+
+  <!-- ProcComp Hk Packet definition -->
+  <frameDef name="ProcCompHkPacket">
+    <field>
+      <!-- Add field/ item definitions here -->
+      <itemDef name="ProcCompHk_RTCAlarmControlReg" type="dn8"/>
+      <itemDef name="ProcCompHk_CalControlReg" type="dn8"/>
+      <itemDef name="ProcCompHk_Seconds" type="dn8"/>
+      <itemDef name="ProcCompHk_Minutes" type="dn8"/>
+      <itemDef name="ProcCompHk_Hours" type="dn8"/>
+      <itemDef name="ProcCompHk_DayofWeek" type="dn8"/>
+      <itemDef name="ProcCompHk_DateofMonth" type="dn8"/>
+      <itemDef name="ProcCompHk_Month" type="dn8"/>
+      <itemDef name="ProcCompHk_Year" type="dn8"/>
+      <itemDef name="ProcCompHk_WatchdogFlags" type="dn8"/>
+      <itemDef name="ProcCompHk_WatchdogRestart" type="dn8"/>
+      <itemDef name="ProcCompHk_WatchdogControl" type="dn8"/>
+      <itemDef name="ProcCompHk_WatchdogEnable" type="dn8"/>
+      <itemDef name="ProcCompHk_EventCounterControl" type="dn8"/>
+      <itemDef name="ProcCompHk_EventCounter0" type="dn8"/>
+      <itemDef name="ProcCompHk_EventCounter1" type="dn8"/>
+      <itemDef name="ProcCompHk_SerialNumber" type="dn8" num="8"/>
+      <itemDef name="ProcCompHk_CompControl" type="dn8"/>
+      <itemDef name="ProcCompHk_AlarmSeconds" type="dn8"/>
+      <itemDef name="ProcCompHk_AlarmMinutes" type="dn8"/>
+      <itemDef name="ProcCompHk_AlarmHours" type="dn8"/>
+      <itemDef name="ProcCompHk_AlarmDate" type="dn8"/>
+      <itemDef name="ProcCompHk_AlarmMonth" type="dn8"/>
+    </field>
+  </frameDef>
+
+  <frameDef name="ProcCompHk_frame" id="#PROCCOMP_HK_APID">
+    <field>
+      <frameCopy name="CCSDSHeader" prefix="ProcCompHk_"/>
+      <item name="ProcCompHkPacket"/>
+    </field>
+  </frameDef>
+
+
+  <!-- Thruster Hk Packet definition -->
+  <frameDef name="ThrusterHkPacket">
+    <field>
+      <!-- Add field/ item definitions here -->
+      <itemDef name="ThrusterHk_TelemetryRequestCount" type="dn8"/>
+      <itemDef name="ThrusterHk_CorrectFrameCount" type="dn8"/>
+      <itemDef name="ThrusterHk_ErrorFrameCount" type="dn8"/>
+      <itemDef name="ThrusterHk_LatestCommand" type="dn8"/>
+      <itemDef name="ThrusterHk_Status" type="ThrusterStatus_DictType"/>
+      <itemDef name="ThrusterHk_ErrorCodes" type="dn8" num="5"/>
+      <itemDef name="ThrusterHk_SupplyVoltage" type="ThrusterSupplyVoltage_EUType"/>
+      <itemDef name="ThrusterHk_CurrentConsumption" type="ThrusterCurrentConsumption_EUType"/>
+      <itemDef name="ThrusterHk_FiringMode" type="ThrusterFiringMode_DictType"/>
+      <itemDef name="ThrusterHk_ThrustValue" type="ThrusterThrustValue_EUType"/>
+    </field>
+  </frameDef>
+
+  <frameDef name="ThrusterHk_frame" id="#THRUSTER_HK_APID">
+    <field>
+      <frameCopy name="CCSDSHeader" prefix="ThrusterHk_"/>
+      <item name="ThrusterHkPacket"/>
+    </field>
+  </frameDef>
+
+
+  <!-- XBand Hk Packet definition -->
+  <frameDef name="SQUHFHkPacket">
+    <field>
+      <!-- Add field/ item definitions here -->
+      <itemDef name="SQUHFHk_Channel" type="dn8"/>
+      <itemDef name="SQUHFHk_Temperature" type="sn16"/>
+      <itemDef name="SQUHFHk_AFC" type="char8" num="7"/>
+      <itemDef name="SQUHFHk_RSSI" type="char8" num="4"/>
+      <itemDef name="SQUHFHk_SwdFlag" type="dn8"/>
+    </field>
+  </frameDef>
+
+  <frameDef name="SQUHFHk_frame" id="#SQUHF_HK_APID">
+    <field>
+      <frameCopy name="CCSDSHeader" prefix="SQUHFHk_"/>
+      <item name="SQUHFHkPacket"/>
+    </field>
+  </frameDef>
+
+
+  <!-- XBand Hk Packet definition -->
+  <frameDef name="XBandHkPacket">
+    <field>
+      <!-- Add field/ item definitions here -->
+      <itemDef name="XBandHk_SystemState" type="dn8"/>
+      <itemDef name="XBandHk_Status" type="dn16"/>
+      <itemDef name="XBandHk_PATemperature" type="sn16"/>
+      <itemDef name="XBandHk_MeasuredTxPower" type="dn16"/>
+      <itemDef name="XBandHk_CPUTemperature" type="float32"/>
+    </field>
+  </frameDef>
+
+  <frameDef name="XBandHk_frame" id="#XBAND_HK_APID">
+    <field>
+      <frameCopy name="CCSDSHeader" prefix="XBandHk_"/>
+      <item name="XBandHkPacket"/>
+    </field>
+  </frameDef>
+
+
+
+</hydraDef>

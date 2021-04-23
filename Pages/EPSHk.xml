@@ -1,0 +1,46 @@
+<pageDef>
+	<size width="250" height="675"/>
+	<!--<background color="Page_Background"/>
+	<text color="BLACK"/>
+	<font name="Times_New_Roman" size="12"/>-->
+    <page title="EPS Housekeeping">
+		<column>
+
+			<section name="Header">
+					<row item="EPSHk_SyncWord" label="SyncWord" format="HEX"/>
+					<row item="EPSHk_APID" label="ApID" format="HEX"/>
+					<row item="EPSHk_SeqNumber" label="SeqNumber"/>
+					<row item="EPSHk_PacketSize" label="PacketSize"/>
+			</section>
+
+			<section name="EPS parameters">
+				<row item="EPSHk_CDHVolt" label="CDH_Voltage"/>
+				<row item="EPSHk_CDHCurr" label="CDH_Current"/>
+				<row item="EPSHk_SQUHFVolt" label="UHF_Voltage"/>
+				<row item="EPSHk_SQUHFCurr" label="UHF_Current"/>
+				<row item="EPSHk_XBandVolt" label="XBand_Voltage"/>
+				<row item="EPSHk_XBandCurr" label="XBand_Current"/>
+			</section>
+
+			<section name="ADCS EPS parameters">
+				<row item="EPSHk_ADCSVolt" label="ADCS_Voltage"/>
+				<row item="EPSHk_ADCSCurr" label="ADCS_Current"/>
+				<row item="EPSHk_GPS3v3Volt" label="GPS3v3_Voltage"/>
+				<row item="EPSHk_GPS3v3Curr" label="GPS3v3_Current"/>
+				<row item="EPSHk_GPS12v1Volt" label="GPS12v1_Voltage"/>
+				<row item="EPSHk_GPS12v1Curr" label="GPS12v1_Current"/>
+				<row item="EPSHk_GPS12v2Volt" label="GPS12v2_Voltage"/>
+				<row item="EPSHk_GPS12v2Curr" label="GPS12v2_Current"/>
+			</section>
+
+			<section name="Payload EPS parameters">
+				<row item="EPSHk_ATMVolt" label="Atmolite_Voltage"/>
+				<row item="EPSHk_ATMCurr" label="Atmolite_Current"/>
+				<row item="EPSHk_CIPVolt" label="CIP_Voltage"/>
+				<row item="EPSHk_CIPCurr" label="CIP_Current"/>
+				<row item="EPSHk_GeckoVolt" label="Gecko_Voltage"/>
+				<row item="EPSHk_GeckoCurr" label="Gecko_Current"/>
+			</section>
+		</column>
+    </page>
+</pageDef>

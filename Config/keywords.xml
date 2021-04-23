@@ -1,0 +1,50 @@
+<hydraDef>
+
+    <!-- Configuration keywords
+         Use #KEYWORD_STR to reference in other files
+         Use -k KEYWORD_STR=xxx to change on command line
+    -->
+
+    <keyword str="MAX_OUTPUT_FILE_SIZE" value="2000000"/>
+    <keyword str="MAX_OUTPUT_SMALL_FILE_SIZE" value="100"/>
+
+    <!-- Address of radio -->
+    <keyword str="SDR_RADIO_IP_ADDR" value="127.0.0.1"/>
+
+    <!-- Radio Telemetry port -->
+    <keyword str="SDR_RADIO_TLM_PORT" value="17100"/>
+
+    <!-- Radio Command port -->
+    <keyword str="SDR_RADIO_CMD_PORT" value="16120"/>
+
+    <!-- Address to put into AX25 command header -->
+    <keyword str="AX25_CMD_ADDR" value="0x92 0xA6 0x5A 0x62 0x40 0x40 0x60 0x84 0x86 0xa8 0x40 0x40 0x40 0xE1"/>
+
+    <!-- Hardline serial port config -->
+    <keyword str="INSTR_SERIAL_PORT" value="COM31"/>
+    <keyword str="INSTR_SERIAL_BAUD" value="115200"/>
+    <keyword str="INSTR_SERIAL_PARITY" value="NONE"/>
+    <keyword str="INSTR_SERIAL_STOP" value="1"/>
+
+    <keyword str="SERIAL_SYNC_PATTERN" value="0xA8 0xCA 0xDE"/>
+
+    <!-- External communication config -->
+    <keyword str="CCSDS_TLM_SERVER_PORT" value="90000"/>
+    <keyword str="CCSDS_CMD_SERVER_PORT" value="90001"/>
+    <keyword str="HYDRA_CMD_SERVER_PORT" value="90003"/>
+    <keyword str="EXT_SERVER_ADDR" value="127.0.0.1"/>
+
+    <!-- Power Supply Config -->
+    <keyword str="POWER_SUPPLY_IP_ADDR" value="192.168.0.0"/>
+    <keyword str="POWER_SUPPLY_PORT" value="5025"/>
+
+    <!-- Fixed APIDs for different Housekeeping data -->
+    <keyword str="BEACON_APID" value="0x10"/>
+    <keyword str="ACK_APID" value="0x20"/>
+    <keyword str="EPS_HK_APID" value="0x21"/>
+    <keyword str="PROCCOMP_HK_APID" value="0x22"/>
+    <keyword str="THRUSTER_HK_APID" value="0x23"/>
+    <keyword str="SQUHF_HK_APID" value="0x24"/>
+    <keyword str="XBAND_HK_APID" value="0x25"/>
+
+</hydraDef>

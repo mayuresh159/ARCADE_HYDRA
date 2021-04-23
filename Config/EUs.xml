@@ -1,0 +1,46 @@
+﻿<hydraDef>
+
+	<!-- Definition of engineering units for EPS parameters from VC sensors -->
+	<euPoly name="INA3221Curr_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.0005"/>
+	</euPoly>
+	<euPoly name="INA3221Volt_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.001"/>
+	</euPoly>
+
+	<euPoly name="INA226Curr_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.00125"/>
+	</euPoly>
+	<euPoly name="INA226Volt_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.00125"/>
+	</euPoly>
+
+	<!-- Definition of engineering units for Thruster Hk parameters -->
+	<euPoly name="ThrusterSupplyVoltage_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.01"/>
+	</euPoly>
+
+	<euPoly name="ThrusterCurrentConsumption_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.01"/>
+	</euPoly>
+
+	<euPoly name="ThrusterThrustValue_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.01"/>
+	</euPoly>
+
+
+
+
+
+
+
+
+
+</hydraDef>

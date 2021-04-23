@@ -1,0 +1,13 @@
+2021/113-19:43:46: Configuring for Serial
+2021/113-19:43:46: <INT> Run Directory: C:\Users\Mayuresh\Desktop\NTU_Work\Hydra\ARCADE\ARCADE_HYDRA\Rundirs\2021_113_19_43_44\
+2021/113-19:43:46: <INT> Writing note to file
+2021/113-19:43:46: <RDR> Auto-starting reader ARCADEHeaderReader
+2021/113-19:43:46: <HW> \\.\COM31 is opened
+2021/113-19:43:46: <RDR> Starting reader ARCADEHeaderReader
+2021/113-19:43:46: <SCR> Starting script in engine 0
+2021/113-19:43:46: <HW> Starting new file: EPS_2021_113_19_43_46
+2021/113-19:43:46: <HW> Starting new file: Thruster_2021_113_19_43_46
+2021/113-19:43:46: <SCR> Starting script init.prc
+2021/113-19:43:46: <INT> Running startup script
+2021/113-19:43:46: <HW> Starting new file: EventLog_2021_113_19_43_46
+2021/113-19:43:46: <SCR> Done with script init.prc

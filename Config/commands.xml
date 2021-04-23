@@ -1,0 +1,26 @@
+<hydraDef>
+
+  <!-- Test command -->
+  <frameDef name="IS4CmdTemplate" decoder="cmdDecoder">
+    <description text="Command header"/>
+    <field>
+        <itemDef name="subsystemAddr"       type="dn8b"    value="0"/>
+        <itemDef name="txlen"               type="dn16b"   value="1"/>
+        <itemDef name="replytype"           type="dn8b"    value="1"/>
+        <itemDef name="rxlen"               type="dn16b"   value="4"/>
+        <placeholder/>
+    </field>
+  </frameDef>
+
+  <command name="IS4_test_command" decoder="cmdDecoder">
+    <header frame="IS4CmdTemplate"/>
+    <description text="Test command in IS4 commanding format"/>
+    <field>
+        <itemCounter name="CmdSeqCnt" type="dn8b" value="1" min="0" max="0xFF" incr="1"/>
+    </field>
+  </command>
+
+  <senderDef name="IS4_test_sender" frame="IS4_test_command" interval="2000"/>
+
+
+</hydraDef>

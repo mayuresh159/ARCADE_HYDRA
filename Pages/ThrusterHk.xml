@@ -1,0 +1,29 @@
+<pageDef>
+	<size width="250" height="400"/>
+	<!--<background color="Page_Background"/>
+	<text color="BLACK"/>
+	<font name="Times_New_Roman" size="12"/>-->
+    <page title="Thruster Housekeeping">
+		<column>
+
+			<section name="Header">
+					<row item="ThrusterHk_SyncWord" label="SyncWord" format="HEX"/>
+					<row item="ThrusterHk_APID" label="ApID" format="HEX"/>
+					<row item="ThrusterHk_SeqNumber" label="SeqNumber"/>
+					<row item="ThrusterHk_PacketSize" label="PacketSize"/>
+			</section>
+
+      <section name="Parameters">
+        <row item="ThrusterHk_TelemetryRequestCount" label="Tlm_Request_Count"/>
+        <row item="ThrusterHk_CorrectFrameCount" label="Correct_Frame_Count"/>
+        <row item="ThrusterHk_LatestCommand" label="Latest_Command"/>
+        <row item="ThrusterHk_Status" label="Status"/>
+        <row item="ThrusterHk_ErrorCodes" label="Error_Code"/>
+        <row item="ThrusterHk_SupplyVoltage" label="Supply_Voltage"/>
+        <row item="ThrusterHk_CurrentConsumption" label="Current_Consumption"/>
+        <row item="ThrusterHk_FiringMode" label="Firing_Mode"/>
+        <row item="ThrusterHk_ThrustValue" label="Thrust_Value"/>
+      </section>
+		</column>
+    </page>
+</pageDef>

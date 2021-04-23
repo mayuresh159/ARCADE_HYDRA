@@ -1,0 +1,38 @@
+<hydraDef>
+
+  <!-- Add new script directories here, will be searched in order for script files -->
+	<scriptDir name="Scripts"/>
+	<scriptDir name="Scripts/setup"/>
+	<!--<scriptDir name="Scripts/cmds"/> -->
+
+  <!-- List configuration options here, used to select different options at startup
+       Can select a default by adding default="true" attribute to option -->
+	<configurations>
+	    <option name="Serial"/>   <!-- Talk over serial connection -->
+	    <option name="Radio"/>      <!-- Talk over radio -->
+	    <option name="External"/>   <!-- Talk to existing Hydra server -->
+	</configurations>
+
+	<!-- Default endianness for all types, can be overridden in type definition -->
+	<typeEndian default="LITTLE"/>
+
+	<!-- List of files to include, add or subtract as needed -->
+	<include>Config\keywords.xml</include>
+	<include>Config\states.xml</include>
+	<include>Config\types.xml</include>
+	<include>Config\dicts.xml</include>
+	<include>Config\colors.xml</include>
+	<include>Config\EUs.xml</include>
+  <include>Config\packet.xml</include>
+	<include>Config\commands.xml</include>
+
+	<configType name="Serial">
+	    <include>Config\serial.xml</include>
+	</configType>
+
+	<configType name="Radio">
+	    <include>Config\radio.xml</include>
+	</configType>
+
+    <include>Config\external.xml</include>
+</hydraDef>
