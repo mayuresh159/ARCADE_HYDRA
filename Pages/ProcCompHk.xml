@@ -1,0 +1,26 @@
+<pageDef>
+	<size width="250" height="350"/>
+	<!--<background color="Page_Background"/>
+	<text color="BLACK"/>
+	<font name="Times_New_Roman" size="12"/>-->
+    <page title="Proc. Comp. Housekeeping">
+		<column>
+      <section name="Header">
+					<row item="ProcCompHk_SyncWord" label="SyncWord" format="HEX"/>
+					<row item="ProcCompHk_APID" label="ApID" format="HEX"/>
+					<row item="ProcCompHk_SeqNumber" label="SeqNumber"/>
+					<row item="ProcCompHk_PacketSize" label="PacketSize"/>
+			</section>
+
+      <section name="Date and time">
+        <row item="ProcCompHk_DateofMonth" label="RTC_Date" format="HEX"/>
+        <row item="ProcCompHk_Month" label="RTC_Month" format="HEX"/>
+        <row item="ProcCompHk_Year" label="RTC_Year" format="HEX"/>
+        <row item="ProcCompHk_Hours" label="RTC_Hours" format="HEX"/>
+        <row item="ProcCompHk_Minutes" label="RTC_Minutes" format="HEX"/>
+        <row item="ProcCompHk_Seconds" label="RTC_Seconds" format="HEX"/>
+      </section>
+
+    </column>
+    </page>
+</pageDef>

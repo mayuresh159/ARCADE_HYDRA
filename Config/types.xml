@@ -235,9 +235,9 @@
     <typeEU name="INA226Volt_EUType" size="16" endian="LITTLE" eu="INA226Volt_EU"/>
 
     <!-- Define types calling the thruster EU polynomials -->
-    <typeEU name="ThrusterSupplyVoltage_EUType" size="16" endian="BIG" eu="ThrusterSupplyVoltage_EU"/>
-    <typeEU name="ThrusterCurrentConsumption_EUType" size="16" endian="BIG" eu="ThrusterCurrentConsumption_EU"/>
-    <typeEU name="ThrusterThrustValue_EUType" size="16" endian="BIG" eu="ThrusterThrustValue_EU"/>
+    <typeEU name="ThrusterSupplyVoltage_EUType" size="16" endian="LITTLE" eu="ThrusterSupplyVoltage_EU"/>
+    <typeEU name="ThrusterCurrentConsumption_EUType" size="16" endian="LITTLE" eu="ThrusterCurrentConsumption_EU"/>
+    <typeEU name="ThrusterThrustValue_EUType" size="8" endian="LITTLE" eu="ThrusterThrustValue_EU"/>
 
     <!-- Define types mapping dictionaries to states -->
     <typeState name="ThrusterStatus_DictType" size="8" dict="ThrusterStatus_Dict"/>

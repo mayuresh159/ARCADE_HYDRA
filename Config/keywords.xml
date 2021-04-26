@@ -22,7 +22,7 @@
 
     <!-- Hardline serial port config -->
     <keyword str="INSTR_SERIAL_PORT" value="COM31"/>
-    <keyword str="INSTR_SERIAL_BAUD" value="115200"/>
+    <keyword str="INSTR_SERIAL_BAUD" value="500000"/>
     <keyword str="INSTR_SERIAL_PARITY" value="NONE"/>
     <keyword str="INSTR_SERIAL_STOP" value="1"/>
 

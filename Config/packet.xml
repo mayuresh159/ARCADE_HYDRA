@@ -77,8 +77,7 @@
       <itemDef name="ProcCompHk_WatchdogControl" type="dn8"/>
       <itemDef name="ProcCompHk_WatchdogEnable" type="dn8"/>
       <itemDef name="ProcCompHk_EventCounterControl" type="dn8"/>
-      <itemDef name="ProcCompHk_EventCounter0" type="dn8"/>
-      <itemDef name="ProcCompHk_EventCounter1" type="dn8"/>
+      <itemDef name="ProcCompHk_EventCounter" type="dn16"/>
       <itemDef name="ProcCompHk_SerialNumber" type="dn8" num="8"/>
       <itemDef name="ProcCompHk_CompControl" type="dn8"/>
       <itemDef name="ProcCompHk_AlarmSeconds" type="dn8"/>
