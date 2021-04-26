@@ -18,13 +18,14 @@
 
 	<!-- List of files to include, add or subtract as needed -->
 	<include>Config\keywords.xml</include>
-	<include>Config\states.xml</include>
+	<!-- <include>Config\states.xml</include> -->
 	<include>Config\types.xml</include>
 	<include>Config\dicts.xml</include>
 	<include>Config\colors.xml</include>
 	<include>Config\EUs.xml</include>
   <include>Config\packet.xml</include>
 	<include>Config\commands.xml</include>
+	<include>Config\fileio.xml</include>
 
 	<configType name="Serial">
 	    <include>Config\serial.xml</include>
