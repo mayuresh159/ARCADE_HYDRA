@@ -1,5 +1,5 @@
 <pageDef>
-	<size width="250" height="350"/>
+	<size width="250" height="500"/>
 	<!--<background color="Page_Background"/>
 	<text color="BLACK"/>
 	<font name="Times_New_Roman" size="12"/>-->
@@ -20,7 +20,6 @@
         <row item="ProcCompHk_Minutes" label="RTC_Minutes" format="HEX"/>
         <row item="ProcCompHk_Seconds" label="RTC_Seconds" format="HEX"/>
       </section>
-
     </column>
     </page>
 </pageDef>

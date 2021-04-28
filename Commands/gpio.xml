@@ -1,0 +1,53 @@
+<hydraDef>
+
+  <itemDef name="SetGPIO_OpCode" type="dn8" value="0x05"/>
+
+  <!-- GPIO state definitions -->
+  <itemDef name="GPIO_ON"   type="dn8b" value="0x01"/>
+  <itemDef name="GPIO_OFF"  type="dn8b" value="0x00"/>
+
+  <!-- GPIO instance definitions -->
+  <itemDef name="ATMOLITE_GPIO_INSTANCE"              type="dn8b" value="0x00"/>
+  <itemDef name="DEPLOYABLES_GPIO_INSTANCE"           type="dn8b" value="0x02"/>
+  <itemDef name="POWER_SUPPLY_ENABLES_GPIO_INSTANCE"  type="dn8b" value="0x03"/>
+  <itemDef name="TRANSCEIVER_ENABLES_GPIO_INSTANCE"   type="dn8b" value="0x04"/>
+  <itemDef name="XBAND_GPIO_INSTANCE"                 type="dn8b" value="0x05"/>
+  <itemDef name="UHF_RADIO_GPIO_INSTANCE"             type="dn8b" value="0x06"/>
+
+  <!-- Pin definitions for different gpio instances -->
+  <!-- Pins in deployables GPIO instance -->
+  <itemDef name="EN_BAT1_HTR_PIN"       type="dn8b" value="0x00"/>
+  <itemDef name="EN_BAT2_HTR_PIN"       type="dn8b" value="0x01"/>
+  <itemDef name="SP1_DEP_PIN"           type="dn8b" value="0x02"/>
+  <itemDef name="SP2_DEP_PIN"           type="dn8b" value="0x03"/>
+  <itemDef name="SP3_DEP_PIN"           type="dn8b" value="0x04"/>
+  <itemDef name="ANT_DEP_PIN"           type="dn8b" value="0x05"/>
+
+  <!-- Pins in power supply enables gpio instance -->
+  <itemDef name="EN_ATMOLITE_PS_PIN"          type="dn8b" value="0x00"/>
+  <itemDef name="EN_CIP_PS_PIN"               type="dn8b" value="0x01"/>
+  <itemDef name="EN_IMAGER_PS_PIN"            type="dn8b" value="0x02"/>
+  <itemDef name="EN_ADCS_PS_PIN"              type="dn8b" value="0x03"/>
+  <itemDef name="EN_XBAND_PS_PIN"             type="dn8b" value="0x04"/>
+  <itemDef name="EN_THRUSTER_PS_PIN"          type="dn8b" value="0x05"/>
+  <itemDef name="EN_THRUSTER_BAT_CHG_PS_PIN"  type="dn8b" value="0x06"/>
+  <itemDef name="EPS_I2C_RESET_PIN"           type="dn8b" value="0x07"/>
+
+  <!-- Pins in transceiver enables gpio instance -->
+  <itemDef name="PSEN_TREN"           type="dn8b" value="0x00"/>
+  <itemDef name="BAT_HTR_TREN"        type="dn8b" value="0x01"/>
+  <itemDef name="SP_DEP_TREN"         type="dn8b" value="0x01"/>
+  <itemDef name="END_UHF_TREN"        type="dn8b" value="0x01"/>
+  <itemDef name="ATMOLITE_TREN"       type="dn8b" value="0x02"/>
+  <itemDef name="ADCS_TREN"           type="dn8b" value="0x02"/>
+  <itemDef name="CIP_TREN"            type="dn8b" value="0x03"/>
+  <itemDef name="GECKO_TREN"          type="dn8b" value="0x03"/>
+  <itemDef name="XBAND_TREN"          type="dn8b" value="0x04"/>
+  <itemDef name="SQ_UHF_TREN"         type="dn8b" value="0x05"/>
+  <itemDef name="EPS_I2C_0_TREN"      type="dn8b" value="0x06"/>
+  <itemDef name="EPS_I2C_1_TREN"      type="dn8b" value="0x07"/>
+  <itemDef name="EPS_I2C_2_TREN"      type="dn8b" value="0x08"/>
+  <itemDef name="THRUSTER_I2C_TREN"   type="dn8b" value="0x09"/>
+  <itemDef name="SD_EN_TREN"          type="dn8b" value="0x0A"/>
+
+</hydraDef>

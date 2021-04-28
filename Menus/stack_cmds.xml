@@ -1,0 +1,39 @@
+<hydraMenu>
+  <menu name="stack_cmds">
+    <menu name="EPS">
+      <cmd name="SetPSENTREN"/>
+      <cmd name="SetEPSI2C1EN"/>
+      <cmd name="SetEPSI2C2EN"/>
+      <cmd name="SetEPSI2C3EN"/>
+      <cmd name="SetEPSI2CRESET"/>
+      <cmd name="ClearEPSI2CRESET"/>
+      <cmd name="SetATMLTPSEN"/>
+      <cmd name="ClearATMLTPSEN"/>
+      <cmd name="SetGeckoPSEN"/>
+      <cmd name="ClearGeckoPSEN"/>
+      <cmd name="SetADCSPSEN"/>
+      <cmd name="ClearADCSPSEN"/>
+      <cmd name="SetXBandPSEN"/>
+      <cmd name="ClearXBandPSEN"/>
+      <cmd name="SetTHRPSEN"/>
+      <cmd name="ClearTHRPSEN"/>
+      <cmd name="SetTHRBATCHGPSEN"/>
+      <cmd name="ClearTHRBATCHGPSEN"/>
+    </menu>
+    <menu name="CDH">
+      <cmd name="Ping"/>
+      <cmd name="EnableDisableTask"/>
+      <cmd name="RunEpsHkTask"/>
+      <cmd name="RunProcCompRoutineTask"/>
+      <cmd name="RunThrusterHkTask"/>
+      <cmd name="EnableAntennaDeploymentTask"/>
+      <cmd name="DisableAntennaDeploymentTask"/>
+      <cmd name="EnableSP1DeploymentTask"/>
+      <cmd name="DisableSP1DeploymentTask"/>
+      <cmd name="EnableSP2DeploymentTask"/>
+      <cmd name="DisableSP2DeploymentTask"/>
+      <cmd name="EnableSP3DeploymentTask"/>
+      <cmd name="DisableSP3DeploymentTask"/>
+    </menu>
+  </menu>
+</hydraMenu>

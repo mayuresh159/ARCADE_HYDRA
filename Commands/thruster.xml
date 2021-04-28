@@ -1,0 +1,135 @@
+<hydraDef>
+
+  <!-- Constants required to define thruster commands -->
+  <itemDef name="THRUSTER_I2C_ADDR" type="dn8b" value="0x7C"/>
+  <itemDef name="THR_TLM_DATATYPE"  type="dn8b" value="0x00"/>
+  <itemDef name="THR_CMD_DATATYPE"  type="dn8b" value="0x05"/>
+
+  <!-- Command opcodes -->
+  <itemDef name="FIRETHR_OPCODE" type="dn8b" value="0x02"/>
+  <itemDef name="STOPTHR_OPCODE" type="dn8b" value="0x03"/>
+  <itemDef name="CHANGEMODETHR_OPCODE" type="dn8b" value="0x04"/>
+  <itemDef name="STARTGRNDTESTTHR_OPCODE" type="dn8b" value="0x05"/>
+  <itemDef name="STOPGRNDTESTTHR_OPCODE" type="dn8b" value="0x06"/>
+  <itemDef name="RESETECTHR_OPCODE" type="dn8b" value="0x0A"/>
+
+
+  <!-- Thruster operating modes -->
+  <itemDef name="NORMAL_MODE" type="dn8b" value="0x01"/>
+  <itemDef name="FULLCAP_MODE" type="dn8b" value="0x02"/>
+  <itemDef name="FAILSAFE_MODE" type="dn8b" value="0x03"/>
+
+  <command name="SetThrusterI2c" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <description text="Set transceiver enable GPIO for Thruster I2C bus"/>
+    <field>
+      <item name="SetGPIO_OpCode"/>
+      <item name="TRANSCEIVER_ENABLES_GPIO_INSTANCE"/>
+      <item name="THRUSTER_I2C_TREN"/>
+      <item name="GPIO_ON"/>
+    </field>
+  </command>
+
+  <command name="ClearThrusterI2c" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <description text="Clear transceiver enable GPIO for Thruster I2C bus"/>
+    <field>
+      <item name="SetGPIO_OpCode"/>
+      <item name="TRANSCEIVER_ENABLES_GPIO_INSTANCE"/>
+      <item name="THRUSTER_I2C_TREN"/>
+      <item name="GPIO_OFF"/>
+    </field>
+  </command>
+
+  <command name="FireThruster" decoder="cmdDecoder">
+    <header frame="ThrusterCommand_Header"/>
+    <description text="Command to fire thruster"/>
+    <pad bytes="9" value="0x55"/>
+    <field>
+      <item name="THRUSTER_I2C_ADDR"/>
+      <item name="THR_CMD_DATATYPE"/>
+      <item name="FIRETHR_OPCODE"/>
+    </field>
+  </command>
+
+  <command name="StopThruster" decoder="cmdDecoder">
+    <header frame="ThrusterCommand_Header"/>
+    <description text="Command to stop thruster"/>
+    <pad bytes="9" value="0x55"/>
+    <field>
+      <item name="THRUSTER_I2C_ADDR"/>
+      <item name="THR_CMD_DATATYPE"/>
+      <item name="STOPTHR_OPCODE"/>
+    </field>
+  </command>
+
+  <command name="ThrusterModeNormal" decoder="cmdDecoder">
+    <header frame="ThrusterCommand_Header"/>
+    <description text="Command to set firing mode to normal"/>
+    <pad bytes="9" value="0x55"/>
+    <field>
+      <item name="THRUSTER_I2C_ADDR"/>
+      <item name="THR_CMD_DATATYPE"/>
+      <item name="CHANGEMODETHR_OPCODE"/>
+      <item name="NORMAL_MODE"/>
+    </field>
+  </command>
+
+  <command name="ThrusterModeFull" decoder="cmdDecoder">
+    <header frame="ThrusterCommand_Header"/>
+    <description text="Command to set firing mode to full capacity"/>
+    <pad bytes="9" value="0x55"/>
+    <field>
+      <item name="THRUSTER_I2C_ADDR"/>
+      <item name="THR_CMD_DATATYPE"/>
+      <item name="CHANGEMODETHR_OPCODE"/>
+      <item name="FULLCAP_MODE"/>
+    </field>
+  </command>
+
+  <command name="ThrusterModeFailsafe" decoder="cmdDecoder">
+    <header frame="ThrusterCommand_Header"/>
+    <description text="Command to set firing mode to failsafe"/>
+    <pad bytes="9" value="0x55"/>
+    <field>
+      <item name="THRUSTER_I2C_ADDR"/>
+      <item name="THR_CMD_DATATYPE"/>
+      <item name="CHANGEMODETHR_OPCODE"/>
+      <item name="FAILSAFE_MODE"/>
+    </field>
+  </command>
+
+  <command name="ThrusterStartGroundTest" decoder="cmdDecoder">
+    <header frame="ThrusterCommand_Header"/>
+    <description text="Command to start ground test"/>
+    <pad bytes="9" value="0x55"/>
+    <field>
+      <item name="THRUSTER_I2C_ADDR"/>
+      <item name="THR_CMD_DATATYPE"/>
+      <item name="STARTGRNDTESTTHR_OPCODE"/>
+    </field>
+  </command>
+
+  <command name="ThrusterStopGroundTest" decoder="cmdDecoder">
+    <header frame="ThrusterCommand_Header"/>
+    <description text="Command to stop ground test"/>
+    <pad bytes="9" value="0x55"/>
+    <field>
+      <item name="THRUSTER_I2C_ADDR"/>
+      <item name="THR_CMD_DATATYPE"/>
+      <item name="STOPGRNDTESTTHR_OPCODE"/>
+    </field>
+  </command>
+
+  <command name="ThusterResetErrorCode" decoder="cmdDecoder">
+    <header frame="ThrusterCommand_Header"/>
+    <description text="Command to reset error codes"/>
+    <pad bytes="9" value="0x55"/>
+    <field>
+      <item name="THRUSTER_I2C_ADDR"/>
+      <item name="THR_CMD_DATATYPE"/>
+      <item name="RESETECTHR_OPCODE"/>
+    </field>
+  </command>
+
+</hydraDef>

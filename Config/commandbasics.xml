@@ -1,0 +1,117 @@
+<hydraDef>
+
+  <!-- Test command -->
+  <frameDef name="IS4CmdHeader" decoder="cmdDecoder">
+    <description text="Command header"/>
+    <field>
+        <itemDef name="subsystemAddr"       type="dn8b"    value="0"/>
+        <itemDef name="txlen"               type="dn16b"   value="1"/>
+        <itemDef name="replytype"           type="dn8b"    value="1"/>
+        <itemDef name="rxlen"               type="dn16b"   value="4"/>
+        <placeholder/>
+    </field>
+    <length item="txlen" offset="-48"/>
+  </frameDef>
+
+<!-- Sample command and sender definition for reference -->
+  <command name="IS4_test_command" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <description text="Test command in IS4 commanding format"/>
+    <field>
+        <itemCounter name="CmdSeqCnt" type="dn8b" value="1" min="0" max="0xFF" incr="1"/>
+    </field>
+  </command>
+
+  <senderDef name="IS4_test_sender" frame="IS4_test_command" interval="2000"/>
+
+  <!-- Subsystem Addresses for OBC commands -->
+  <itemDef name="CDH_SUBSYSTEM_ADDR"        type="dn8b" value="0x00"/>
+  <itemDef name="EPS0_SUBSYSTEM_ADDR"       type="dn8b" value="0x01"/>
+  <itemDef name="EPS2_SUBSYSTEM_ADDR"       type="dn8b" value="0x02"/>
+  <itemDef name="ADCS_SUBSYSTEM_ADDR"       type="dn8b" value="0x03"/>
+  <itemDef name="COMM_UHF_SUBSYSTEM_ADDR"   type="dn8b" value="0x04"/>
+  <itemDef name="CIP_SUBSYSTEM_ADDR"        type="dn8b" value="0x06"/>
+  <itemDef name="ATMOLITE_SUBSYSTEM_ADDR"   type="dn8b" value="0x07"/>
+  <itemDef name="GECKO_SUBSYSTEM_ADDR"      type="dn8b" value="0x08"/>
+  <itemDef name="THRUSTER_SUBSYSTEM_ADDR"   type="dn8b" value="0x09"/>
+  <itemDef name="EPS3_SUBSYSTEM_ADDR"       type="dn8b" value="0x0D"/>
+  <itemDef name="PROC_COMP_SUBSYSTEM_ADDR"  type="dn8b" value="0x0E"/>
+  <itemDef name="FLASH_SUBSYSTEM_ADDR"      type="dn8b" value="0x0F"/>
+  <itemDef name="SD_SUBSYSTEM_ADDR"         type="dn8b" value="0x10"/>
+  <itemDef name="EMMC_SUBSYSTEM_ADDR"       type="dn8b" value="0x11"/>
+  <itemDef name="XBAND_PL_SUBSYSTEM_ADDR"   type="dn8b" value="0x12"/>
+
+ <!-- Reply types for OBC commands -->
+  <itemDef name="NO_REPLY"      type="dn8b" value="0x00"/>
+  <itemDef name="SIZE_REPLY"    type="dn8b" value="0x01"/>
+  <itemDef name="TIME_REPLY"    type="dn8b" value="0x02"/>
+  <itemDef name="RETRIEVE_ONLY" type="dn8b" value="0x03"/>
+
+  <!-- Standard reply lengths -->
+  <itemDef name="ZERO_REPLY_LENGTH"       type="dn16b" value="0"/>
+  <itemDef name="ERROR_CODE_REPLY_LENGTH" type="dn16b" value="2"/>
+  <itemDef name="SW_VER_REPLY_LENGTH"     type="dn16b" value="4"/>
+
+  <!-- Standard command frame formats -->
+  <frameDef name="PingCommand_Header" decoder="cmdDecoder">
+    <description text="Command header for Ping command"/>
+    <field>
+        <item name="CDH_SUBSYSTEM_ADDR"/>
+        <item name="txlen"/>
+        <item name="SIZE_REPLY"/>
+        <item name="SW_VER_REPLY_LENGTH"/>
+        <placeholder/>
+    </field>
+    <length item="txlen" offset="-48"/>
+  </frameDef>
+
+  <frameDef name="DebugCommand_Header" decoder="cmdDecoder">
+    <description text="Command header for debug commands"/>
+    <field>
+        <item name="CDH_SUBSYSTEM_ADDR"/>
+        <item name="txlen"/>
+        <item name="SIZE_REPLY"/>
+        <item name="ERROR_CODE_REPLY_LENGTH"/>
+        <placeholder/>
+    </field>
+    <length item="txlen" offset="-48"/>
+  </frameDef>
+
+  <frameDef name="RunHkTaskCommand_Header" decoder="cmdDecoder">
+    <description text="Command header for run hk task commands"/>
+    <field>
+        <item name="CDH_SUBSYSTEM_ADDR"/>
+        <item name="txlen"/>
+        <item name="SIZE_REPLY"/>
+        <item name="ERROR_CODE_REPLY_LENGTH"/>
+        <placeholder/>
+    </field>
+    <length item="txlen" offset="-48"/>
+  </frameDef>
+
+  <frameDef name="SetGPIOCommand_Header" decoder="cmdDecoder">
+    <description text="Command header for Set GPIO commands to the OBC"/>
+    <field>
+      <item name="CDH_SUBSYSTEM_ADDR"/>
+      <item name="txlen"/>
+      <item name="SIZE_REPLY"/>
+      <item name="ERROR_CODE_REPLY_LENGTH"/>
+      <placeholder/>
+    </field>
+    <length item="txlen" offset="-48"/>
+  </frameDef>
+
+  <frameDef name="ThrusterCommand_Header" decoder="cmdDecoder">
+    <description text="Command header for commands to be forwarded to thruster"/>
+    <field>
+      <item name="THRUSTER_SUBSYSTEM_ADDR"/>
+      <item name="txlen"/>
+      <item name="SIZE_REPLY"/>
+      <item name="ZERO_REPLY_LENGTH"/>
+      <placeholder/>
+    </field>
+    <length item="txlen" offset="-48"/>
+  </frameDef>
+
+
+</hydraDef>

@@ -24,8 +24,14 @@
 	<include>Config\colors.xml</include>
 	<include>Config\EUs.xml</include>
   <include>Config\packet.xml</include>
-	<include>Config\commands.xml</include>
+	<include>Commands\gpio.xml</include>
+	<include>Config\commandbasics.xml</include>
 	<include>Config\fileio.xml</include>
+	<!-- Include commands folder -->
+	<include>Commands\debug.xml</include>
+	<include>Commands\cdh.xml</include>
+	<include>Commands\eps0.xml</include>
+	<include>Commands\thruster.xml</include>
 
 	<configType name="Serial">
 	    <include>Config\serial.xml</include>

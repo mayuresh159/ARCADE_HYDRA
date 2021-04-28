@@ -1,0 +1,15 @@
+<hydraMenu>
+  <menu name="subsys_cmds">
+    <menu name="Thruster">
+      <cmd name="FireThruster"/>
+      <cmd name="StopThruster"/>
+      <cmd name="ThrusterModeNormal"/>
+      <cmd name="ThrusterModeFull"/>
+      <cmd name="ThrusterModeFailsafe"/>
+      <cmd name="ThrusterStartGroundTest"/>
+      <cmd name="ThrusterStopGroundTest"/>
+      <cmd name="ThusterResetErrorCode"/>
+    </menu>
+  </menu>
+
+</hydraMenu>
