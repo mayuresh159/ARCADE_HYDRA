@@ -1,6 +1,8 @@
 <hydraMenu>
   <menu name="subsys_cmds">
     <menu name="Thruster">
+      <cmd name="SetThrusterI2c"/>
+      <cmd name="ClearThrusterI2c"/>
       <cmd name="FireThruster"/>
       <cmd name="StopThruster"/>
       <cmd name="ThrusterModeNormal"/>

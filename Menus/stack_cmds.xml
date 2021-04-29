@@ -1,5 +1,28 @@
 <hydraMenu>
   <menu name="stack_cmds">
+    <menu name="CDH">
+      <cmd name="Ping"/>
+      <cmd name="EnableDisableTask"/>
+      <cmd name="RunEpsHkTask"/>
+      <cmd name="RunProcCompRoutineTask"/>
+      <cmd name="RunThrusterHkTask"/>
+      <cmd name="EnableAntennaDeploymentTask"/>
+      <cmd name="DisableAntennaDeploymentTask"/>
+      <cmd name="EnableSP1DeploymentTask"/>
+      <cmd name="DisableSP1DeploymentTask"/>
+      <cmd name="EnableSP2DeploymentTask"/>
+      <cmd name="DisableSP2DeploymentTask"/>
+      <cmd name="EnableSP3DeploymentTask"/>
+      <cmd name="DisableSP3DeploymentTask"/>
+    </menu>
+    <menu name="DEBUG">
+      <cmd name="EnableDebugFlags"/>
+      <cmd name="EnableDebugFlagsAll"/>
+      <cmd name="DisableDebugFlagsAll"/>
+      <cmd name="EnableDebugFlagsEPSHk"/>
+      <cmd name="EnableDebugFlagsProcCompHk"/>
+      <cmd name="EnableDebugFlagsThrusterHk"/>
+    </menu>
     <menu name="EPS">
       <cmd name="SetPSENTREN"/>
       <cmd name="SetEPSI2C1EN"/>
@@ -20,20 +43,21 @@
       <cmd name="SetTHRBATCHGPSEN"/>
       <cmd name="ClearTHRBATCHGPSEN"/>
     </menu>
-    <menu name="CDH">
-      <cmd name="Ping"/>
-      <cmd name="EnableDisableTask"/>
-      <cmd name="RunEpsHkTask"/>
-      <cmd name="RunProcCompRoutineTask"/>
-      <cmd name="RunThrusterHkTask"/>
-      <cmd name="EnableAntennaDeploymentTask"/>
-      <cmd name="DisableAntennaDeploymentTask"/>
-      <cmd name="EnableSP1DeploymentTask"/>
-      <cmd name="DisableSP1DeploymentTask"/>
-      <cmd name="EnableSP2DeploymentTask"/>
-      <cmd name="DisableSP2DeploymentTask"/>
-      <cmd name="EnableSP3DeploymentTask"/>
-      <cmd name="DisableSP3DeploymentTask"/>
+    <menu name="BCU">
+      <cmd name="SetDEPSWTREN"/>
+      <cmd name="SetANTDEPSWTREN"/>
+      <cmd name="SetBat1Htr"/>
+      <cmd name="ClearBat1Htr"/>
+      <cmd name="SetBat2Htr"/>
+      <cmd name="ClearBat2Htr"/>
+      <cmd name="SetDEPSP1"/>
+      <cmd name="ClearDEPSP1"/>
+      <cmd name="SetDEPSP2"/>
+      <cmd name="ClearDEPSP2"/>
+      <cmd name="SetDEPSP3"/>
+      <cmd name="ClearDEPSP3"/>
+      <cmd name="SetANTDEP"/>
+      <cmd name="ClearANTDEP"/>
     </menu>
   </menu>
 </hydraMenu>

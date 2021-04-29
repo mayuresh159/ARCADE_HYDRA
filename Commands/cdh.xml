@@ -5,7 +5,10 @@
 
 
   <command name="Ping" decoder="cmdDecoder">
-    <header frame="PingCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#SW_VER_REPLY_LENGTH"/>
     <description text="Ping command to test basic working of the CDH"/>
     <field>
       <itemDef name="Ping_OpCode" type="dn8" value="1"/>
@@ -14,7 +17,10 @@
 
   <!-- Commands to enable/disable/run tasks with specific task IDs -->
   <command name="EnableDisableTask" decoder="cmdDecoder">
-    <header frame="RunHkTaskCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to enable or disable task based on task ID"/>
     <field>
       <itemDef name="EnableDisableTaskID_Opcode" type="dn8b" value="0x0A"/>
@@ -24,7 +30,10 @@
   </command>
 
   <command name="RunEpsHkTask" decoder="cmdDecoder">
-    <header frame="RunHkTaskCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to run EPS hk task"/>
     <field>
       <itemDef name="RunEPSHkTask_Opcode" type="dn8b" num="4" value="0x08 0x41 0x01 0x01"/>
@@ -32,7 +41,10 @@
   </command>
 
   <command name="RunProcCompRoutineTask" decoder="cmdDecoder">
-    <header frame="RunHkTaskCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to run Processor Companion routine task"/>
     <field>
       <itemDef name="RunProcCompRoutineTask_Opcode" type="dn8b" num="4" value="0x08 0x3B 0x01 0x01"/>
@@ -40,7 +52,10 @@
   </command>
 
   <command name="RunThrusterHkTask" decoder="cmdDecoder">
-    <header frame="RunHkTaskCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to run Thruster hk task"/>
     <field>
       <itemDef name="RunThrusterHkTask_Opcode" type="dn8b" num="4" value="0x08 0x4C 0x01 0x01"/>
@@ -48,7 +63,10 @@
   </command>
 
   <command name="EnableAntennaDeploymentTask" decoder="cmdDecoder">
-    <header frame="RunHkTaskCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to enable antenna deployment task"/>
     <field>
       <item name="EnableDisableTaskID_Opcode"/>
@@ -58,7 +76,10 @@
   </command>
 
   <command name="DisableAntennaDeploymentTask" decoder="cmdDecoder">
-    <header frame="RunHkTaskCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to disable antenna deployment task"/>
     <field>
       <item name="EnableDisableTaskID_Opcode"/>
@@ -68,7 +89,10 @@
   </command>
 
   <command name="EnableSP1DeploymentTask" decoder="cmdDecoder">
-    <header frame="RunHkTaskCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to enable solar panel 1 deployment task"/>
     <field>
       <item name="EnableDisableTaskID_Opcode"/>
@@ -78,7 +102,10 @@
   </command>
 
   <command name="DisableSP1DeploymentTask" decoder="cmdDecoder">
-    <header frame="RunHkTaskCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to disable solar panel 1 deployment task"/>
     <field>
       <item name="EnableDisableTaskID_Opcode"/>
@@ -88,7 +115,10 @@
   </command>
 
   <command name="EnableSP2DeploymentTask" decoder="cmdDecoder">
-    <header frame="RunHkTaskCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to enable solar panel 2 deployment task"/>
     <field>
       <item name="EnableDisableTaskID_Opcode"/>
@@ -98,7 +128,10 @@
   </command>
 
   <command name="DisableSP2DeploymentTask" decoder="cmdDecoder">
-    <header frame="RunHkTaskCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to disable solar panel 2 deployment task"/>
     <field>
       <item name="EnableDisableTaskID_Opcode"/>
@@ -108,7 +141,10 @@
   </command>
 
   <command name="EnableSP3DeploymentTask" decoder="cmdDecoder">
-    <header frame="RunHkTaskCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to enable solar panel 3 deployment task"/>
     <field>
       <item name="EnableDisableTaskID_Opcode"/>
@@ -118,7 +154,10 @@
   </command>
 
   <command name="DisableSP3DeploymentTask" decoder="cmdDecoder">
-    <header frame="RunHkTaskCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to disable solar panel 3 deployment task"/>
     <field>
       <item name="EnableDisableTaskID_Opcode"/>

@@ -1,0 +1,116 @@
+<hydraDef>
+
+
+  <command name="SetDEPSWTREN" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#TRANSCEIVER_ENABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#SP_DEP_TREN"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Set transceiver enable GPIO for deployment signals"/>
+  </command>
+
+  <command name="SetANTDEPSWTREN" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#TRANSCEIVER_ENABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#ANT_DEP_TREN"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Set transceiver enable GPIO for antenna deployment signal"/>
+  </command>
+
+  <command name="SetBat1Htr" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#DEPLOYABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#EN_BAT1_HTR_PIN"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Set deployable GPIO for battery 1 (main battery) heater"/>
+  </command>
+
+  <command name="ClearBat1Htr" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#DEPLOYABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#EN_BAT1_HTR_PIN"/>
+    <output name="state"    value="#GPIO_OFF"/>
+    <description text="Clear deployable GPIO for battery 1 (main battery) heater"/>
+  </command>
+
+  <command name="SetBat2Htr" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#DEPLOYABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#EN_BAT2_HTR_PIN"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Set deployable GPIO for battery 2 (thruster battery) heater"/>
+  </command>
+
+  <command name="ClearBat2Htr" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#DEPLOYABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#EN_BAT2_HTR_PIN"/>
+    <output name="state"    value="#GPIO_OFF"/>
+    <description text="Clear deployable GPIO for battery 2 (thruster battery) heater"/>
+  </command>
+
+  <command name="SetDEPSP1" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#DEPLOYABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#SP1_DEP_PIN"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Set deployable GPIO for SP1 deployment"/>
+  </command>
+
+  <command name="ClearDEPSP1" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#DEPLOYABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#SP1_DEP_PIN"/>
+    <output name="state"    value="#GPIO_OFF"/>
+    <description text="Clear deployable GPIO for SP1 deployment"/>
+  </command>
+
+  <command name="SetDEPSP2" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#DEPLOYABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#SP2_DEP_PIN"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Set deployable GPIO for SP2 deployment"/>
+  </command>
+
+  <command name="ClearDEPSP2" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#DEPLOYABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#SP2_DEP_PIN"/>
+    <output name="state"    value="#GPIO_OFF"/>
+    <description text="Clear deployable GPIO for SP2 deployment"/>
+  </command>
+
+  <command name="SetDEPSP3" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#DEPLOYABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#SP3_DEP_PIN"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Set deployable GPIO for SP3 deployment"/>
+  </command>
+
+  <command name="ClearDEPSP3" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#DEPLOYABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#SP3_DEP_PIN"/>
+    <output name="state"    value="#GPIO_OFF"/>
+    <description text="Clear deployable GPIO for SP3 deployment"/>
+  </command>
+
+  <command name="SetANTDEP" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#DEPLOYABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#ANT_DEP_PIN"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Set deployable GPIO for antenna deployment"/>
+  </command>
+
+  <command name="ClearANTDEP" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#DEPLOYABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#ANT_DEP_PIN"/>
+    <output name="state"    value="#GPIO_OFF"/>
+    <description text="Clear deployable GPIO for antenna deployment"/>
+  </command>
+
+</hydraDef>

@@ -2,7 +2,10 @@
 
   <!-- Actual commands start from here -->
   <command name="EnableDebugFlags" decoder="cmdDecoder">
-    <header frame="DebugCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to enable flag for a specific debug task"/>
     <field>
       <itemDef name="EnableDebugFlags_Opcode" type="dn8b" num="5" value="0x03 0x04 0x3D 0x03 0x04"/>
@@ -11,7 +14,10 @@
   </command>
 
   <command name="EnableDebugFlagsAll" decoder="cmdDecoder">
-    <header frame="DebugCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to enable all debug flags"/>
     <field>
       <item name="EnableDebugFlags_Opcode"/>
@@ -20,7 +26,10 @@
   </command>
 
   <command name="DisableDebugFlagsAll" decoder="cmdDecoder">
-    <header frame="DebugCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to disable all debug flags"/>
     <field>
       <item name="EnableDebugFlags_Opcode"/>
@@ -29,7 +38,10 @@
   </command>
 
   <command name="EnableDebugFlagsEPSHk" decoder="cmdDecoder">
-    <header frame="DebugCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to enable EPS Hk debug flag"/>
     <field>
       <item name="EnableDebugFlags_Opcode"/>
@@ -38,7 +50,10 @@
   </command>
 
   <command name="EnableDebugFlagsProcCompHk" decoder="cmdDecoder">
-    <header frame="DebugCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to enable Processor companion Hk debug flag"/>
     <field>
       <item name="EnableDebugFlags_Opcode"/>
@@ -47,7 +62,10 @@
   </command>
 
   <command name="EnableDebugFlagsThrusterHk" decoder="cmdDecoder">
-    <header frame="DebugCommand_Header"/>
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command to enable Thruster Hk debug flag"/>
     <field>
       <item name="EnableDebugFlags_Opcode"/>
