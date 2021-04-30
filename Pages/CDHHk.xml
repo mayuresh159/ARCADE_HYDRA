@@ -1,0 +1,22 @@
+<pageDef>
+  <size width="250" height="400"/>
+  <page title="CDH Housekeeping">
+    <column>
+      <section name="Header">
+        <row item="CDHHk_SyncWord" label="SyncWord" format="HEX"/>
+        <row item="CDHHk_APID" label="ApID" format="HEX"/>
+        <row item="CDHHk_SeqNumber" label="SeqNumber"/>
+        <row item="CDHHk_PacketSize" label="PacketSize"/>
+      </section>
+
+      <section name="CDH parameters">
+        <row item="CDHHk_ObcTime" label="OBC_Time"/>
+        <row item="CDHHk_CurrentOpMode" label="OBC_Mode"/>
+        <row item="CDHHk_ValidCommandCounter" label="Valid_Commands"/>
+        <row item="CDHHk_BeaconCount" label="Beacon_Count"/>
+        <row item="CDHHk_ISOSClockDay" label="ISOSClock_Day"/>
+        <row item="CDHHk_ISOSClockMs" label="ISOSClock_Ms"/>
+      </section>
+    </column>
+  </page>
+</pageDef>

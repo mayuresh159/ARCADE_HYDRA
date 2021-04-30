@@ -35,6 +35,126 @@
 		<coeff index="1" value="0.01"/>
 	</euPoly>
 
+	<!-- Definition of engineering units for Gecko Hk parameters -->
+	<euPoly name="GeckoIN5vVolt_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.002442"/>
+	</euPoly>
+
+	<euPoly name="GeckoIN5vCurr_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.001110"/>
+	</euPoly>
+
+	<euPoly name="GeckoFP1vVolt_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.000610"/>
+	</euPoly>
+
+	<euPoly name="GeckoFP1vCurr_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.002442"/>
+	</euPoly>
+
+	<euPoly name="GeckoFP1v8Volt_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.000610"/>
+	</euPoly>
+
+	<euPoly name="GeckoFP1v8Curr_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.000478"/>
+	</euPoly>
+
+	<euPoly name="GeckoFP2v5Volt_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.001221"/>
+	</euPoly>
+
+	<euPoly name="GeckoFP2v5Curr_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.0000626"/>
+	</euPoly>
+
+	<euPoly name="GeckoFP3v3Volt_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.001221"/>
+	</euPoly>
+
+	<euPoly name="GeckoFP3v3Curr_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.000478"/>
+	</euPoly>
+
+	<euPoly name="GeckoFL1v8Volt_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.000610"/>
+	</euPoly>
+
+	<euPoly name="GeckoFL1v8Curr_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.000244"/>
+	</euPoly>
+
+	<euPoly name="GeckoFL3v3Volt_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.001221"/>
+	</euPoly>
+
+	<euPoly name="GeckoFL3v3Curr_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.000740"/>
+	</euPoly>
+
+	<euPoly name="GeckoFLVttRefVolt_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.000610"/>
+	</euPoly>
+
+	<euPoly name="GeckoIS1v8Volt_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.001221"/>
+	</euPoly>
+
+	<euPoly name="GeckoIS1v8Curr_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.000325"/>
+	</euPoly>
+
+	<euPoly name="GeckoIS3vVolt_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.001221"/>
+	</euPoly>
+
+	<euPoly name="GeckoIS3vCurr_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.000904"/>
+	</euPoly>
+
+	<euPoly name="GeckoIS3v3Volt_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.001221"/>
+	</euPoly>
+
+	<euPoly name="GeckoIS3v3Curr_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.0001221"/>
+	</euPoly>
+
+	<euPoly name="GeckoFPTemp_EU">
+		<coeff index="0" value="-273.15"/>
+		<coeff index="1" value="0.123040"/>
+	</euPoly>
+
+	<euPoly name="GeckoISTemp_EU">	<!-- Taken from CMV2000 datasheet -->
+		<coeff index="0" value="400"/>
+		<coeff index="1" value="0.75"/>
+	</euPoly>
+
+
+
+
+
 
 
 

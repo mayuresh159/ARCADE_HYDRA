@@ -17,6 +17,27 @@
     </field>
   </frameDef>
 
+  <!-- CDH Hk Packet definition -->
+  <frameDef name="CDHHkPacket">
+    <field>
+      <itemDef name="CDHHk_CurrentOpMode" type="dn8l"/>
+      <itemDef name="CDHHk_AutoOpMode" type="dn8l"/>
+      <itemDef name="CDHHk_ObcTime" type="dn32l"/>
+      <itemDef name="CDHHk_ValidCommandCounter" type="dn32l"/>
+      <itemDef name="CDHHk_ISOSClockDay" type="sn16l"/>
+      <itemDef name="CDHHk_ISOSClockMs" type="sn16l"/>
+      <itemDef name="CDHHk_SOCTooOutdated" type="dn8l"/>
+      <itemDef name="CDHHk_BeaconCount" type="dn16l"/>
+      <itemDef name="CDHHk_AckCount" type="dn16l"/>
+    </field>
+  </frameDef>
+
+  <frameDef name="CDHHk_frame" id="#CDH_HK_APID">
+    <field>
+      <frameCopy name="CCSDSHeader" prefix="CDHHk_"/>
+      <item name="CDHHkPacket"/>
+    </field>
+  </frameDef>
 
 
   <!-- EPS Hk Packet definition -->
@@ -125,11 +146,11 @@
   <frameDef name="SQUHFHkPacket">
     <field>
       <!-- Add field/ item definitions here -->
-      <itemDef name="SQUHFHk_Channel" type="dn8"/>
+      <itemDef name="SQUHFHk_Channel" type="char8"/>
       <itemDef name="SQUHFHk_Temperature" type="sn16"/>
       <itemDef name="SQUHFHk_AFC" type="char8" num="7"/>
       <itemDef name="SQUHFHk_RSSI" type="char8" num="4"/>
-      <itemDef name="SQUHFHk_SwdFlag" type="dn8"/>
+      <itemDef name="SQUHFHk_SwdFlag" type="char8"/>
     </field>
   </frameDef>
 
@@ -145,8 +166,15 @@
   <frameDef name="XBandHkPacket">
     <field>
       <!-- Add field/ item definitions here -->
-      <itemDef name="XBandHk_SystemState" type="dn8"/>
-      <itemDef name="XBandHk_Status" type="dn16"/>
+      <itemDef name="XBandHk_SystemState" type="XBandSystemState_DictType"/> <!-- Make a dictionary to decode this -->
+      <!-- <itemDef name="XBandHk_Status" type="dn8"/> -->
+      <itemDef name="XBandHk_BUCPLLlog" type="ON_OFF_DictType"/>
+      <itemDef name="XBandHk_BUCOT" type="ON_OFF_DictType"/>
+      <itemDef name="XBandHk_SDRInit" type="ON_OFF_DictType"/>
+      <itemDef name="XBandHk_BUCCommErr" type="ON_OFF_DictType"/>
+      <itemDef name="XBandHk_SysOTStop" type="ON_OFF_DictType"/>
+      <itemDef name="XBandHk_PreDistNotOk" type="ON_OFF_DictType"/>
+      <itemDef name="XBandHk_Reserved" type="dn2"/>
       <itemDef name="XBandHk_PATemperature" type="sn16"/>
       <itemDef name="XBandHk_MeasuredTxPower" type="dn16"/>
       <itemDef name="XBandHk_CPUTemperature" type="float32"/>
@@ -157,6 +185,50 @@
     <field>
       <frameCopy name="CCSDSHeader" prefix="XBandHk_"/>
       <item name="XBandHkPacket"/>
+    </field>
+  </frameDef>
+
+
+  <!-- Gecko Hk Packet definition -->
+  <frameDef name="GeckoHkPacket">
+    <field>
+      <!-- Add field/ item definitions here -->
+      <itemDef name="GeckoHk_Uptime" type="dn32b"/>
+      <itemDef name="GeckoHk_IN5vVolt" type="GeckoIN5vVolt_EUType"/>
+      <itemDef name="GeckoHk_IN5vCurr" type="GeckoIN5vCurr_EUType"/>
+      <itemDef name="GeckoHk_FP1vVolt" type="GeckoFP1vVolt_EUType"/>
+      <itemDef name="GeckoHk_FP1vCurr" type="GeckoFP1vCurr_EUType"/>
+      <itemDef name="GeckoHk_FP1v8Volt" type="GeckoFP1v8Volt_EUType"/>
+      <itemDef name="GeckoHk_FP1v8Curr" type="GeckoFP1v8Curr_EUType"/>
+      <itemDef name="GeckoHk_FP2v5Volt" type="GeckoFP2v5Volt_EUType"/>
+      <itemDef name="GeckoHk_FP2v5Curr" type="GeckoFP2v5Curr_EUType"/>
+      <itemDef name="GeckoHk_FP3v3Volt" type="GeckoFP3v3Volt_EUType"/>
+      <itemDef name="GeckoHk_FP3v3Curr" type="GeckoFP3v3Curr_EUType"/>
+      <itemDef name="GeckoHk_FL1v8Volt" type="GeckoFL1v8Volt_EUType"/>
+      <itemDef name="GeckoHk_FL1v8Curr" type="GeckoFL1v8Curr_EUType"/>
+      <itemDef name="GeckoHk_FL3v3Volt" type="GeckoFL3v3Volt_EUType"/>
+      <itemDef name="GeckoHk_FL3v3Curr" type="GeckoFL3v3Curr_EUType"/>
+      <itemDef name="GeckoHk_FLVttVrefVolt" type="GeckoFLVttRefVolt_EUType"/>
+      <itemDef name="GeckoHk_IS1v8Volt" type="GeckoIS1v8Volt_EUType"/>
+      <itemDef name="GeckoHk_IS1v8Curr" type="GeckoIS1v8Curr_EUType"/>
+      <itemDef name="GeckoHk_IS3vVolt" type="GeckoIS3vVolt_EUType"/>
+      <itemDef name="GeckoHk_IS3vCurr" type="GeckoIS3vCurr_EUType"/>
+      <itemDef name="GeckoHk_IS3v3Volt" type="GeckoIS3v3Volt_EUType"/>
+      <itemDef name="GeckoHk_IS3v3Curr" type="GeckoIS3v3Curr_EUType"/>
+      <itemDef name="GeckoHk_SMU3ABTemp" type="dn16b"/>
+      <itemDef name="GeckoHk_SMU3BCTemp" type="dn16b"/>
+      <itemDef name="GeckoHk_RegU8Temp" type="dn16b"/>
+      <itemDef name="GeckoHk_RegU7Temp" type="dn16b"/>
+      <itemDef name="GeckoHk_FLTemp"  type="dn16b"/>
+      <itemDef name="GeckoHk_FPTemp" type="GeckoFPTemp_EUType"/>
+      <itemDef name="GeckoHk_ISTemp" type="GeckoISTemp_EUType"/>
+    </field>
+  </frameDef>
+
+  <frameDef name="GeckoHk_frame" id="#GECKO_HK_APID">
+    <field>
+      <frameCopy name="CCSDSHeader" prefix="GeckoHk_"/>
+      <item name="GeckoHkPacket"/>
     </field>
   </frameDef>
 

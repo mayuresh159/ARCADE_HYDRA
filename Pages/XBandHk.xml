@@ -1,0 +1,26 @@
+<pageDef>
+  <size width="275" height="500"/>
+  <page title="XBand Housekeeping">
+    <column>
+      <section name="Header">
+        <row item="XBandHk_SyncWord" label="SyncWord" format="HEX"/>
+        <row item="XBandHk_APID" label="ApID" format="HEX"/>
+        <row item="XBandHk_SeqNumber" label="SeqNumber"/>
+        <row item="XBandHk_PacketSize" label="PacketSize"/>
+      </section>
+
+      <section name="XBand Parameters">
+        <row item="XBandHk_SystemState" label="Sys_State"/>
+        <row item="XBandHk_BUCPLLlog" label="BUC_PLL_Lock"/>
+        <row item="XBandHk_BUCOT" label="BUC_OverTemp"/>
+        <row item="XBandHk_SDRInit" label="SDR_Initialized"/>
+        <row item="XBandHk_BUCCommErr" label="BUC_Comm_Error"/>
+        <row item="XBandHk_SysOTStop" label="Sys_OverTemp_Stop"/>
+        <row item="XBandHk_PreDistNotOk" label="Predistortion_NotOK"/>
+        <row item="XBandHk_PATemperature" label="PowerAmp_Temp"/>
+        <row item="XBandHk_MeasuredTxPower" label="Measured_TxPower"/>
+        <row item="XBandHk_CPUTemperature" label="CPU_Temp"/>
+      </section>
+    </column>
+  </page>
+</pageDef>

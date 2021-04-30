@@ -46,5 +46,9 @@
     <keyword str="THRUSTER_HK_APID" value="0x23"/>
     <keyword str="SQUHF_HK_APID" value="0x24"/>
     <keyword str="XBAND_HK_APID" value="0x25"/>
+    <keyword str="CDH_HK_APID" value="0x26"/>
+    <keyword str="GECKO_HK_APID" value="0x27"/>
+    <keyword str="BCU_HK_APID" value="0x28"/>
+    <keyword str="ATM_HK_APID" value="0x29"/>
 
 </hydraDef>

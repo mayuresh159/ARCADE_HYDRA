@@ -239,9 +239,41 @@
     <typeEU name="ThrusterCurrentConsumption_EUType" size="16" endian="LITTLE" eu="ThrusterCurrentConsumption_EU"/>
     <typeEU name="ThrusterThrustValue_EUType" size="8" endian="LITTLE" eu="ThrusterThrustValue_EU"/>
 
+    <!-- Define types calling the gecko EU polynomials -->
+    <typeEU name="GeckoIN5vVolt_EUType" size="16" endian="BIG" eu="GeckoIN5vVolt_EU"/>
+    <typeEU name="GeckoIN5vCurr_EUType" size="16" endian="BIG" eu="GeckoIN5vCurr_EU"/>
+    <typeEU name="GeckoFP1vVolt_EUType" size="16" endian="BIG" eu="GeckoFP1vVolt_EU"/>
+    <typeEU name="GeckoFP1vCurr_EUType" size="16" endian="BIG" eu="GeckoFP1vCurr_EU"/>
+    <typeEU name="GeckoFP1v8Volt_EUType" size="16" endian="BIG" eu="GeckoFP1v8Volt_EU"/>
+    <typeEU name="GeckoFP1v8Curr_EUType" size="16" endian="BIG" eu="GeckoFP1v8Curr_EU"/>
+    <typeEU name="GeckoFP2v5Volt_EUType" size="16" endian="BIG" eu="GeckoFP2v5Volt_EU"/>
+    <typeEU name="GeckoFP2v5Curr_EUType" size="16" endian="BIG" eu="GeckoFP2v5Curr_EU"/>
+    <typeEU name="GeckoFP3v3Volt_EUType" size="16" endian="BIG" eu="GeckoFP3v3Volt_EU"/>
+    <typeEU name="GeckoFP3v3Curr_EUType" size="16" endian="BIG" eu="GeckoFP3v3Curr_EU"/>
+    <typeEU name="GeckoFL1v8Volt_EUType" size="16" endian="BIG" eu="GeckoFL1v8Volt_EU"/>
+    <typeEU name="GeckoFL1v8Curr_EUType" size="16" endian="BIG" eu="GeckoFL1v8Curr_EU"/>
+    <typeEU name="GeckoFL3v3Volt_EUType" size="16" endian="BIG" eu="GeckoFL3v3Volt_EU"/>
+    <typeEU name="GeckoFL3v3Curr_EUType" size="16" endian="BIG" eu="GeckoFL3v3Curr_EU"/>
+    <typeEU name="GeckoFLVttRefVolt_EUType" size="16" endian="BIG" eu="GeckoFLVttRefVolt_EU"/>
+    <typeEU name="GeckoIS1v8Volt_EUType" size="16" endian="BIG" eu="GeckoIS1v8Volt_EU"/>
+    <typeEU name="GeckoIS1v8Curr_EUType" size="16" endian="BIG" eu="GeckoIS1v8Curr_EU"/>
+    <typeEU name="GeckoIS3vVolt_EUType" size="16" endian="BIG" eu="GeckoIS3vVolt_EU"/>
+    <typeEU name="GeckoIS3vCurr_EUType" size="16" endian="BIG" eu="GeckoIS3vCurr_EU"/>
+    <typeEU name="GeckoIS3v3Volt_EUType" size="16" endian="BIG" eu="GeckoIS3v3Volt_EU"/>
+    <typeEU name="GeckoIS3v3Curr_EUType" size="16" endian="BIG" eu="GeckoIS3v3Curr_EU"/>
+    <typeEU name="GeckoFPTemp_EUType" size="16" endian="BIG" eu="GeckoFPTemp_EU"/>
+    <typeEU name="GeckoISTemp_EUType" size="16" endian="BIG" eu="GeckoISTemp_EU"/>
+
+
     <!-- Define types mapping dictionaries to states -->
+    <typeState name="ON_OFF_DictType" size="1" dict="ON_OFF_Dict"/>
+
     <typeState name="ThrusterStatus_DictType" size="8" dict="ThrusterStatus_Dict"/>
     <typeState name="ThrusterFiringMode_DictType" size="8" dict="ThrusterFiringMode_Dict"/>
+
+    <typeState name="XBandSystemState_DictType" size="8" dict="XBandSystemState_Dict"/>
+
+
 
 
 

@@ -1,0 +1,21 @@
+<pageDef>
+  <size width="250" height="400"/>
+  <page title="SQ UHF Housekeeping">
+    <column>
+      <section name="Header">
+        <row item="SQUHFHk_SyncWord" label="SyncWord" format="HEX"/>
+        <row item="SQUHFHk_APID" label="ApID" format="HEX"/>
+        <row item="SQUHFHk_SeqNumber" label="SeqNumber"/>
+        <row item="SQUHFHk_PacketSize" label="PacketSize"/>
+      </section>
+
+      <section name="UHF Parameters">
+        <row item="SQUHFHk_Channel" label="Channel"/>
+        <row item="SQUHFHk_Temperature" label="Temperature"/>
+        <row item="SQUHFHk_AFC" label="AFC"/>
+        <row item="SQUHFHk_RSSI" label="RSSI"/>
+        <row item="SQUHFHk_SwdFlag" label="SyncWordFlag"/>
+      </section>
+    </column>
+  </page>
+</pageDef>

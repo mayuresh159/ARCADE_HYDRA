@@ -21,5 +21,13 @@
     <pair key="3" str="FAIL_SAFE"/>
   </dictionary>
 
+  <!-- Dictionaries useful to decode xband hk telemetry -->
+  <dictionary name="XBandSystemState_Dict">
+    <pair key="1" str="SYS_AFTER_RESET"/>
+    <pair key="2" str="SYS_IDLE_MODE"/>
+    <pair key="3" str="SYS_TRANSMISSION_MODE"/>
+    <pair key="4" str="SYS_TO_SHUTDOWN"/>
+  </dictionary>
+
 
 </hydraDef>

@@ -1,0 +1,24 @@
+<pageDef>
+  <size width="250" height="400"/>
+  <page title="Gecko Housekeeping">
+    <column>
+      <section name="Header">
+          <row item="GeckoHk_SyncWord" label="SyncWord" format="HEX"/>
+          <row item="GeckoHk_APID" label="ApID" format="HEX"/>
+          <row item="GeckoHk_SeqNumber" label="SeqNumber"/>
+          <row item="GeckoHk_PacketSize" label="PacketSize"/>
+      </section>
+
+      <section name="Gecko telemetry">
+        <row item="GeckoHk_IN5vVolt" label="In_5V_Volt"/>
+        <row item="GeckoHk_IN5vCurr" label="In_5V_Curr"/>
+        <row item="GeckoHk_FP3v3Volt" label="FPGA_3v3_Volt"/>
+        <row item="GeckoHk_FP3v3Curr" label="FPGA_3v3_Curr"/>
+        <row item="GeckoHk_FL3v3Volt" label="Flash_3v3_Volt"/>
+        <row item="GeckoHk_FL3v3Curr" label="Flash_3v3_Curr"/>
+        <row item="GeckoHk_IS3v3Volt" label="Sensor_3v3_Volt"/>
+        <row item="GeckoHk_IS3v3Curr" label="Sensor_3v3_Curr"/>
+      </section>
+    </column>
+  </page>
+</pageDef>

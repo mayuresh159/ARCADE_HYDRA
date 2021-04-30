@@ -8,6 +8,10 @@
   <hwOutFile name="Thrusterlogfile" prefix="Thruster" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
   <hwOutFile name="SQUHFlogfile" prefix="SQUHF" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
   <hwOutFile name="XBandlogfile" prefix="XBand" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
+	<hwOutFile name="CDHlogfile" prefix="CDH" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
+	<hwOutFile name="Geckologfile" prefix="Gecko" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
+	<hwOutFile name="BCUlogfile" prefix="BCU" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
+	<hwOutFile name="Atmolitelogfile" prefix="Atm" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
 
 
 	<hwOutFile name="cmdSentFile" prefix="cmdSent" maxSize="#MAX_OUTPUT_FILE_SIZE"/>

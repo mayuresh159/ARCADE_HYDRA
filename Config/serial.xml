@@ -22,13 +22,17 @@
     <outputDevice name="Thrusterlogfile" frameID="#THRUSTER_HK_APID"/>
     <outputDevice name="SQUHFlogfile" frameID="#SQUHF_HK_APID"/>
     <outputDevice name="XBandlogfile" frameID="#XBAND_HK_APID"/>
+    <outputDevice name="CDHlogfile" frameID="#CDH_HK_APID"/>
+    <outputDevice name="Geckologfile" frameID="#GECKO_HK_APID"/>
+    <outputDevice name="BCUlogfile" frameID="#BCU_HK_APID"/>
+    <outputDevice name="Atmolitelogfile" frameID="#ATM_HK_APID"/>
 	</decoderDef>
 
 	<decoderDef name="cmdDecoder">
 	    <description text="Send command to hardline serial"/>
 		<outBuffer size="1024"/>
 		<outputDevice name="Comm_Serial"/>
-	<!-- <outputDevice name="cmdSentFile"/> -->
+	  <outputDevice name="cmdSentFile"/>
   </decoderDef>
 
 
