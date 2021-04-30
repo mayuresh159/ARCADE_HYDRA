@@ -33,6 +33,7 @@
 	<include>Commands\eps0.xml</include>
 	<include>Commands\thruster.xml</include>
 	<include>Commands\bcu.xml</include>
+	<include>Commands\gecko.xml</include>
 
 	<configType name="Serial">
 	    <include>Config\serial.xml</include>

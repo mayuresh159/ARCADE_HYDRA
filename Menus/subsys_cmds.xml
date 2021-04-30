@@ -5,12 +5,31 @@
       <cmd name="ClearThrusterI2c"/>
       <cmd name="FireThruster"/>
       <cmd name="StopThruster"/>
-      <cmd name="ThrusterModeNormal"/>
-      <cmd name="ThrusterModeFull"/>
-      <cmd name="ThrusterModeFailsafe"/>
+      <cmd name="SetThrusterMode"/>
       <cmd name="ThrusterStartGroundTest"/>
       <cmd name="ThrusterStopGroundTest"/>
       <cmd name="ThusterResetErrorCode"/>
+    </menu>
+    <menu name="Gecko">
+      <cmd name="SetGeckoRegister"/>
+      <cmd name="SetGeckoTREN"/>
+      <cmd name="ClearDoneFlags"/>
+      <cmd name="StartErase"/>
+      <cmd name="StartSample"/>
+      <cmd name="StartReadout"/>
+      <cmd name="SetFlashAddr"/>
+      <cmd name="SetNFrames"/>
+      <cmd name="SetReadoutImageType"/>
+      <cmd name="SetSensorOnOff"/>
+      <cmd name="SetFrameRate"/>
+      <cmd name="SetExposureTime"/>
+      <cmd name="StartImageCaptureTask"/>
+    </menu>
+    <menu name="Atmolite">
+    </menu>
+    <menu name="SQ UHF">
+    </menu>
+    <menu name="XBand">
     </menu>
   </menu>
 

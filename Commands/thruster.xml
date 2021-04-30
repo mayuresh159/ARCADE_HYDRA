@@ -13,12 +13,6 @@
   <keyword str="STOPGRNDTESTTHR_OPCODE"   value="0x06"/>
   <keyword str="RESETECTHR_OPCODE"        value="0x0A"/>
 
-
-  <!-- Thruster operating modes -->
-  <itemDef name="THR_NORMAL_MODE"   type="dn8b" value="0x01"/>
-  <itemDef name="THR_FULLCAP_MODE"  type="dn8b" value="0x02"/>
-  <itemDef name="THR_FAILSAFE_MODE" type="dn8b" value="0x03"/>
-
   <frameDef name="ThrusterCommand_Header" decoder="cmdDecoder">
     <header frame="IS4CmdHeader"/>
     <output name="subsystemAddr"  value="#THRUSTER_SUBSYSTEM_ADDR"/>
@@ -67,36 +61,14 @@
     <pad bytes="6" value="0x55"/>
   </command>
 
-  <command name="ThrusterModeNormal" decoder="cmdDecoder">
+  <command name="SetThrusterMode" decoder="cmdDecoder">
     <header frame="ThrusterCommand_Header"/>
     <output name="datatype"   value="#THR_CMD_DATATYPE"/>
     <output name="opcode"     value="#CHANGEMODETHR_OPCODE"/>
     <description text="Command to set firing mode to normal"/>
     <pad bytes="6" value="0x55"/>
     <field>
-      <item name="THR_NORMAL_MODE"/>
-    </field>
-  </command>
-
-  <command name="ThrusterModeFull" decoder="cmdDecoder">
-    <header frame="ThrusterCommand_Header"/>
-    <output name="datatype"   value="#THR_CMD_DATATYPE"/>
-    <output name="opcode"     value="#CHANGEMODETHR_OPCODE"/>
-    <description text="Command to set firing mode to full capacity"/>
-    <pad bytes="6" value="0x55"/>
-    <field>
-      <item name="THR_FULLCAP_MODE"/>
-    </field>
-  </command>
-
-  <command name="ThrusterModeFailsafe" decoder="cmdDecoder">
-    <header frame="ThrusterCommand_Header"/>
-    <output name="datatype"   value="#THR_CMD_DATATYPE"/>
-    <output name="opcode"     value="#CHANGEMODETHR_OPCODE"/>
-    <description text="Command to set firing mode to failsafe"/>
-    <pad bytes="6" value="0x55"/>
-    <field>
-      <item name="THR_FAILSAFE_MODE"/>
+      <argument id="Mode" type="ThrusterFiringMode_DictType"/>
     </field>
   </command>
 

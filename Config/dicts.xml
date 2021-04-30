@@ -29,5 +29,14 @@
     <pair key="4" str="SYS_TO_SHUTDOWN"/>
   </dictionary>
 
+  <!-- Dictionary for Gecko commands -->
+  <dictionary name="GeckoImageType_Dict">
+    <pair key="0" str="Full_IMAGE"/>
+    <pair key="1" str="Thumbnail"/>
+    <pair key="2" str="Lossless"/>
+    <pair key="6" str="Lossy2"/>
+    <pair key="15" str="Lossy4"/>
+  </dictionary>
+
 
 </hydraDef>

@@ -59,5 +59,7 @@
       <cmd name="SetANTDEP"/>
       <cmd name="ClearANTDEP"/>
     </menu>
+    <menu name="Proc Comp">
+    </menu>
   </menu>
 </hydraMenu>

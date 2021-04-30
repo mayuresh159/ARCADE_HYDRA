@@ -1,0 +1,158 @@
+<hydraDef>
+
+  <command name="SetGeckoRegister" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#GECKO_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Set transceiver enable GPIO for Thruster I2C bus"/>
+    <field>
+      <argument id="RegAddr" type="dn8"/>
+      <argument id="RegValue" type="dn32b"/>
+    </field>
+  </command>
+
+  <command name="SetGeckoTREN" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#TRANSCEIVER_ENABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#GECKO_TREN"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Set transceiver enable GPIO for Gecko transceiver"/>
+  </command>
+
+  <command name="ClearDoneFlags" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#GECKO_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Clear done flags after a process (erase/sample/read) is indicated to be complete"/>
+    <pad bytes="5" value="0x00"/>
+    <field>
+      <itemDef name="WriteGeckoStatusReg" type="dn8b" value="0x82"/>
+    </field>
+  </command>
+
+  <command name="StartErase" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#GECKO_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Start erase process internal to Gecko, to erase the flash memory on Gecko"/>
+    <field>
+      <item name="WriteGeckoStatusReg"/>
+      <itemDef name="StartEraseOpcode" type="dn32b" value="8"/>
+    </field>
+  </command>
+
+  <command name="StartSample" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#GECKO_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Start sample process/ click internal to Gecko"/>
+    <field>
+      <item name="WriteGeckoStatusReg"/>
+      <itemDef name="StartSampleOpcode" type="dn32b" value="4"/>
+    </field>
+  </command>
+
+  <command name="StartReadout" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#GECKO_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Start readout process in Gecko to start reading data from flash memory to SPI interface"/>
+    <field>
+      <item name="WriteGeckoStatusReg"/>
+      <itemDef name="StartReadoutOpcode" type="dn32b" value="2"/>
+    </field>
+  </command>
+
+  <command name="SetFlashAddr" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#GECKO_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Set image address in flash memory where a captured image will be stored"/>
+    <field>
+      <itemDef name="WriteGeckoFlashAddrReg" type="dn8b" value="0x85"/>
+      <argument id="FlashAddr" type="dn32b"/>
+    </field>
+  </command>
+
+  <command name="SetNFrames" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#GECKO_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Set N frames for a burst capture"/>
+    <field>
+      <itemDef name="WriteGeckoNFramesReg" type="dn8b" value="0x86"/>
+      <argument id="NFrames" type="dn32b"/>
+    </field>
+  </command>
+
+  <command name="SetReadoutImageType" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#GECKO_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Set readout image type"/>
+    <field>
+      <itemDef name="WriteGeckoReadoutTypeReg" type="dn8b" value="0x89"/>
+      <argument id="ImageType" type="GeckoImageType_DictType"/>
+    </field>
+  </command>
+
+  <command name="SetSensorOnOff" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#GECKO_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Set sensor state on/off"/>
+    <field>
+      <itemDef name="WriteGeckoSensorStateReg" type="dn8b" value="0x8A"/>
+      <argument id="SensorState" type="GeckoSensorOnOff_DictType"/>
+    </field>
+  </command>
+
+  <command name="SetFrameRate" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#GECKO_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Set frame rate"/>
+    <field>
+      <itemDef name="WriteGeckoFrameRateReg" type="dn8b" value="0x8B"/>
+      <argument id="FrameRate" type="dn32b"/>
+    </field>
+  </command>
+
+  <command name="SetExposureTime" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#GECKO_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Set exposure time"/>
+    <field>
+      <itemDef name="WriteGeckoSensorReg1" type="dn8b" value="0x8E"/>
+      <argument id="ExposureTime" type="dn32b" value="38"/>
+    </field>
+  </command>
+
+  <command name="StartImageCaptureTask" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#SIZE_REPLY"/>
+    <output name="rxlen" value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Start the image capture task programmed in the CDH"/>
+    <field>
+      <itemDef name="EnableImageTaskOpcode" type="dn8b" num="3" value="0x08 0x38 0x00"/>
+    </field>
+  </command>
+
+
+
+
+
+</hydraDef>

@@ -273,7 +273,8 @@
 
     <typeState name="XBandSystemState_DictType" size="8" dict="XBandSystemState_Dict"/>
 
-
+    <typeState name="GeckoImageType_DictType" size="32" endian="BIG" dict="GeckoImageType_Dict"/>
+    <typeState name="GeckoSensorOnOff_DictType" size="32" endian="BIG" dict="ON_OFF_Dict"/>
 
 
 
