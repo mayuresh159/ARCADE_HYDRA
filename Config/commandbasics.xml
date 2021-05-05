@@ -54,6 +54,7 @@
   <keyword str="ZERO_REPLY_LENGTH"       value="0"/>
   <keyword str="ERROR_CODE_REPLY_LENGTH" value="2"/>
   <keyword str="SW_VER_REPLY_LENGTH"     value="4"/>
+  <keyword str="DEFAULT_TIME_REPLY_LENGTH" value="0x10"/>
 
   <!-- Standard command frame formats -->
 

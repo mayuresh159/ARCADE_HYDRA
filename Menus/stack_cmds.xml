@@ -60,6 +60,18 @@
       <cmd name="ClearANTDEP"/>
     </menu>
     <menu name="Proc Comp">
+      <cmd name="WriteEnable"/>
+      <cmd name="WriteDisable"/>
+      <cmd name="WritePC"/>
+      <cmd name="WriteMem"/>
+      <cmd name="ClearRAC"/>
+      <cmd name="WriteTimeRAC"/>
+      <cmd name="ReadTimeRAC"/>
+      <cmd name="StartRTC"/>
+      <cmd name="StopRTC"/>
+      <cmd name="SetTime"/>
+      <cmd name="SetFastChgVBC"/>
+      <cmd name="WatchdogRestart"/>
     </menu>
   </menu>
 </hydraMenu>

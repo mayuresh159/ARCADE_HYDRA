@@ -1,0 +1,58 @@
+<hydraDef>
+
+  <frameDef name="AtmoliteRMAPFrameHeader" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#ATMOLITE_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#TIME_REPLY"/>
+    <output name="rxlen"          value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Command header for Atmolite RMAP commands"/>
+    <field>
+      <itemDef name="AtmoliteLogicalAddr"    type="dn8b" value="0xFE"/>
+      <itemDef name="AtmolitePacketType"  type="dn8b"/>
+      <itemCounter name="AtmoliteCmdSeqCounter" type="dn8b" value="1" min="0" max="0xFF" incr="1"/>
+      <itemDef name="AtmoliteSubcommand" type="dn8b"/>
+      <itemDef name="AtmoliteRegIndex"   type="dn16l"/>
+      <itemDef name="AtmoliteNregs"   type="dn16l"/>
+      <itemDef name="AtmolitePaddingZeros32b" type="dn32b" value="0"/>
+      <itemDef name="AtmoliteXlen" type="dn24l"/>
+      <itemDef name="AtmoliteHeaderCRC8b" type="dn8b" value="0"/>
+      <placeholder/>
+    </field>
+    <input item="AtmolitePacketType" name="AtmolitePacketType"/>
+    <input item="AtmoliteSubcommand" name="AtmoliteSubcommand"/>
+    <input item="AtmoliteRegIndex" name="AtmoliteRegIndex"/>
+    <input item="AtmoliteNregs" name="AtmoliteNregs"/>
+    <input item="AtmoliteXlen" name="AtmoliteXlen"/>
+  </frameDef>
+
+  <keyword str="RMAP_RD_REQUEST" value="0x10"/>
+  <keyword str="RMAP_WR_REQUEST" value="0x18"/>
+  <keyword str="RMAP_SUBCOMMAND_ABSOLUTE" value="0x00"/>
+  <keyword str="RMAP_SUBCOMMAND_BLKID" value="0x10"/>
+
+
+  <command name="SetATMLTTREN" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#TRANSCEIVER_ENABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#ATMOLITE_TREN"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Set transceiver enable GPIO for Atmolite transceiver"/>
+  </command>
+
+  <command name="SetATMLTHeater" decoder="cmdDecoder">
+    <header frame="AtmoliteRMAPFrameHeader"/>
+    <output name="AtmolitePacketType" value="#RMAP_WR_REQUEST"/>
+    <output name="AtmoliteSubcommand" value="#RMAP_SUBCOMMAND_ABSOLUTE"/>
+    <output name="AtmoliteRegIndex" value="9"/>
+    <output name="AtmoliteNregs" value="1"/>
+    <output name="AtmoliteXlen" value="2"/>
+    <description text="Set Atmolite Heaters on"/>
+    <field>
+      <itemDef name="HeaterOn" type="dn16l" value="0x0C"/>
+      <itemDef name="AtmoliteDataCRC8b" type="dn8" value="0"/>
+    </field>
+  </command>
+
+
+
+</hydraDef>

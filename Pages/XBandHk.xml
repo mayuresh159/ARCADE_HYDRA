@@ -1,5 +1,6 @@
 <pageDef>
-  <size width="275" height="500"/>
+  <size width="275" height="400"/>
+  <font name="Arial" size="8"/>
   <page title="XBand Housekeeping">
     <column>
       <section name="Header">

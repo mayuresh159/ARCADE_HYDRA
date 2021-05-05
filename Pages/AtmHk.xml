@@ -1,0 +1,113 @@
+<pageDef>
+  <size width="900" height="700"/>
+	<font name="Arial" size="8"/>
+  <page title="AtmHk_frame">
+    <column>
+      <section name="Header">
+        <item name="AtmHk_SyncWord" format="HEX"/>
+        <item name="AtmHk_APID" format="HEX"/>
+        <item name="AtmHk_SeqNumber"/>
+        <item name="AtmHk_PacketSize"/>
+      </section>
+      <section name="Identity info">
+        <item name="AtmHk_RMAPHdr" format="HEX"/>
+        <item name="AtmHk_Name"/>
+      </section>
+      <section name="Instrument Info">
+        <item name="AtmHk_InstrInfoHdr" format="HEX"/>
+        <item name="AtmHk_InstrCtrl" format="BINARY"/>
+        <item name="AtmHk_InstrStat" format="BINARY"/>
+        <item name="AtmHk_SWtimelow"/>
+        <item name="AtmHk_SWtimehigh"/>
+        <item name="AtmHk_BISTInstrCfg" format="BINARY"/>
+        <item name="AtmHk_BISTStatI2cDev" format="BINARY"/>
+        <item name="AtmHk_ConfigMemStat" format="BINARY"/>
+      </section>
+      <section name="SIB">
+        <item name="AtmHk_SIBHdr" format="HEX"/>
+        <item name="AtmHk_SysPwrVolt" units="V"/>
+        <item name="AtmHk_SysPwrCurr" units="mA"/>
+        <row item="AtmHk_SIBTemp[0]" label="SIBTemp_1" units="C"/>
+        <row item="AtmHk_SIBTemp[1]" label="SIBTemp_2" units="C"/>
+        <row item="AtmHk_SIBTemp[2]" label="SIBTemp_3" units="C"/>
+        <row item="AtmHk_SIBTemp[3]" label="SIBTemp_4" units="C"/>
+        <row item="AtmHk_SIBTemp[4]" label="SIBTemp_5" units="C"/>
+      </section>
+      <section name="FEE">
+        <item name="AtmHk_FEEHdr" format="HEX"/>
+        <item name="AtmHk_FEE3v3Volt" units="V"/>
+        <item name="AtmHk_FEE3v3Curr" units="mA"/>
+        <item name="AtmHk_FEE3v3ColdVolt" units="V"/>
+        <item name="AtmHk_FEE3v3ColdCurr" units="mA"/>
+        <row item="AtmHk_FEETemp[0]" label="FEETemp_1" units="C"/>
+        <row item="AtmHk_FEETemp[1]" label="FEETemp_2" units="C"/>
+        <row item="AtmHk_FEETemp[2]" label="FEETemp_3" units="C"/>
+        <row item="AtmHk_FEETemp[3]" label="FEETemp_4" units="C"/>
+        <row item="AtmHk_FEETemp[4]" label="FEETemp_5" units="C"/>
+      </section>
+    </column>
+    <column>
+      <section name="PXE1">
+        <item name="AtmHk_PXE1Hdr" format="HEX"/>
+        <item name="AtmHk_PXE1IMAQctrl" format="BINARY"/>
+        <item name="AtmHk_PXE1InttimeSec"/>
+        <item name="AtmHk_PXE1Inttimems"/>
+        <item name="AtmHk_PXE1FrameNtes"/>
+        <item name="AtmHk_PXE1Startx"/>
+        <item name="AtmHk_PXE1Starty"/>
+        <item name="AtmHk_PXE1Sizex"/>
+        <item name="AtmHk_PXE1Sizey"/>
+        <item name="AtmHk_PXE1Binningx"/>
+        <item name="AtmHk_PXE1Binningy"/>
+        <item name="AtmHk_PXE1GainOddEven"/>
+        <item name="AtmHk_PXE1BlackOffset"/>
+        <item name="AtmHk_PXE1PLLDIV"/>
+        <item name="AtmHk_PXE1DataoutSelect"/>
+        <item name="AtmHK_PXE1Trainmode"/>
+        <item name="AtmHk_PXE1TrainData"/>
+        <item name="AtmHk_PXE1BlockCorrection"/>
+        <item name="AtmHk_PXE1FrameCounter"/>
+        <item name="AtmHk_PXE1FrameTimelow"/>
+        <item name="AtmHk_PXE1FrameTimeHigh"/>
+        <item name="AtmHk_PXE13v3Volt" units="V"/>
+        <item name="AtmHk_PXE13v3Curr" units="mA"/>
+        <item name="AtmHk_PXE11v8Volt" units="V"/>
+        <item name="AtmHk_PXE11v8Curr" units="mA"/>
+        <item name="AtmHk_PXE12v0Volt" units="V"/>
+        <item name="AtmHk_PXE12v0Curr" units="mA"/>
+        <row item="AtmHk_PXE1Temp[0]" label="PXE1Temp_1" units="C"/>
+        <row item="AtmHk_PXE1Temp[1]" label="PXE1Temp_2" units="C"/>
+        <row item="AtmHk_PXE1Temp[2]" label="PXE1Temp_3" units="C"/>
+        <row item="AtmHk_PXE1Temp[3]" label="PXE1Temp_4" units="C"/>
+        <row item="AtmHk_PXE1Temp[4]" label="PXE1Temp_5" units="C"/>
+      </section>
+    </column>
+    <column>
+      <section name="PXE2">
+        <item name="AtmHk_PXE2Hdr" format="HEX"/>
+        <item name="AtmHk_PXE2ChipID" format="HEX"/>
+        <item name="AtmHk_PXE2IMAQCtrl" format="BINARY"/>
+        <item name="AtmHk_PXE2FrameTimeSec"/>
+        <item name="AtmHk_PXE2FrameTimems"/>
+        <item name="AtmHk_PXE2InttimeSec"/>
+        <item name="AtmHk_PXE2Inttimems"/>
+        <item name="AtmHk_PXE2Startx"/>
+        <item name="AtmHk_PXE2Starty"/>
+        <item name="AtmHk_PXE2Sizex"/>
+        <item name="AtmHk_PXE2Sizey"/>
+        <item name="AtmHk_PXE2Binningx"/>
+        <item name="AtmHk_PXE2Binningy"/>
+        <item name="AtmHk_PXE2FrameCounter"/>
+        <item name="AtmHk_PXE2FrameTimeLow"/>
+        <item name="AtmHk_PXE2FrameTimeHigh"/>
+        <item name="AtmHk_PXE23v3Volt" units="V"/>
+        <item name="AtmHk_PXE23v3Curr" units="mA"/>
+        <item name="AtmHk_PXE21v8Volt" units="V"/>
+        <item name="AtmHk_PXE21v8Curr" units="mA"/>
+        <item name="AtmHk_PXE22v8Volt" units="V"/>
+        <item name="AtmHk_PXE22v8Curr" units="mA"/>
+        <row item="AtmHk_PXE2Temp[4]" label="PXE2Temp_5" units="C"/>
+      </section>
+    </column>
+  </page>
+</pageDef>

@@ -1,5 +1,6 @@
 <pageDef>
-  <size width="250" height="400"/>
+  <size width="250" height="300"/>
+  <font name="Arial" size="8"/>
   <page title="SQ UHF Housekeeping">
     <column>
       <section name="Header">

@@ -1,0 +1,154 @@
+<hydraDef>
+
+  <keyword str="PC_RTCAlarmControlReg" value="0x00"/>
+  <keyword str="PC_CALControlReg" value="0x01"/>
+  <keyword str="PC_SecondsReg" value="0x02"/>
+  <keyword str="PC_MinutesReg" value="0x03"/>
+  <keyword str="PC_HoursReg" value="0x04"/>
+  <keyword str="PC_DayReg" value="0x05"/>
+  <keyword str="PC_DateReg" value="0x06"/>
+  <keyword str="PC_MonthReg" value="0x07"/>
+  <keyword str="PC_YearReg" value="0x08"/>
+  <keyword str="PC_WDFlagsReg" value="0x09"/>
+  <keyword str="PC_WDRestartReg" value="0x0A"/>
+  <keyword str="PC_WDCtrl1Reg" value="0x0B"/>
+  <keyword str="PC_WDCtrl2Reg" value="0x0C"/>
+  <keyword str="PC_ECCtrlReg" value="0x0D"/>
+  <keyword str="PC_EC1Reg" value="0x0E"/>
+  <keyword str="PC_EC2Reg" value="0x0F"/>
+  <keyword str="PC_CompCtrlReg" value="0x18"/>
+
+  <frameDef name="WritePCReg_Header" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#PROC_COMP_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#NO_REPLY"/>
+    <output name="rxlen"          value="#ZERO_REPLY_LENGTH"/>
+    <description text="Write command to set registers in processor companion"/>
+    <field>
+      <itemDef name="WritePCCmdOpcode" type="dn8b" value="0x12"/>
+      <itemDef name="RegAddr"  type="dn8b"/>
+      <itemDef name="Value"       type="dn8b"/>
+      <placeholder/>
+    </field>
+    <input item="RegAddr" name="RegAddr"/>
+    <input item="Value" name="Value"/>
+  </frameDef>
+
+  <command name="WriteEnable" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#PROC_COMP_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Command to set write enable latch which allows all write operations. A flag bit WEL in status register is set after this command. It clears at the rising edge of CS after every WRDI, WRSR, WRPC or WRITE commands disabling further writes before sending another WREN command."/>
+    <field>
+      <itemDef name="WriteEnableCmdOpcode" type="dn8b" value="6"/>
+    </field>
+  </command>
+
+  <command name="WriteDisable" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#PROC_COMP_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Command to clear WEL latch bit in status register"/>
+    <field>
+      <itemDef name="WriteDisableCmdOpcode" type="dn8b" value="4"/>
+    </field>
+  </command>
+
+  <command name="WritePC" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#PROC_COMP_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Write command to set registers in processor companion"/>
+    <field>
+      <item name="WritePCCmdOpcode"/>
+      <argument id="RegAddr" type="dn8b"/>
+      <argument id="Value" type="dn8b"/>
+    </field>
+  </command>
+
+  <command name="WriteMem" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#PROC_COMP_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Command to write data to memory location"/>
+    <field>
+      <itemDef name="WriteMemCmdOpcode" type="dn8b" value="0x02"/>
+      <argument id="MemAddr" type="dn16b"/>
+      <argument id="Value" type="dn8b"/>
+    </field>
+  </command>
+
+  <command name="ClearRAC" decoder="cmdDecoder">
+    <header frame="WritePCReg_Header"/>
+    <output name="RegAddr" value="#PC_RTCAlarmControlReg"/>
+    <output name="Value" value="0x80"/>
+    <description text="Clear read/ write bits in RTC/Alarm control register"/>
+  </command>
+
+  <command name="WriteTimeRAC" decoder="cmdDecoder">
+    <header frame="WritePCReg_Header"/>
+    <output name="RegAddr" value="#PC_RTCAlarmControlReg"/>
+    <output name="Value" value="0x82"/>
+    <description text="Command to enable writing a value to the timekeeping core of the RTC"/>
+  </command>
+
+  <command name="ReadTimeRAC" decoder="cmdDecoder">
+    <header frame="WritePCReg_Header"/>
+    <output name="RegAddr" value="#PC_RTCAlarmControlReg"/>
+    <output name="Value" value="0x81"/>
+    <description text="Command to capture a snapshot of the timekeeping core into the RTC registers accessible to the user"/>
+  </command>
+
+  <command name="StartRTC" decoder="cmdDecoder">
+    <header frame="WritePCReg_Header"/>
+    <output name="RegAddr" value="#PC_RTCAlarmControlReg"/>
+    <output name="Value" value="0x00"/>
+    <description text="Clear OSCEN# bit in RTCAlarmControlReg to start the RTC"/>
+  </command>
+
+  <command name="StopRTC" decoder="cmdDecoder">
+    <header frame="WritePCReg_Header"/>
+    <output name="RegAddr" value="#PC_RTCAlarmControlReg"/>
+    <output name="Value" value="0x80"/>
+    <description text="Set OSCEN# bit in RTCAlarmControlReg to stop the RTC"/>
+  </command>
+
+  <command name="SetTime" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#PROC_COMP_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#NO_REPLY"/>
+    <output name="rxlen" value="#ZERO_REPLY_LENGTH"/>
+    <description text="Write time values in time registers"/>
+    <field>
+      <item name="WritePCCmdOpcode"/>
+      <itemDef name="PCSecondsReg" type="dn8b" value="#PC_SecondsReg"/>
+      <argument id="Seconds" type="dn8b"/>
+      <argument id="Minutes" type="dn8b"/>
+      <argument id="Hours" type="dn8b"/>
+      <argument id="Day_of_week" type="dn8b"/>
+      <argument id="Date" type="dn8b"/>
+      <argument id="Month" type="dn8b"/>
+      <argument id="Year" type="dn8b"/>
+    </field>
+  </command>
+
+  <command name="SetFastChgVBC" decoder="cmdDecoder">
+    <header frame="WritePCReg_Header"/>
+    <output name="RegAddr" value="#PC_CompCtrlReg"/>
+    <output name="Value" value="0x4C"/>
+    <description text="Set fast charging current of 1mA to charge the battery backup capacitor quickly"/>
+  </command>
+
+  <command name="WatchdogRestart" decoder="cmdDecoder">
+    <header frame="WritePCReg_Header"/>
+    <output name="RegAddr" value="#PC_WDRestartReg"/>
+    <output name="Value" value="0x0A"/>
+    <description text="Restart watchdog timer"/>
+  </command>
+
+
+</hydraDef>

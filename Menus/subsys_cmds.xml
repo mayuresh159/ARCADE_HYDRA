@@ -22,12 +22,38 @@
       <cmd name="SetReadoutImageType"/>
       <cmd name="SetSensorOnOff"/>
       <cmd name="SetFrameRate"/>
+      <cmd name="SetOffsetGain"/>
       <cmd name="SetExposureTime"/>
       <cmd name="StartImageCaptureTask"/>
     </menu>
     <menu name="Atmolite">
+      <cmd name="SetATMLTTREN"/>
+      <cmd name="SetATMLTHeater"/>
     </menu>
     <menu name="SQ UHF">
+      <cmd name="EnableSQUHF"/>
+      <cmd name="EnableSQUHFTREN"/>
+      <cmd name="SetSQENTREN"/>
+      <cmd name="Escape"/>
+      <cmd name="SwitchToBinaryMode"/>
+      <cmd name="SwitchToDecimalMode"/>
+      <cmd name="SwitchToTwoComplementMode"/>
+      <cmd name="LoadDefaultChannel"/>
+      <cmd name="PresetChannel"/>
+      <cmd name="EchoOn"/>
+      <cmd name="EchoOff"/>
+      <cmd name="AFCEnable"/>
+      <cmd name="AFCDisable"/>
+      <cmd name="Initialize"/>
+      <cmd name="ReceiveMode"/>
+      <cmd name="TransmitMode"/>
+      <cmd name="SWDAnnounciateOn"/>
+      <cmd name="SWDAnnounciateOff"/>
+      <cmd name="ClearCounters"/>
+      <cmd name="LoadRegister"/>
+      <cmd name="LoadSWD"/>
+      <cmd name="TransmitCarrier"/>
+      <cmd name="TransmitPN9Test"/>
     </menu>
     <menu name="XBand">
     </menu>

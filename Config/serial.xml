@@ -44,7 +44,7 @@
 
 	<readerHeader	name="ARCADEHeaderReader"
 		headerSize="9"
-		maxSize="150"
+		maxSize="255"
 		hw="Comm_Serial"
 		lengthField="CCSDSHeader.PacketSize"
 		decoder="CCSDSDecoder"

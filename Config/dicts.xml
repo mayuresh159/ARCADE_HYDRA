@@ -5,6 +5,21 @@
     <pair key="1" str="ON"/>
   </dictionary>
 
+  <dictionary name="ON_OFF_inv_Dict">
+    <pair key="0" str="ON"/>
+    <pair key="1" str="OFF"/>
+  </dictionary>
+
+  <dictionary name="CHARGING_Dict">
+    <pair key="0" str="CHG_ON"/>
+    <pair key="1" str="CHG_OFF"/>
+  </dictionary>
+
+  <dictionary name="FAULT_Dict">
+    <pair key="0" str="FAULT"/>
+    <pair key="1" str="NO_FAULT"/>
+  </dictionary>
+
   <!-- Dictionaries useful to decoder thruster telemetry -->
   <dictionary name="ThrusterStatus_Dict">
     <pair key="0" str="STANDBY"/>
@@ -36,6 +51,17 @@
     <pair key="2" str="Lossless"/>
     <pair key="6" str="Lossy2"/>
     <pair key="15" str="Lossy4"/>
+  </dictionary>
+
+  <dictionary name="GeckoPGAGain_Dict">
+    <pair key="0" str="GAIN_1"/>
+    <pair key="1" str="GAIN_1p2"/>
+    <pair key="2" str="GAIN_1p4"/>
+    <pair key="3" str="GAIN_1p6"/>
+    <pair key="4" str="GAIN_2"/>
+    <pair key="5" str="GAIN_2p4"/>
+    <pair key="6" str="GAIN_2p8"/>
+    <pair key="7" str="GAIN_3p2"/>
   </dictionary>
 
 

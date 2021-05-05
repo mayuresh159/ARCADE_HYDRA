@@ -1,0 +1,50 @@
+<pageDef>
+  <size width="300" height="700"/>
+	<font name="Arial" size="8"/>
+  <page title="BCU Housekeeping">
+    <column>
+      <section name="Header">
+        <item name="BCUHk_SyncWord" format="HEX"/>
+        <item name="BCUHk_APID" format="HEX"/>
+        <item name="BCUHk_SeqNumber"/>
+        <item name="BCUHk_PacketSize"/>
+      </section>
+      <section name="BCU Parameters">
+        <item name="BCUHk_SP0Curr"/>
+        <item name="BCUHk_SP0Volt"/>
+        <item name="BCUHk_SP1Curr"/>
+        <item name="BCUHk_SP1Volt"/>
+        <item name="BCUHk_SP2Curr"/>
+        <item name="BCUHk_SP2Volt"/>
+        <item name="BCUHk_SP3Curr"/>
+        <item name="BCUHk_SP3Volt"/>
+        <item name="BCUHk_MainBatChgCurr"/>
+        <item name="BCUHk_MainBatChgVolt"/>
+        <item name="BCUHk_ThrBatChgCurr"/>
+        <item name="BCUHk_ThrBatChgVolt"/>
+        <item name="BCUHk_SatloadCurr"/>
+        <item name="BCUHk_SatloadVolt"/>
+        <item name="BCUHk_ThrloadCurr"/>
+        <item name="BCUHk_ThrloadVolt"/>
+        <item name="BCUHk_MainBatVolt"/>
+        <item name="BCUHk_MainBatSoC" units="%"/>
+        <item name="BCUHk_MainBatCrate" units="%/hr"/>
+        <item name="BCUHk_SP1DepCurr"/>
+        <item name="BCUHk_SP1DepVolt"/>
+        <item name="BCUHk_SP2DepCurr"/>
+        <item name="BCUHk_SP2DepVolt"/>
+        <item name="BCUHk_SP3DepCurr"/>
+        <item name="BCUHk_SP3DepVolt"/>
+        <item name="BCUHk_AntDepCurr"/>
+        <item name="BCUHk_AntDepVolt"/>
+        <item name="BCUHk_Bat1HtrCurr"/>
+        <item name="BCUHk_Bat1HtrVolt"/>
+        <item name="BCUHk_Bat2HtrCurr"/>
+        <item name="BCUHk_Bat2HtrVolt"/>
+        <item name="BCUHk_ThrBatVolt"/>
+        <item name="BCUHk_ThrBatSoC"  units="%"/>
+        <item name="BCUHk_ThrBatCrate" units="%/hr"/>
+      </section>
+    </column>
+  </page>
+</pageDef>

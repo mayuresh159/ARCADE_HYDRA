@@ -17,6 +17,7 @@
     </field>
   </frameDef>
 
+  <!-- Stack components house keeping packet definitions -->
   <!-- CDH Hk Packet definition -->
   <frameDef name="CDHHkPacket">
     <field>
@@ -65,10 +66,38 @@
       <itemDef name="EPSHk_GPS12v2Curr" type="INA3221Curr_EUType"/>
       <itemDef name="EPSHk_GPS12v2Volt" type="INA3221Volt_EUType"/>
 
-      <itemDef name="EPSHk_XBandCurr" type="INA3221Curr_EUType"/>
-      <itemDef name="EPSHk_XBandVolt" type="INA3221Volt_EUType"/>
-      <itemDef name="EPSHk_SQUHFCurr" type="INA3221Curr_EUType"/>
-      <itemDef name="EPSHk_SQUHFVolt" type="INA3221Volt_EUType"/>
+      <itemDef name="EPSHk_XBandCurr" type="INA226Curr_EUType"/>
+      <itemDef name="EPSHk_XBandVolt" type="INA226Volt_EUType"/>
+      <itemDef name="EPSHk_SQUHFCurr" type="INA226Curr_EUType"/>
+      <itemDef name="EPSHk_SQUHFVolt" type="INA226Volt_EUType"/>
+
+      <itemDef name="EPSHk_CDHTemp" type="dn16l" />
+      <itemDef name="EPSHk_IFTemp" type="dn16l"/>
+      <itemDef name="EPSHk_PDUTemp" type="dn16l"/>
+      <itemDef name="EPSHk_BCUTemp" type="dn16l"/>
+      <itemDef name="EPSHk_SP0Temp" type="dn16l"/>
+      <itemDef name="EPSHk_SP1Temp" type="dn16l"/>
+      <itemDef name="EPSHk_SP2Temp" type="dn16l"/>
+      <itemDef name="EPSHk_SP3Temp" type="dn16l"/>
+      <itemDef name="EPSHk_Bat1Th1Temp" type="dn16l"/>
+      <itemDef name="EPSHk_Bat1Th2Temp" type="dn16l"/>
+      <itemDef name="EPSHk_Bat1Th3Temp" type="dn16l"/>
+      <itemDef name="EPSHk_Bat1Th4Temp" type="dn16l"/>
+      <itemDef name="EPSHk_Bat2Th1Temp" type="dn16l"/>
+      <itemDef name="EPSHk_Bat2Th2Temp" type="dn16l"/>
+      <itemDef name="EPSHk_Bat2Th3Temp" type="dn16l"/>
+      <itemDef name="EPSHk_Bat2Th4Temp" type="dn16l"/>
+
+      <itemDef name="EPSHk_Padding_7b" type="dn7b" value="0x00"/>
+      <itemDef name="EPSHk_ThrusterPG" type="ON_OFF_inv_DictType"/>
+      <itemDef name="EPSHk_MPPT3Fault" type="FAULT_DictType"/>
+      <itemDef name="EPSHk_MPPT3Chg" type="CHARGING_DictType"/>
+      <itemDef name="EPSHk_MPPT2Fault" type="FAULT_DictType"/>
+      <itemDef name="EPSHk_MPPT2Chg" type="CHARGING_DictType"/>
+      <itemDef name="EPSHk_MPPT1Fault" type="FAULT_DictType"/>
+      <itemDef name="EPSHk_MPPT1Chg" type="CHARGING_DictType"/>
+      <itemDef name="EPSHk_MPPT0Fault" type="FAULT_DictType"/>
+      <itemDef name="EPSHk_MPPT0Chg" type="CHARGING_DictType"/>
     </field>
   </frameDef>
 
@@ -76,6 +105,60 @@
     <field>
       <frameCopy name="CCSDSHeader" prefix="EPSHk_"/>
       <item name="EPSHkPacket"/>
+    </field>
+  </frameDef>
+
+
+  <!-- BCU Hk Packet definition -->
+  <frameDef name="BCUHkPacket">
+    <field>
+      <itemDef name="BCUHk_SP0Curr" type="INA3221Curr_EUType"/>
+      <itemDef name="BCUHk_SP0Volt" type="INA3221Volt_EUType"/>
+      <itemDef name="BCUHk_SP1Curr" type="INA3221Curr_EUType"/>
+      <itemDef name="BCUHk_SP1Volt" type="INA3221Volt_EUType"/>
+      <itemDef name="BCUHk_SP2Curr" type="INA3221Curr_EUType"/>
+      <itemDef name="BCUHk_SP2Volt" type="INA3221Volt_EUType"/>
+      <itemDef name="BCUHk_SP3Curr" type="INA3221Curr_EUType"/>
+      <itemDef name="BCUHk_SP3Volt" type="INA3221Volt_EUType"/>
+
+      <itemDef name="BCUHk_MainBatChgCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="BCUHk_MainBatChgVolt" type="INA3221Volt_EUType"/>
+      <itemDef name="BCUHk_ThrBatChgCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="BCUHk_ThrBatChgVolt" type="INA3221Volt_EUType"/>
+
+      <itemDef name="BCUHk_SatloadCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="BCUHk_SatloadVolt" type="INA3221Volt_EUType"/>
+      <itemDef name="BCUHk_ThrloadCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="BCUHk_ThrloadVolt" type="INA3221Volt_EUType"/>
+
+      <itemDef name="BCUHk_MainBatVolt" type="VcellFG_EUType"/>
+      <itemDef name="BCUHk_MainBatSoC" type="SoCFG_EUType"/>
+      <itemDef name="BCUHk_MainBatCrate" type="Crate_EUType"/>
+
+      <itemDef name="BCUHk_SP1DepCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="BCUHk_SP1DepVolt" type="INA3221Volt_EUType"/>
+      <itemDef name="BCUHk_SP2DepCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="BCUHk_SP2DepVolt" type="INA3221Volt_EUType"/>
+      <itemDef name="BCUHk_SP3DepCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="BCUHk_SP3DepVolt" type="INA3221Volt_EUType"/>
+
+      <itemDef name="BCUHk_AntDepCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="BCUHk_AntDepVolt" type="INA3221Volt_EUType"/>
+      <itemDef name="BCUHk_Bat1HtrCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="BCUHk_Bat1HtrVolt" type="INA3221Volt_EUType"/>
+      <itemDef name="BCUHk_Bat2HtrCurr" type="INA3221Curr_EUType"/>
+      <itemDef name="BCUHk_Bat2HtrVolt" type="INA3221Volt_EUType"/>
+
+      <itemDef name="BCUHk_ThrBatVolt" type="VcellFG_EUType"/>
+      <itemDef name="BCUHk_ThrBatSoC" type="SoCFG_EUType"/>
+      <itemDef name="BCUHk_ThrBatCrate" type="Crate_EUType"/>
+    </field>
+  </frameDef>
+
+  <frameDef name="BCUHk_frame" id="#BCU_HK_APID">
+    <field>
+      <frameCopy name="CCSDSHeader" prefix="BCUHk_"/>
+      <item name="BCUHkPacket"/>
     </field>
   </frameDef>
 
@@ -117,6 +200,7 @@
   </frameDef>
 
 
+  <!-- Subsystem component housekeeping packet definitions -->
   <!-- Thruster Hk Packet definition -->
   <frameDef name="ThrusterHkPacket">
     <field>
@@ -209,6 +293,7 @@
       <itemDef name="GeckoHk_FL3v3Volt" type="GeckoFL3v3Volt_EUType"/>
       <itemDef name="GeckoHk_FL3v3Curr" type="GeckoFL3v3Curr_EUType"/>
       <itemDef name="GeckoHk_FLVttVrefVolt" type="GeckoFLVttRefVolt_EUType"/>
+      <itemDef name="GeckoHk_Padding2B" type="dn16b" value="0"/>
       <itemDef name="GeckoHk_IS1v8Volt" type="GeckoIS1v8Volt_EUType"/>
       <itemDef name="GeckoHk_IS1v8Curr" type="GeckoIS1v8Curr_EUType"/>
       <itemDef name="GeckoHk_IS3vVolt" type="GeckoIS3vVolt_EUType"/>
@@ -219,6 +304,7 @@
       <itemDef name="GeckoHk_SMU3BCTemp" type="dn16b"/>
       <itemDef name="GeckoHk_RegU8Temp" type="dn16b"/>
       <itemDef name="GeckoHk_RegU7Temp" type="dn16b"/>
+      <item name="GeckoHk_Padding2B"/>
       <itemDef name="GeckoHk_FLTemp"  type="dn16b"/>
       <itemDef name="GeckoHk_FPTemp" type="GeckoFPTemp_EUType"/>
       <itemDef name="GeckoHk_ISTemp" type="GeckoISTemp_EUType"/>
@@ -229,6 +315,109 @@
     <field>
       <frameCopy name="CCSDSHeader" prefix="GeckoHk_"/>
       <item name="GeckoHkPacket"/>
+    </field>
+  </frameDef>
+
+
+  <!-- Atmolite Hk Packet definition -->
+  <frameDef name="AtmHkPacket">
+    <field>
+      <itemDef name="AtmHk_RMAPHdr" type="dn16l"/>
+      <itemDef name="AtmHk_Protocol" type="dn16l"/>
+      <itemDef name="AtmHk_Nregs" type="dn16l"/>
+      <itemDef name="AtmHk_Regsize" type="dn16l"/>
+      <itemDef name="AtmHk_Name" type="char8" num="8"/>
+
+      <itemDef name="AtmHk_InstrInfoHdr" type="dn16l"/>
+      <itemDef name="AtmHk_InstrCtrl" type="dn16l"/> <!-- Can expand -->
+      <itemDef name="AtmHk_InstrStat" type="dn16l"/> <!-- Can expand -->
+      <itemDef name="AtmHk_FPGAFw" type="dn8" num="2"/>
+      <itemDef name="AtmHk_SWFw" type="dn8" num="2"/>
+      <itemDef name="AtmHk_SWtimelow" type="dn16l"/>
+      <itemDef name="AtmHk_SWtimehigh" type="dn16l"/>
+      <itemDef name="AtmHk_BISTInstrCfg" type="dn16l"/> <!-- Can expand -->
+      <itemDef name="AtmHk_BISTStatI2cDev" type="dn16l"/> <!-- Can expand -->
+      <itemDef name="AtmHk_ConfigMemStat" type="dn16l"/>  <!-- Can expand -->
+
+      <itemDef name="AtmHk_SIBHdr" type="dn16l"/>
+      <itemDef name="AtmHk_SysPwrVolt" type="AtmVolt_EUType"/>
+      <itemDef name="AtmHk_SysPwrCurr" type="sn16l"/>
+      <itemDef name="AtmHk_SIBTemp" type="AtmTemp_EUType" num="5"/>
+
+      <itemDef name="AtmHk_FEEHdr" type="dn16l"/>
+      <itemDef name="AtmHk_FEE3v3Volt" type="AtmVolt_EUType"/>
+      <itemDef name="AtmHk_FEE3v3Curr" type="sn16l"/>
+      <itemDef name="AtmHk_FEE3v3ColdVolt" type="AtmVolt_EUType"/>
+      <itemDef name="AtmHk_FEE3v3ColdCurr" type="dn16l"/>
+      <itemDef name="AtmHk_FEETemp" type="AtmTemp_EUType" num="10"/>
+      <itemDef name="AtmHk_rfu1" type="dn16l"/>
+
+      <itemDef name="AtmHk_PXE1Hdr" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1IMAQctrl" type="dn16l"/> <!-- Can expand -->
+      <itemDef name="AtmHk_PXE1InttimeSec" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1Inttimems" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1FrameNtes" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1Rfu1" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1Startx" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1Starty" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1Sizex" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1Sizey" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1Binningx" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1Binningy" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1GainOddEven" type="dn16l"/> <!-- Can expand -->
+      <itemDef name="AtmHk_PXE1BlackOffset" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1PLLDIV" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1DataoutSelect" type="dn16l"/>
+      <itemDef name="AtmHK_PXE1Trainmode" type="dn16l"/> <!-- Can expand -->
+      <itemDef name="AtmHk_PXE1TrainData" type="dn16l" />
+      <itemDef name="AtmHk_PXE1BlockCorrection" type="dn16l"/>
+      <itemDef name="AtmHk_rfu2" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1InDelays" type="dn16l" num="2"/>
+      <itemDef name="AtmHk_PXE1InBitShift" type="dn16l" num="2"/>
+      <itemDef name="AtmHk_PXE1FrameCounter" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1FrameTimelow" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1FrameTimeHigh" type="dn16l"/>
+      <itemDef name="AtmHk_PXE13v3Volt" type="AtmVolt_EUType"/>
+      <itemDef name="AtmHk_PXE13v3Curr" type="dn16l"/>
+      <itemDef name="AtmHk_PXE11v8Volt" type="AtmVolt_EUType"/>
+      <itemDef name="AtmHk_PXE11v8Curr" type="dn16l"/>
+      <itemDef name="AtmHk_PXE12v0Volt" type="AtmVolt_EUType"/>
+      <itemDef name="AtmHk_PXE12v0Curr" type="dn16l"/>
+      <itemDef name="AtmHk_PXE1Temp" type="AtmTemp_EUType" num="5"/>
+      <itemDef name="AtmHk_PXE1TrainDelaySlipsOk" type="dn16l" />
+      <itemDef name="AtmHk_rfu3" type="dn16l"/>
+
+      <itemDef name="AtmHk_PXE2Hdr" type="dn16l"/>
+      <itemDef name="AtmHk_PXE2IMAQCtrl" type="dn16l" /> <!-- Can expand -->
+      <itemDef name="AtmHk_PXE2FrameTimeSec" type="dn16l" />
+      <itemDef name="AtmHk_PXE2FrameTimems" type="dn16l"/>
+      <itemDef name="AtmHk_PXE2InttimeSec" type="dn16l"/>
+      <itemDef name="AtmHk_PXE2Inttimems" type="dn16l"/>
+      <itemDef name="AtmHk_PXE2Startx" type="dn16l"/>
+      <itemDef name="AtmHk_PXE2Starty" type="dn16l"/>
+      <itemDef name="AtmHk_PXE2Sizex" type="dn16l"/>
+      <itemDef name="AtmHk_PXE2Sizey" type="dn16l"/>
+      <itemDef name="AtmHk_PXE2Binningx" type="dn16l"/>
+      <itemDef name="AtmHk_PXE2Binningy" type="dn16l"/>
+      <itemDef name="AtmHk_PXE2X" type="dn16l" num="4"/>
+      <itemDef name="AtmHk_PXE2FrameCounter" type="dn16l"/>
+      <itemDef name="AtmHk_PXE2FrameTimeLow" type="dn16l"/>
+      <itemDef name="AtmHk_PXE2FrameTimeHigh" type="dn16l"/>
+      <itemDef name="AtmHk_PXE23v3Volt" type="AtmVolt_EUType"/>
+      <itemDef name="AtmHk_PXE23v3Curr" type="dn16l"/>
+      <itemDef name="AtmHk_PXE21v8Volt" type="AtmVolt_EUType"/>
+      <itemDef name="AtmHk_PXE21v8Curr" type="dn16l"/>
+      <itemDef name="AtmHk_PXE22v8Volt" type="AtmVolt_EUType"/>
+      <itemDef name="AtmHk_PXE22v8Curr" type="dn16l"/>
+      <itemDef name="AtmHk_PXE2Temp" type="dn16l" num="5"/>
+      <itemDef name="AtmHk_PXE2ChipID" type="dn16l"/>
+    </field>
+  </frameDef>
+
+  <frameDef name="AtmHk_frame" id="#ATM_HK_APID">
+    <field>
+      <frameCopy name="CCSDSHeader" prefix="AtmHk_"/>
+      <item name="AtmHkPacket"/>
     </field>
   </frameDef>
 

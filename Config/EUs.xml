@@ -19,6 +19,21 @@
 		<coeff index="1" value="0.00125"/>
 	</euPoly>
 
+	<euPoly name="VcellFG_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.000078125"/>
+	</euPoly>
+
+	<euPoly name="SoCFG_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.00390625"/>
+	</euPoly>
+
+	<euPoly name="Crate_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.208"/>
+	</euPoly>
+
 	<!-- Definition of engineering units for Thruster Hk parameters -->
 	<euPoly name="ThrusterSupplyVoltage_EU">
 		<coeff index="0" value="0"/>
@@ -151,7 +166,16 @@
 		<coeff index="1" value="0.75"/>
 	</euPoly>
 
+	<!-- Definition of engineering units for Atmolite Hk parameters -->
+	<euPoly name="AtmVolt_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.01"/>
+	</euPoly>
 
+	<euPoly name="AtmTemp_EU">
+		<coeff index="0" value="0"/>
+		<coeff index="1" value="0.01"/>
+	</euPoly>
 
 
 

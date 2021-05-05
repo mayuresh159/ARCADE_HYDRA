@@ -1,8 +1,8 @@
 <pageDef>
-	<size width="250" height="500"/>
+	<size width="225" height="300"/>
 	<!--<background color="Page_Background"/>
-	<text color="BLACK"/>
-	<font name="Times_New_Roman" size="12"/>-->
+	<text color="BLACK"/> -->
+	<font name="Arial" size="8"/>
     <page title="Proc. Comp. Housekeeping">
 		<column>
       <section name="Header">

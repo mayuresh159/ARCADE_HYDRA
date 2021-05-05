@@ -1,0 +1,272 @@
+<hydraDef>
+
+  <command name="EnableSQUHF" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#UHF_RADIO_GPIO_INSTANCE"/>
+    <output name="pin"      value="0"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Enable the UHF transceiver internal voltage regulators"/>
+  </command>
+
+  <command name="EnableSQUHFTREN" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#TRANSCEIVER_ENABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#END_UHF_TREN"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Enable the transceiver for UHF Comm EN signal"/>
+  </command>
+
+  <command name="SetSQENTREN" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#TRANSCEIVER_ENABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#SQ_UHF_TREN"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Enable the transceiver for UHF interfaces"/>
+  </command>
+
+  <command name="Escape" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Escape from the current command and immediately enter a new command line"/>
+    <field>
+      <itemDef name="SQUHFCmdPrompt" type="char8" value="$"/>
+      <itemDef name="EscapeCmdOpcode" type="dn8" value="0x1B"/>
+    </field>
+  </command>
+
+  <command name="SwitchToBinaryMode" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Switch to binary mode for $S(RSSI readback) and $A(AFC readback) commands" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="BinaryCmdOpcode" type="char8" value="B"/>
+    </field>
+  </command>
+
+  <command name="SwitchToDecimalMode" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Switch to decimal mode for $S(RSSI readback) and $A(AFC readback) commands" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="DecimalCmdOpcode" type="char8" value="N"/>
+    </field>
+  </command>
+
+  <command name="SwitchToTwoComplementMode" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Switch to two's complement mode for $S(RSSI readback) and $A(AFC readback) commands" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="TwosComplementCmdOpcode" type="char8" value="T"/>
+    </field>
+  </command>
+
+  <command name="LoadDefaultChannel" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Load default channel of the transceiver" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="LoadDefaultChannelCmdOpcode" type="char8" value="D"/>
+    </field>
+  </command>
+
+  <command name="PresetChannel" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Load one of the preset channel configuration of the transceiver" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="PresetChannelCmdOpcode" type="char8" value="P"/>
+      <argument id="Channel" type="char8"/>
+    </field>
+  </command>
+
+  <command name="EchoOn" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Turn on command echo" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="EchoOnCmdOpcode" type="char8" value="E"/>
+    </field>
+  </command>
+
+  <command name="EchoOff" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Turn off command echo (put in quiet mode)" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="EchoOffCmdOpcode" type="char8" value="M"/>
+    </field>
+  </command>
+
+  <command name="AFCEnable" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Turn on AFC (Automatic Frequency Control)" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="AFCEnableCmdOpcode" type="char8" value="F"/>
+    </field>
+  </command>
+
+  <command name="AFCDisable" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Turn off AFC (Automatic Frequency Control)" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="AFCDisableCmdOpcode" type="char8" value="G"/>
+    </field>
+  </command>
+
+  <command name="Initialize" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Restart command processor software similar to power up starting" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="InitializeCmdOpcode" type="char8" value="I"/>
+    </field>
+  </command>
+
+  <command name="ReceiveMode" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Put transceiver in receive mode" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="RxmodeCmdOpcode" type="char8" value="J"/>
+    </field>
+  </command>
+
+  <command name="TransmitMode" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Put transceiver in transmit mode" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="TxmodeCmdOpcode" type="char8" value="K"/>
+    </field>
+  </command>
+
+  <command name="SWDAnnounciateOn" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Sync word detection announciate on" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="SWDAnnounciateOnCmdOpcode" type="char8" value="U"/>
+    </field>
+  </command>
+
+  <command name="SWDAnnounciateOff" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Sync word detection announciate off" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="SWDAnnounciateOffCmdOpcode" type="char8" value="V"/>
+    </field>
+  </command>
+
+  <command name="ClearCounters" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Clear status and error counters" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="ClearCountersCmdOpcode" type="char8" value="W"/>
+    </field>
+  </command>
+
+  <command name="LoadRegister" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Load transceiver chip register with 4 hex bytes" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="LoadRegisterCmdOpcode" type="char8" value="X"/>
+      <argument id="Value" type="dn32b"/>
+    </field>
+  </command>
+
+  <command name="LoadSWD" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Load sync word for SWD detection feature" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="LoadSWDCmdOpcode" type="char8" value="Y"/>
+      <argument id="Sync_Letter_1" type="char8"/>
+      <argument id="Sync_Letter_2" type="char8"/>
+      <argument id="Sync_Letter_3" type="char8"/>
+    </field>
+  </command>
+
+  <command name="TransmitCarrier" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Put transceiver in transmit carrier mode" />
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="TransmitCarrierCmdOpcode" type="char8" num="2" value="Z T"/>
+    </field>
+  </command>
+
+  <command name="TransmitPN9Test" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#COMM_UHF_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#TIME_REPLY"/>
+    <output name="rxlen"         value="#DEFAULT_TIME_REPLY_LENGTH"/>
+    <description text="Transmit pseudorandom PN9 sequence from the transceiver to monitor the spectrum"/>
+    <field>
+      <item name="SQUHFCmdPrompt"/>
+      <itemDef name="TransmitPN9TestCmdOpcode" type="char8" num="2" value="Z N"/>
+    </field>
+  </command>
+
+</hydraDef>

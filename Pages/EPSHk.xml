@@ -1,8 +1,8 @@
 <pageDef>
-	<size width="250" height="800"/>
+	<size width="350" height="650"/>
 	<!--<background color="Page_Background"/>
-	<text color="BLACK"/>
-	<font name="Times_New_Roman" size="12"/>-->
+	<text color="BLACK"/> -->
+	<font name="Arial" size="8"/>
     <page title="EPS Housekeeping">
 		<column>
 
@@ -40,6 +40,40 @@
 				<row item="EPSHk_CIPCurr" label="CIP_Current"/>
 				<row item="EPSHk_GeckoVolt" label="Gecko_Voltage"/>
 				<row item="EPSHk_GeckoCurr" label="Gecko_Current"/>
+			</section>
+
+		</column>
+
+		<column>
+			<section name="Temperatures">
+				<row item="EPSHk_CDHTemp" label="CDH_Temp"/>
+				<row item="EPSHk_IFTemp" label="IfCard_Temp"/>
+				<row item="EPSHk_PDUTemp" label="PDU_Temp"/>
+				<row item="EPSHk_BCUTemp" label="BCU_Temp"/>
+				<row item="EPSHk_SP0Temp" label="SP0_Temp"/>
+				<row item="EPSHk_SP1Temp" label="SP1_Temp"/>
+				<row item="EPSHk_SP2Temp" label="SP2_Temp"/>
+				<row item="EPSHk_SP3Temp" label="SP3_Temp"/>
+				<row item="EPSHk_Bat1Th1Temp" label="MainBat_TH1"/>
+				<row item="EPSHk_Bat1Th2Temp" label="MainBat_TH2"/>
+				<row item="EPSHk_Bat1Th3Temp" label="MainBat_TH3"/>
+				<row item="EPSHk_Bat1Th4Temp" label="MainBat_TH4"/>
+				<row item="EPSHk_Bat2Th1Temp" label="ThrBat_TH1"/>
+				<row item="EPSHk_Bat2Th2Temp" label="ThrBat_TH2"/>
+				<row item="EPSHk_Bat2Th3Temp" label="ThrBat_TH3"/>
+				<row item="EPSHk_Bat2Th4Temp" label="ThrBat_TH4"/>
+			</section>
+
+			<section name="Charger status">
+				<row item="EPSHk_ThrusterPG" 	label="Thruster_PG"/>
+	      <row item="EPSHk_MPPT3Fault" 	label="MPPT3Fault"/>
+	      <row item="EPSHk_MPPT3Chg" 		label="MPPT3Chg"/>
+	      <row item="EPSHk_MPPT2Fault" 	label="MPPT2Fault"/>
+	      <row item="EPSHk_MPPT2Chg" 		label="MPPT2Chg"/>
+	      <row item="EPSHk_MPPT1Fault" 	label="MPPT1Fault"/>
+	      <row item="EPSHk_MPPT1Chg" 		label="MPPT1Chg"/>
+	      <row item="EPSHk_MPPT0Fault" 	label="MPPT0Fault"/>
+	      <row item="EPSHk_MPPT0Chg" 		label="MPPT0Chg"/>
 			</section>
 		</column>
     </page>

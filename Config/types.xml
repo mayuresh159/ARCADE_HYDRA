@@ -234,6 +234,10 @@
     <typeEU name="INA226Curr_EUType" size="16" endian="LITTLE" eu="INA226Curr_EU"/>
     <typeEU name="INA226Volt_EUType" size="16" endian="LITTLE" eu="INA226Volt_EU"/>
 
+    <typeEU name="VcellFG_EUType" size="16" endian="BIG" eu="VcellFG_EU"/>
+    <typeEU name="SoCFG_EUType" size="16" endian="BIG" eu="SoCFG_EU"/>
+    <typeEU name="Crate_EUType" size="16" endian="BIG" eu="Crate_EU"/>
+
     <!-- Define types calling the thruster EU polynomials -->
     <typeEU name="ThrusterSupplyVoltage_EUType" size="16" endian="LITTLE" eu="ThrusterSupplyVoltage_EU"/>
     <typeEU name="ThrusterCurrentConsumption_EUType" size="16" endian="LITTLE" eu="ThrusterCurrentConsumption_EU"/>
@@ -264,9 +268,17 @@
     <typeEU name="GeckoFPTemp_EUType" size="16" endian="BIG" eu="GeckoFPTemp_EU"/>
     <typeEU name="GeckoISTemp_EUType" size="16" endian="BIG" eu="GeckoISTemp_EU"/>
 
+    <!-- Define types calling the Atmolite EU polynomials -->
+    <typeEU name="AtmVolt_EUType" size="16" endian="LITTLE" eu="AtmVolt_EU"/>
+    <typeEU name="AtmTemp_EUType" size="16" endian="LITTLE" eu="AtmTemp_EU"/>
+
 
     <!-- Define types mapping dictionaries to states -->
     <typeState name="ON_OFF_DictType" size="1" dict="ON_OFF_Dict"/>
+    <typeState name="ON_OFF_inv_DictType" size="1" dict="ON_OFF_inv_Dict"/>
+    <typeState name="CHARGING_DictType" size="1" dict="CHARGING_Dict"/>
+    <typeState name="FAULT_DictType" size="1" dict="FAULT_Dict"/>
+
 
     <typeState name="ThrusterStatus_DictType" size="8" dict="ThrusterStatus_Dict"/>
     <typeState name="ThrusterFiringMode_DictType" size="8" dict="ThrusterFiringMode_Dict"/>
@@ -275,7 +287,7 @@
 
     <typeState name="GeckoImageType_DictType" size="32" endian="BIG" dict="GeckoImageType_Dict"/>
     <typeState name="GeckoSensorOnOff_DictType" size="32" endian="BIG" dict="ON_OFF_Dict"/>
-
+    <typeState name="GeckoPGAGain_DictType" size="8" endian="BIG" dict="GeckoPGAGain_Dict"/>
 
 
 
