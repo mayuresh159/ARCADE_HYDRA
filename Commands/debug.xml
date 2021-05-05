@@ -37,39 +37,111 @@
     </field>
   </command>
 
-  <command name="EnableDebugFlagsEPSHk" decoder="cmdDecoder">
+  <command name="EnDebugFlags_CDHHk" decoder="cmdDecoder">
     <header frame="IS4CmdHeader"/>
     <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
     <output name="replytype"      value="#SIZE_REPLY"/>
     <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Command to enable EPS Hk debug flag"/>
+    <description text="Command to enable CDH Hk debug flag and start streaming CDH packet"/>
+    <field>
+      <item name="EnableDebugFlags_Opcode"/>
+      <itemDef name="EnableCDHHkFlag" type="dn8b" num="4" value="0x00 0x00 0x00 0x20"/>
+    </field>
+  </command>
+
+  <command name="EnDebugFlags_EPSHk" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Command to enable EPS Hk debug flag and start streaming EPS packet"/>
     <field>
       <item name="EnableDebugFlags_Opcode"/>
       <itemDef name="EnableEPSHkFlag" type="dn8b" num="4" value="0x00 0x00 0x00 0x01"/>
     </field>
   </command>
 
-  <command name="EnableDebugFlagsProcCompHk" decoder="cmdDecoder">
+  <command name="EnDebugFlags_BCUHk" decoder="cmdDecoder">
     <header frame="IS4CmdHeader"/>
     <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
     <output name="replytype"      value="#SIZE_REPLY"/>
     <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Command to enable Processor companion Hk debug flag"/>
+    <description text="Command to enable BCU Hk debug flag and start streaming BCU packet"/>
+    <field>
+      <item name="EnableDebugFlags_Opcode"/>
+      <itemDef name="EnableBCUHkFlag" type="dn8b" num="4" value="0x00 0x00 0x00 0x40"/>
+    </field>
+  </command>
+
+  <command name="EnDebugFlags_ProcCompHk" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Command to enable Processor companion Hk debug flag and start streaming Processor companion packet"/>
     <field>
       <item name="EnableDebugFlags_Opcode"/>
       <itemDef name="EnableProcCompHkFlag" type="dn8b" num="4" value="0x00 0x00 0x00 0x02"/>
     </field>
   </command>
 
-  <command name="EnableDebugFlagsThrusterHk" decoder="cmdDecoder">
+  <command name="EnDebugFlags_ThrusterHk" decoder="cmdDecoder">
     <header frame="IS4CmdHeader"/>
     <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
     <output name="replytype"      value="#SIZE_REPLY"/>
     <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Command to enable Thruster Hk debug flag"/>
+    <description text="Command to enable Thruster Hk debug flag and start streaming thruster packet"/>
     <field>
       <item name="EnableDebugFlags_Opcode"/>
       <itemDef name="EnableThrusterHkFlag" type="dn8b" num="4" value="0x00 0x00 0x00 0x04"/>
+    </field>
+  </command>
+
+  <command name="EnDebugFlags_SQUHFHk" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Command to enable SQ UHF Hk debug flag and start streaming UHF packet"/>
+    <field>
+      <item name="EnableDebugFlags_Opcode"/>
+      <itemDef name="EnableUHFHkFlag" type="dn8b" num="4" value="0x00 0x00 0x00 0x08"/>
+    </field>
+  </command>
+
+  <command name="EnDebugFlags_XBandHk" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Command to enable XBand Hk debug flag and start streaming XBand packet"/>
+    <field>
+      <item name="EnableDebugFlags_Opcode"/>
+      <itemDef name="EnableXBandHkFlag" type="dn8b" num="4" value="0x00 0x00 0x00 0x10"/>
+    </field>
+  </command>
+
+  <command name="EnDebugFlags_GeckoHk" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Command to enable Gecko Hk debug flag and start streaming Gecko packet"/>
+    <field>
+      <item name="EnableDebugFlags_Opcode"/>
+      <itemDef name="EnableGeckoHkFlag" type="dn8b" num="4" value="0x00 0x00 0x00 0x80"/>
+    </field>
+  </command>
+
+  <command name="EnDebugFlags_AtmHk" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Command to enable Atmolite Hk debug flag and start streaming Atmolite packet"/>
+    <field>
+      <item name="EnableDebugFlags_Opcode"/>
+      <itemDef name="EnableAtmHkFlag" type="dn8b" num="4" value="0x00 0x00 0x01 0x00"/>
     </field>
   </command>
 

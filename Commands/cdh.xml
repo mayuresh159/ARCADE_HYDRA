@@ -1,7 +1,21 @@
 <hydraDef>
 
-  <itemDef name="Task_Enable" type="dn8b" value="0x01"/>
-  <itemDef name="Task_Disable" type="dn8b" value="0x00"/>
+  <keyword str="Task_Enable"  value="0x01"/>
+  <keyword str="Task_Disable" value="0x00"/>
+
+  <keyword str="EPSHkTaskID"      value="0x41"/>
+  <keyword str="BCUHkTaskID"      value="0x4D"/>
+  <keyword str="ProcCompHkTaskID" value="0x3B"/>
+  <keyword str="ThrusterHkTaskID" value="0x4C"/>
+  <keyword str="SQUHFHkTaskID"    value="0x47"/>
+  <keyword str="XBandHkTaskID"    value="0x4B"/>
+  <keyword str="GeckoHkTaskID"    value="0x4E"/>
+  <keyword str="AtmoliteHkTaskID" value="0x4F"/>
+
+  <keyword str="AntDepTaskID"     value="0x44"/>
+  <keyword str="SP1DepTaskID"     value="0x48"/>
+  <keyword str="SP2DepTaskID"     value="0x49"/>
+  <keyword str="SP3DepTaskID"     value="0x4A"/>
 
 
   <command name="Ping" decoder="cmdDecoder">
@@ -29,142 +43,191 @@
     </field>
   </command>
 
-  <command name="RunEpsHkTask" decoder="cmdDecoder">
+  <frameDef name="EnableDisableTask_Header" decoder="cmdDecoder">
     <header frame="IS4CmdHeader"/>
     <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
     <output name="replytype"      value="#SIZE_REPLY"/>
     <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Command to run EPS hk task"/>
+    <description text="Command header for enable or disable task commands based on task ID"/>
     <field>
-      <itemDef name="RunEPSHkTask_Opcode" type="dn8b" num="4" value="0x08 0x41 0x01 0x01"/>
+      <item name="EnableDisableTaskID_Opcode"/>
+      <itemDef name="TaskID"        type="dn8b"/>
+      <itemDef name="EnableDisable" type="dn8b"/>
+      <placeholder/>
     </field>
+    <input item="TaskID" name="TaskID"/>
+    <input item="EnableDisable" name="EnableDisable"/>
+  </frameDef>
+
+  <command name="RunEpsHkTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#EPSHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
+    <description text="Command to run EPS hk task"/>
+  </command>
+
+  <command name="StopEpsHkTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID" value="#EPSHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to stop EPS hk task"/>
+  </command>
+
+  <command name="RunBCUHkTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#BCUHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
+    <description text="Command to run BCU hk task"/>
+  </command>
+
+  <command name="StopBCUHkTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID" value="#BCUHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to stop BCU hk task"/>
   </command>
 
   <command name="RunProcCompRoutineTask" decoder="cmdDecoder">
-    <header frame="IS4CmdHeader"/>
-    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
-    <output name="replytype"      value="#SIZE_REPLY"/>
-    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Command to run Processor Companion routine task"/>
-    <field>
-      <itemDef name="RunProcCompRoutineTask_Opcode" type="dn8b" num="4" value="0x08 0x3B 0x01 0x01"/>
-    </field>
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#ProcCompHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
+    <description text="Command to run Processor companion routine task"/>
+  </command>
+
+  <command name="StopProcCompRoutineTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID" value="#ProcCompHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to stop Processor companion routine task"/>
   </command>
 
   <command name="RunThrusterHkTask" decoder="cmdDecoder">
-    <header frame="IS4CmdHeader"/>
-    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
-    <output name="replytype"      value="#SIZE_REPLY"/>
-    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#ThrusterHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
     <description text="Command to run Thruster hk task"/>
-    <field>
-      <itemDef name="RunThrusterHkTask_Opcode" type="dn8b" num="4" value="0x08 0x4C 0x01 0x01"/>
-    </field>
   </command>
 
-  <command name="EnableAntennaDeploymentTask" decoder="cmdDecoder">
-    <header frame="IS4CmdHeader"/>
-    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
-    <output name="replytype"      value="#SIZE_REPLY"/>
-    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Command to enable antenna deployment task"/>
-    <field>
-      <item name="EnableDisableTaskID_Opcode"/>
-      <itemDef name="AntennaDeploymentTaskID" type="dn8b" value="0x44"/>
-      <item name="Task_Enable"/>
-    </field>
+  <command name="StopThrusterHkTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID" value="#ThrusterHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to stop Thruster hk task"/>
   </command>
 
-  <command name="DisableAntennaDeploymentTask" decoder="cmdDecoder">
-    <header frame="IS4CmdHeader"/>
-    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
-    <output name="replytype"      value="#SIZE_REPLY"/>
-    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Command to disable antenna deployment task"/>
-    <field>
-      <item name="EnableDisableTaskID_Opcode"/>
-      <item name="AntennaDeploymentTaskID"/>
-      <item name="Task_Disable"/>
-    </field>
+  <command name="RunUHFHkTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#SQUHFHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
+    <description text="Command to run UHF hk task"/>
   </command>
 
-  <command name="EnableSP1DeploymentTask" decoder="cmdDecoder">
-    <header frame="IS4CmdHeader"/>
-    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
-    <output name="replytype"      value="#SIZE_REPLY"/>
-    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Command to enable solar panel 1 deployment task"/>
-    <field>
-      <item name="EnableDisableTaskID_Opcode"/>
-      <itemDef name="SP1DeploymentTaskID" type="dn8b" value="0x48"/>
-      <item name="Task_Enable"/>
-    </field>
+  <command name="StopUHFHkTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID" value="#SQUHFHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to stop UHF hk task"/>
   </command>
 
-  <command name="DisableSP1DeploymentTask" decoder="cmdDecoder">
-    <header frame="IS4CmdHeader"/>
-    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
-    <output name="replytype"      value="#SIZE_REPLY"/>
-    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Command to disable solar panel 1 deployment task"/>
-    <field>
-      <item name="EnableDisableTaskID_Opcode"/>
-      <item name="SP1DeploymentTaskID"/>
-      <item name="Task_Disable"/>
-    </field>
+  <command name="RunXBandHkTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#XBandHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
+    <description text="Command to run XBand hk task"/>
   </command>
 
-  <command name="EnableSP2DeploymentTask" decoder="cmdDecoder">
-    <header frame="IS4CmdHeader"/>
-    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
-    <output name="replytype"      value="#SIZE_REPLY"/>
-    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Command to enable solar panel 2 deployment task"/>
-    <field>
-      <item name="EnableDisableTaskID_Opcode"/>
-      <itemDef name="SP2DeploymentTaskID" type="dn8b" value="0x49"/>
-      <item name="Task_Enable"/>
-    </field>
+  <command name="StopXBandHkTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID" value="#XBandHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to stop XBand hk task"/>
   </command>
 
-  <command name="DisableSP2DeploymentTask" decoder="cmdDecoder">
-    <header frame="IS4CmdHeader"/>
-    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
-    <output name="replytype"      value="#SIZE_REPLY"/>
-    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Command to disable solar panel 2 deployment task"/>
-    <field>
-      <item name="EnableDisableTaskID_Opcode"/>
-      <item name="SP2DeploymentTaskID"/>
-      <item name="Task_Disable"/>
-    </field>
+  <command name="RunGeckoHkTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#GeckoHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
+    <description text="Command to run Gecko hk task"/>
   </command>
 
-  <command name="EnableSP3DeploymentTask" decoder="cmdDecoder">
-    <header frame="IS4CmdHeader"/>
-    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
-    <output name="replytype"      value="#SIZE_REPLY"/>
-    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Command to enable solar panel 3 deployment task"/>
-    <field>
-      <item name="EnableDisableTaskID_Opcode"/>
-      <itemDef name="SP3DeploymentTaskID" type="dn8b" value="0x4A"/>
-      <item name="Task_Enable"/>
-    </field>
+  <command name="StopGeckoHkTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID" value="#GeckoHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to stop Gecko hk task"/>
   </command>
 
-  <command name="DisableSP3DeploymentTask" decoder="cmdDecoder">
-    <header frame="IS4CmdHeader"/>
-    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
-    <output name="replytype"      value="#SIZE_REPLY"/>
-    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Command to disable solar panel 3 deployment task"/>
-    <field>
-      <item name="EnableDisableTaskID_Opcode"/>
-      <item name="SP3DeploymentTaskID"/>
-      <item name="Task_Disable"/>
-    </field>
+  <command name="RunAtmHkTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#AtmoliteHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
+    <description text="Command to run Atmolite hk task"/>
   </command>
 
+  <command name="StopAtmHkTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID" value="#AtmHkTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to stop Atmolite hk task"/>
+  </command>
+
+
+
+  <!-- Deployment tasks -->
+  <command name="RunAntDepTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#AntDepTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
+    <description text="Command to run Antenna deployment task"/>
+  </command>
+
+  <command name="StopAntDepTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID" value="#AntDepTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to stop Antenna deployment task"/>
+  </command>
+
+  <command name="RunSP1DepTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#SP1DepTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
+    <description text="Command to run SP1 deployment task"/>
+  </command>
+
+  <command name="StopSP1DepTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID" value="#SP1DepTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to stop SP1 deployment task"/>
+  </command>
+
+  <command name="RunSP2DepTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#SP2DepTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
+    <description text="Command to run SP2 deployment task"/>
+  </command>
+
+  <command name="StopSP2DepTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID" value="#SP2DepTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to stop SP2 deployment task"/>
+  </command>
+
+  <command name="RunSP3DepTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#SP3DepTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
+    <description text="Command to run SP3 deployment task"/>
+  </command>
+
+  <command name="StopSP3DepTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID" value="#SP3DepTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to stop SP3 deployment task"/>
+  </command>
 
 </hydraDef>
