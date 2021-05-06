@@ -54,7 +54,7 @@
   <command name="SetATMLTPSEN" decoder="cmdDecoder">
     <header frame="SetGPIOCommand_Header"/>
     <output name="instance" value="#POWER_SUPPLY_ENABLES_GPIO_INSTANCE"/>
-    <output name="pin"      value="#EN_CIP_PS_PIN"/>
+    <output name="pin"      value="#EN_ATMOLITE_PS_PIN"/>
     <output name="state"    value="#GPIO_ON"/>
     <description text="Set power supply enable GPIO for Atmolite (Flatsat)"/>
   </command>
@@ -62,9 +62,25 @@
   <command name="ClearATMLTPSEN" decoder="cmdDecoder">
     <header frame="SetGPIOCommand_Header"/>
     <output name="instance" value="#POWER_SUPPLY_ENABLES_GPIO_INSTANCE"/>
-    <output name="pin"      value="#EN_CIP_PS_PIN"/>
+    <output name="pin"      value="#EN_ATMOLITE_PS_PIN"/>
     <output name="state"    value="#GPIO_OFF"/>
     <description text="Clear power supply enable GPIO for Atmolite (Flatsat)"/>
+  </command>
+
+  <command name="SetCIPPSEN" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#POWER_SUPPLY_ENABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#EN_CIP_PS_PIN"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Set power supply enable GPIO for CIP"/>
+  </command>
+
+  <command name="ClearCIPPSEN" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#POWER_SUPPLY_ENABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#EN_CIP_PS_PIN"/>
+    <output name="state"    value="#GPIO_OFF"/>
+    <description text="Clear power supply enable GPIO for CIP"/>
   </command>
 
   <command name="SetGeckoPSEN" decoder="cmdDecoder">

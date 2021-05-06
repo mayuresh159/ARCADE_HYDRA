@@ -6,15 +6,7 @@
     parity="#INSTR_SERIAL_PARITY"
     stopbits="#INSTR_SERIAL_STOP"/>
 
-<!-- Decoders and hwFileouts -->
-	<!--<decoderDef name="EPSPacketDecoder" updateDB="true" archive="true">
-		<frame name="EPSPacket"/>
-	</decoderDef>
-
-	<decoderDef name="TCPacketDecoder" updateDB="true" archive="true">
-		<frame name="TCPacket"/>
-	</decoderDef>-->
-
+    <!-- Decoder definitions -->
 	<decoderDef name="CCSDSDecoder" updateDB="true">
 		<frameID name="CCSDSHeader.APID"/>
     <outputDevice name="EPSlogfile" frameID="#EPS_HK_APID"/>
@@ -35,13 +27,6 @@
 	  <outputDevice name="cmdSentFile"/>
   </decoderDef>
 
-
-<!-- Readers -->
-	<!--<readerFixed name="TCReaderFixed" size="24" hw="Comm_Serial" decoder="TCPacketDecoder" autoStart="true"/>-->
-
-	<!--<readerFixed name="EPSReaderFixed" size="44" hw="Comm_Serial" decoder="EPSPacketDecoder" autoStart="true"/>-->
-    <!-- prefix="SerialRaw" maxSize="#MAX_OUTPUT_FILE_SIZE" -->
-
 	<readerHeader	name="ARCADEHeaderReader"
 		headerSize="9"
 		maxSize="255"
@@ -53,44 +38,5 @@
 		<sync length="3" pattern="#SERIAL_SYNC_PATTERN"/>
 		<description text="Reads telemetry packets from serial hardline"/>
 	</readerHeader>
-
-
-
-<!-- Examples -->
-	<!--<decoderDef name="CmdDecoder">
-		<outBuffer size="6"/>
-		<outputDevice name="Comm_Serial"/>
-	</decoderDef>-->
-
-
-	<!-- Alternative header reader to extract the frame size and frame type -->
-	<!--<readerHeader name="EPSReaderHeader" headerSize="8" maxSize="44" decoder="EPSPacketDecoder"
-	 hw="Comm_Serial" lengthField="7:0:dn8" offset="0"/> --> <!-- Default offset (Additional bytes in the trailer) - 0 -->
-
-
-
-
-	<!-- Sample reader + decoder instantiation -->
-	<!--<readerHeader name="serialReader" headerSize="6" maxSize="2048" lengthField="ccsdsTlmHeader.ccsds_TlmLength"
-	  offset="1" hw="Comm_Serial" decoder="ccsdsDecoder" autoStart="true">
-		<description text="Reads telemetry packets from serial hardline"/>
-
-
-		<sync length="1" minSize="1" pattern="#SERIAL_SYNC_PATTERN"/>
-	</readerHeader>-->
-
-
-
-  <!-- <hwOutFile name="cmdSentFile" prefix="cmdSent" maxSize="#MAX_OUTPUT_FILE_SIZE"/> -->
-	<!-- <decoderDef name="cmdDecoder">
-	    <description text="Send command to hardline serial"/>
-		<outBuffer size="1024"/>
-		<outputDevice name="Comm_Serial"/>-->
-		<!-- <outputDevice name="cmdSentFile"/>-->
-		<!-- <headerFrame name="ax25CmdHeader"/> -->
-
-		<!-- Optional sync pattern -->
-		<!--<frameHeader num="4" type="dn8" value="#SERIAL_SYNC_PATTERN"/>-->
-	<!--</decoderDef>-->
 
 </hydraDef>
