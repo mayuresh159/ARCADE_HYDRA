@@ -51,6 +51,8 @@
       <cmd name="ClearEPSI2CRESET"/>
       <cmd name="SetATMLTPSEN"/>
       <cmd name="ClearATMLTPSEN"/>
+      <cmd name="SetCIPPSEN"/>
+      <cmd name="ClearCIPPSEN"/>
       <cmd name="SetGeckoPSEN"/>
       <cmd name="ClearGeckoPSEN"/>
       <cmd name="SetADCSPSEN"/>

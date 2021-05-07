@@ -21,7 +21,7 @@
     <description text="Command to enable all debug flags"/>
     <field>
       <item name="EnableDebugFlags_Opcode"/>
-      <itemDef name="EnableAllFlags" type="dn8b" num="4" value="0xFF 0xFF 0xFF 0xFF"/>
+      <itemDef name="EnableAllFlags" type="dn8b" num="4" value="0x00 0x00 0x01 0xFF"/>
     </field>
   </command>
 

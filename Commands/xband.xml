@@ -1,0 +1,19 @@
+<hydraDef>
+
+  <command name="SetXBandTREN" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#TRANSCEIVER_ENABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#XBAND_TREN"/>
+    <output name="state"    value="#GPIO_ON"/>
+    <description text="Set transceiver enable GPIO for XBand transceiver"/>
+  </command>
+
+  <command name="ClearXBandTREN" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#TRANSCEIVER_ENABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#XBAND_TREN"/>
+    <output name="state"    value="#GPIO_OFF"/>
+    <description text="Clear transceiver enable GPIO for XBand transceiver"/>
+  </command>
+
+</hydraDef>

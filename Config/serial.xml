@@ -9,15 +9,15 @@
     <!-- Decoder definitions -->
 	<decoderDef name="CCSDSDecoder" updateDB="true">
 		<frameID name="CCSDSHeader.APID"/>
-    <outputDevice name="EPSlogfile" frameID="#EPS_HK_APID"/>
-    <outputDevice name="ProcComplogfile" frameID="#PROCCOMP_HK_APID"/>
-    <outputDevice name="Thrusterlogfile" frameID="#THRUSTER_HK_APID"/>
-    <outputDevice name="SQUHFlogfile" frameID="#SQUHF_HK_APID"/>
-    <outputDevice name="XBandlogfile" frameID="#XBAND_HK_APID"/>
-    <outputDevice name="CDHlogfile" frameID="#CDH_HK_APID"/>
-    <outputDevice name="Geckologfile" frameID="#GECKO_HK_APID"/>
-    <outputDevice name="BCUlogfile" frameID="#BCU_HK_APID"/>
-    <outputDevice name="Atmolitelogfile" frameID="#ATM_HK_APID"/>
+    <outputDevice name="EPSlogfile" frameID="#EPS_HK_APID" enabled="false"/>
+    <outputDevice name="ProcComplogfile" frameID="#PROCCOMP_HK_APID" enabled="false"/>
+    <outputDevice name="Thrusterlogfile" frameID="#THRUSTER_HK_APID" enabled="false"/>
+    <outputDevice name="SQUHFlogfile" frameID="#SQUHF_HK_APID" enabled="false"/>
+    <outputDevice name="XBandlogfile" frameID="#XBAND_HK_APID" enabled="false"/>
+    <outputDevice name="CDHlogfile" frameID="#CDH_HK_APID" enabled="false"/>
+    <outputDevice name="Geckologfile" frameID="#GECKO_HK_APID" enabled="false"/>
+    <outputDevice name="BCUlogfile" frameID="#BCU_HK_APID" enabled="false"/>
+    <outputDevice name="Atmolitelogfile" frameID="#ATM_HK_APID" enabled="false"/>
 	</decoderDef>
 
 	<decoderDef name="cmdDecoder">

@@ -37,6 +37,7 @@
 	<include>Commands\atmolite.xml</include>
 	<include>Commands\squhf.xml</include>
 	<include>Commands\proccomp.xml</include>
+	<include>Commands\xband.xml</include>
 
 	<configType name="Serial">
 	    <include>Config\serial.xml</include>
