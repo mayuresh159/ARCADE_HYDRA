@@ -26,7 +26,7 @@
       <itemDef name="CDHHk_ObcTime" type="dn32l"/>
       <itemDef name="CDHHk_ValidCommandCounter" type="dn32l"/>
       <itemDef name="CDHHk_ISOSClockDay" type="sn16l"/>
-      <itemDef name="CDHHk_ISOSClockMs" type="sn16l"/>
+      <itemDef name="CDHHk_ISOSClockMs" type="sn32l"/>
       <itemDef name="CDHHk_SOCTooOutdated" type="dn8l"/>
       <itemDef name="CDHHk_BeaconCount" type="dn16l"/>
       <itemDef name="CDHHk_AckCount" type="dn16l"/>
