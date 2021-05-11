@@ -71,14 +71,23 @@
       <itemDef name="EPSHk_SQUHFCurr" type="INA226Curr_EUType"/>
       <itemDef name="EPSHk_SQUHFVolt" type="INA226Volt_EUType"/>
 
-      <itemDef name="EPSHk_CDHTemp" type="dn16l" />
-      <itemDef name="EPSHk_IFTemp" type="dn16l"/>
-      <itemDef name="EPSHk_PDUTemp" type="dn16l"/>
-      <itemDef name="EPSHk_BCUTemp" type="dn16l"/>
-      <itemDef name="EPSHk_SP0Temp" type="dn16l"/>
-      <itemDef name="EPSHk_SP1Temp" type="dn16l"/>
-      <itemDef name="EPSHk_SP2Temp" type="dn16l"/>
-      <itemDef name="EPSHk_SP3Temp" type="dn16l"/>
+      <itemDef name="Channel1" type="dn4b"/>
+      <itemDef name="EPSHk_CDHTemp" type="NTCS0805_EUType" />
+      <itemDef name="Channel2" type="dn4b"/>
+      <itemDef name="EPSHk_IFTemp" type="NTCS0805_EUType"/>
+      <itemDef name="Channel3" type="dn4b"/>
+      <itemDef name="EPSHk_PDUTemp" type="NTCS0805_EUType"/>
+      <itemDef name="Channel4" type="dn4b"/>
+      <itemDef name="EPSHk_BCUTemp" type="NTCS0805_EUType"/>
+      <itemDef name="Channel5" type="dn4b"/>
+      <itemDef name="EPSHk_SP0Temp" type="NTCS0805_EUType"/>
+      <itemDef name="Channel6" type="dn4b"/>
+      <itemDef name="EPSHk_SP1Temp" type="NTCS0805_EUType"/>
+      <itemDef name="Channel7" type="dn4b"/>
+      <itemDef name="EPSHk_SP2Temp" type="NTCS0805_EUType"/>
+      <itemDef name="Channel8" type="dn4b"/>
+      <itemDef name="EPSHk_SP3Temp" type="NTCS0805_EUType"/>
+
       <itemDef name="EPSHk_Bat1Th1Temp" type="dn16l"/>
       <itemDef name="EPSHk_Bat1Th2Temp" type="dn16l"/>
       <itemDef name="EPSHk_Bat1Th3Temp" type="dn16l"/>

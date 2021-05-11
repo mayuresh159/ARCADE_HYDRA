@@ -238,6 +238,8 @@
     <typeEU name="SoCFG_EUType" size="16" endian="BIG" eu="SoCFG_EU"/>
     <typeEU name="Crate_EUType" size="16" endian="BIG" eu="Crate_EU"/>
 
+    <typeEU name="NTCS0805_EUType" size="12" eu="NTCS0805_EU"/>
+
     <!-- Define types calling the thruster EU polynomials -->
     <typeEU name="ThrusterSupplyVoltage_EUType" size="16" endian="LITTLE" eu="ThrusterSupplyVoltage_EU"/>
     <typeEU name="ThrusterCurrentConsumption_EUType" size="16" endian="LITTLE" eu="ThrusterCurrentConsumption_EU"/>
