@@ -1,19 +1,37 @@
 ﻿<hydraDef>
 
 	<!-- Definition of engineering units for EPS parameters from VC sensors -->
-	<euPoly name="INA3221Curr_EU">
+	<euPoly name="INA3221CurrPos_EU">
 		<coeff index="0" value="0"/>
 		<coeff index="1" value="0.0005"/>
 	</euPoly>
+	<euPoly name="INA3221CurrNeg_EU">
+		<coeff index="0" value="16.384"/>
+		<coeff index="1" value="-0.0005"/>
+	</euPoly>
+	<euSegmented name="INA3221CurrSeg_EU">
+		<segment low="32768" high="65535" eu="INA3221CurrNeg_EU"/>
+		<segment low="0" high="32768" eu="INA3221CurrPos_EU"/>
+	</euSegmented>
+
 	<euPoly name="INA3221Volt_EU">
 		<coeff index="0" value="0"/>
 		<coeff index="1" value="0.001"/>
 	</euPoly>
 
-	<euPoly name="INA226Curr_EU">
+	<euPoly name="INA226CurrPos_EU">
 		<coeff index="0" value="0"/>
 		<coeff index="1" value="0.00125"/>
 	</euPoly>
+	<euPoly name="INA226CurrNeg_EU">
+		<coeff index="0" value="40.96"/>
+		<coeff index="1" value="-0.00125"/>
+	</euPoly>
+	<euSegmented name="INA226CurrSeg_EU">
+		<segment low="32768" high="65535" eu="INA226CurrNeg_EU"/>
+		<segment low="0" high="32768" eu="INA226CurrPos_EU"/>
+	</euSegmented>
+
 	<euPoly name="INA226Volt_EU">
 		<coeff index="0" value="0"/>
 		<coeff index="1" value="0.00125"/>
@@ -41,6 +59,14 @@
 		<coeff index="3" value="-2.116e-07"/>
 		<coeff index="4" value="5.244e-11"/>
 		<coeff index="5" value="4.829e-15"/>
+	</euPoly>
+
+	<euPoly name="NTCS0805_IS1_EU">
+		<coeff index="0" value="9.139400e+001"/>
+	  <coeff index="1" value="-8.949320e-002"/>
+	  <coeff index="2" value="3.552560e-005"/>
+	  <coeff index="3" value="-6.263920e-009"/>
+	  <coeff index="4" value="1.891320e-013"/>
 	</euPoly>
 
 	<!-- Definition of engineering units for Thruster Hk parameters -->

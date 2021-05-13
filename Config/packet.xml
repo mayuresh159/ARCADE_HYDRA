@@ -98,7 +98,7 @@
       <itemDef name="EPSHk_Bat2Th4Temp" type="dn16l"/>
 
       <itemDef name="EPSHk_Padding_7b" type="dn7b" value="0x00"/>
-      <itemDef name="EPSHk_ThrusterPG" type="ON_OFF_inv_DictType"/>
+      <itemDef name="EPSHk_ThrusterPG" type="ON_OFF_DictType"/>
       <itemDef name="EPSHk_MPPT3Fault" type="FAULT_DictType"/>
       <itemDef name="EPSHk_MPPT3Chg" type="CHARGING_DictType"/>
       <itemDef name="EPSHk_MPPT2Fault" type="FAULT_DictType"/>

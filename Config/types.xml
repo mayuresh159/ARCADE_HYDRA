@@ -228,17 +228,17 @@
     <typeDouble name="double64l" endian="LITTLE"/>
 
     <!-- Define types calling the EPS EU polynomials -->
-    <typeEU name="INA3221Curr_EUType" size="16" endian="LITTLE" eu="INA3221Curr_EU"/>
+    <typeEU name="INA3221Curr_EUType" size="16" eu="INA3221CurrSeg_EU"/>
     <typeEU name="INA3221Volt_EUType" size="16" endian="LITTLE" eu="INA3221Volt_EU"/>
 
-    <typeEU name="INA226Curr_EUType" size="16" endian="LITTLE" eu="INA226Curr_EU"/>
+    <typeEU name="INA226Curr_EUType" size="16" endian="LITTLE" eu="INA226CurrSeg_EU"/>
     <typeEU name="INA226Volt_EUType" size="16" endian="LITTLE" eu="INA226Volt_EU"/>
 
     <typeEU name="VcellFG_EUType" size="16" endian="BIG" eu="VcellFG_EU"/>
     <typeEU name="SoCFG_EUType" size="16" endian="BIG" eu="SoCFG_EU"/>
     <typeEU name="Crate_EUType" size="16" endian="BIG" eu="Crate_EU"/>
 
-    <typeEU name="NTCS0805_EUType" size="12" eu="NTCS0805_EU"/>
+    <typeEU name="NTCS0805_EUType" size="12" eu="NTCS0805_IS1_EU"/>
 
     <!-- Define types calling the thruster EU polynomials -->
     <typeEU name="ThrusterSupplyVoltage_EUType" size="16" endian="LITTLE" eu="ThrusterSupplyVoltage_EU"/>
