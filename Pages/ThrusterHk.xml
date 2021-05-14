@@ -1,5 +1,6 @@
 <pageDef>
 	<size width="250" height="400"/>
+	<position x="525" y="300"/>
 	<!--<background color="Page_Background"/>
 	<text color="BLACK"/>
 	<font name="Times_New_Roman" size="12"/>-->

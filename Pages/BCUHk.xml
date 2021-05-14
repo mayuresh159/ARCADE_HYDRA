@@ -1,5 +1,6 @@
 <pageDef>
   <size width="300" height="700"/>
+  <position x="750" y="0"/>
 	<font name="Arial" size="8"/>
   <page title="BCU Housekeeping">
     <column>

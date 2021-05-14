@@ -1,5 +1,6 @@
 <pageDef>
   <size width="225" height="330"/>
+  <position x="550" y="0"/>
   <font name="Arial" size="8"/>
   <page title="CDH Housekeeping">
     <column>

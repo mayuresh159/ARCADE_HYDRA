@@ -1,5 +1,6 @@
 <pageDef>
   <size width="250" height="300"/>
+  <position x="50" y="375"/>
   <font name="Arial" size="8"/>
   <page title="SQ UHF Housekeeping">
     <column>
