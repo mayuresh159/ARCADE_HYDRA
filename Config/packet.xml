@@ -88,14 +88,22 @@
       <itemDef name="Channel8" type="dn4b"/>
       <itemDef name="EPSHk_SP3Temp" type="NTCS0805_EUType"/>
 
-      <itemDef name="EPSHk_Bat1Th1Temp" type="dn16l"/>
-      <itemDef name="EPSHk_Bat1Th2Temp" type="dn16l"/>
-      <itemDef name="EPSHk_Bat1Th3Temp" type="dn16l"/>
-      <itemDef name="EPSHk_Bat1Th4Temp" type="dn16l"/>
-      <itemDef name="EPSHk_Bat2Th1Temp" type="dn16l"/>
-      <itemDef name="EPSHk_Bat2Th2Temp" type="dn16l"/>
-      <itemDef name="EPSHk_Bat2Th3Temp" type="dn16l"/>
-      <itemDef name="EPSHk_Bat2Th4Temp" type="dn16l"/>
+      <item name="Channel1"/>
+      <itemDef name="EPSHk_Bat1Th1Temp" type="dn12l"/>
+      <item name="Channel2"/>
+      <itemDef name="EPSHk_Bat1Th2Temp" type="dn12l"/>
+      <item name="Channel3"/>
+      <itemDef name="EPSHk_Bat1Th3Temp" type="dn12l"/>
+      <item name="Channel4"/>
+      <itemDef name="EPSHk_Bat1Th4Temp" type="dn12l"/>
+      <item name="Channel5"/>
+      <itemDef name="EPSHk_Bat2Th1Temp" type="dn12l"/>
+      <item name="Channel6"/>
+      <itemDef name="EPSHk_Bat2Th2Temp" type="dn12l"/>
+      <item name="Channel7"/>
+      <itemDef name="EPSHk_Bat2Th3Temp" type="dn12l"/>
+      <item name="Channel8"/>
+      <itemDef name="EPSHk_Bat2Th4Temp" type="dn12l"/>
 
       <itemDef name="EPSHk_Padding_7b" type="dn7b" value="0x00"/>
       <itemDef name="EPSHk_ThrusterPG" type="ON_OFF_DictType"/>
