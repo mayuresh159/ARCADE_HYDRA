@@ -47,5 +47,21 @@
 	    <include>Config\radio.xml</include>
 	</configType>
 
-    <include>Config\external.xml</include>
+  <include>Config\external.xml</include>
+
+	<testing>
+	    <archiveDirectory path="EMtest"/>
+	    <resultFile name="EMtest/results.csv"/>
+	    <reportFile name="EMtest/report.xml"/>
+
+	    <version cmd="bash git_version.sh"/>
+	    <setup>
+	        init_stackHkTasks
+	    </setup>
+
+	    <teardown>
+	        <!--<script name="busyTest"/>-->
+	    </teardown>
+
+	</testing>
 </hydraDef>

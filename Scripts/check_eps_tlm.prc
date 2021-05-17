@@ -9,15 +9,35 @@
 ; MODIFICATION HISTORY:
 ;    2021-05-14: Mayuresh Sarpotdar - Created
 
-declare successCnt dn8
-declare failCnt dn8
+declare successCnt  dn16l
+declare failCnt     dn16l
 
 set successCnt = 0
 set failCnt = 0
 
+call init_stackHkTasks
+
 ; Check power supply regulators
 REG:
 echo Starting voltage regulator tests
+
+; Check CDH regulator voltage
+if EPSHk_CDHVolt >= 2
+  echo CDH Regulator nominal
+  set successCnt = successCnt + 1
+else
+  echo CDH Regulator failure
+  set failCnt = failCnt + 1
+endif
+
+; Check UHF regulator voltage
+if EPSHk_SQUHFVolt >= 5
+  echo UHF Regulator nominal
+  set successCnt = successCnt + 1
+else
+  echo UHF Regulator failure
+  set failCnt = failCnt + 1
+endif
 
 ; Enable Atmolite power supply
 SetATMLTPSEN
@@ -107,7 +127,7 @@ ClearXBandPSEN
 ; Thruster has different success criterion because thrload parameter cannot be read due to problem on I2C
 SetTHRPSEN
 wait 5000
-if EPSHk_ThrusterPG == ON
+if EPSHk_ThrusterPG == 1
   echo Thruster Regulator nominal
   set successCnt = successCnt + 1
 else
@@ -199,6 +219,8 @@ else
 endif
 ClearBat2Htr
 
+; Stop data acquisition to avoid creation of new files in common folder
+call stop_stackHkTasks
 
 END_CHECK:
 echo See above for any telemetry check error messages
