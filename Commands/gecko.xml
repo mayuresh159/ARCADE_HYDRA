@@ -154,15 +154,50 @@
     </field>
   </command>
 
-  <command name="StartImageCaptureTask" decoder="cmdDecoder">
+  <command name="RunCaptureImageTask" decoder="cmdDecoder">
     <header frame="IS4CmdHeader"/>
     <output name="subsystemAddr" value="#CDH_SUBSYSTEM_ADDR"/>
     <output name="replytype" value="#SIZE_REPLY"/>
     <output name="rxlen" value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Start the image capture task programmed in the CDH"/>
+    <description text="Start the image capture task for Gecko"/>
     <field>
-      <itemDef name="EnableImageTaskOpcode" type="dn8b" num="3" value="0x08 0x38 0x00"/>
+      <itemDef name="RunCaptureImageTaskOpcode" type="dn8b" num="4" value="0x08 0x38 0x01 0x00"/>
     </field>
   </command>
+
+  <command name="RunReadImageTask" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#SIZE_REPLY"/>
+    <output name="rxlen" value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Start the read image task for Gecko which transfers image data from internal buffer to eMMC memory"/>
+    <field>
+      <itemDef name="RunReadImageTaskOpcode" type="dn8b" num="4" value="0x08 0x39 0x01 0x00"/>
+    </field>
+  </command>
+
+  <command name="SetLoadEmmcFlagsForGeckoExp" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#SIZE_REPLY"/>
+    <output name="rxlen" value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Set load eMMC flags for Gecko image readout"/>
+    <field>
+      <itemDef name="SetLoadEmmcFlagsForGeckoExpOpcode" type="dn8b" num="9" value="0x03 0x04 0x2B 0x03 0x08 0x01 0x00 0x01 0x09"/>
+      <argument id="FsLoadSlotNo" type="dn8b"/>
+    </field>
+  </command>
+
+  <command name="RunEmmcLoadTask" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#SIZE_REPLY"/>
+    <output name="rxlen" value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Run eMMC load task to start fetching data from eMMC to ground"/>
+    <field>
+      <itemDef name="RunEmmcLoadTaskOpcode" type="dn8b" num="4" value="0x08 0x2B 0x01 0x01"/>
+    </field>
+  </command>
+
 
 </hydraDef>

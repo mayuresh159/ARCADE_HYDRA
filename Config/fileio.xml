@@ -16,4 +16,6 @@
 
 	<hwOutFile name="cmdSentFile" prefix="cmdSent" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
 
+	<hwOutFile name="GeckoDatafile" prefix="DataGecko" maxSize="#MAX_OUTPUT_FILE_SIZE"/>
+
 </hydraDef>

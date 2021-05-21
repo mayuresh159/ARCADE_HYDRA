@@ -6,7 +6,8 @@
     parity="#INSTR_SERIAL_PARITY"
     stopbits="#INSTR_SERIAL_STOP"/>
 
-    <!-- Decoder definitions -->
+  <!-- Decoder definitions -->
+  <!-- Packet decoder -->
 	<decoderDef name="CCSDSDecoder" updateDB="true">
 		<frameID name="CCSDSHeader.APID"/>
     <outputDevice name="EPSlogfile" frameID="#EPS_HK_APID" enabled="false"/>
@@ -20,6 +21,7 @@
     <outputDevice name="Atmolitelogfile" frameID="#ATM_HK_APID" enabled="false"/>
 	</decoderDef>
 
+  <!-- Command decoder to forward the commands to debug serial -->
 	<decoderDef name="cmdDecoder">
 	    <description text="Send command to hardline serial"/>
 		<outBuffer size="1024"/>
@@ -27,6 +29,15 @@
 	  <outputDevice name="cmdSentFile"/>
   </decoderDef>
 
+  <!-- Raw data decoder -->
+  <decoderDef name="GeckoDataDecoder">
+    <description text="Decoder to send the Gecko image data to a binary dump file"/>
+    <outBuffer size="1024"/>
+    <outputDevice name="GeckoDatafile" enabled="false"/>
+  </decoderDef>
+
+
+  <!-- Readers to be used in the code -->
 	<readerHeader	name="ARCADEHeaderReader"
 		headerSize="9"
 		maxSize="255"
@@ -38,5 +49,13 @@
 		<sync length="3" pattern="#SERIAL_SYNC_PATTERN"/>
 		<description text="Reads telemetry packets from serial hardline"/>
 	</readerHeader>
+
+  <readerFixed name="GeckoDataReader"
+    size="1"
+    hw="Comm_Serial"
+    decoder="GeckoDataDecoder"
+    autostart="false">
+    <description text="Reads image raw data from Gecko once the download command is sent"/>
+  </readerFixed>
 
 </hydraDef>

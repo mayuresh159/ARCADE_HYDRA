@@ -24,7 +24,10 @@
       <cmd name="SetFrameRate"/>
       <cmd name="SetOffsetGain"/>
       <cmd name="SetExposureTime"/>
-      <cmd name="StartImageCaptureTask"/>
+      <cmd name="RunCaptureImageTask"/>
+      <cmd name="RunReadImageTask"/>
+      <cmd name="SetLoadEmmcFlagsForGeckoExp"/>
+      <cmd name="RunEmmcLoadTask"/>
     </menu>
     <menu name="Atmolite">
       <cmd name="SetATMLTTREN"/>
