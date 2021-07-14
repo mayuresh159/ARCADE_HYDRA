@@ -34,7 +34,7 @@ RunReadImageTask
 wait 300000
 
 ; FS set flags for load eMMC task for Gecko data transfer
-SetLoadEmmcFlagsForGeckoExp
+SetLoadEmmcFlagsForGeckoExp FsLoadSlotNo 0
 
 ; Disable the rest of the debug packets, ARCADEHeaderReader and CCSDSDecoder
 call stop_stackHkTasks

@@ -1,0 +1,103 @@
+<hydraDef>
+
+  <!-- System Voltages -->
+  <monitorRange name="Xband_Supply"   item="EPSHk_XBandVolt"    color="green"   enabled="true"  bound="inside"  low="11"  high="13"/>
+  <monitorRange name="UHF_Supply"   item="EPSHk_SQUHFVolt"    color="green"   enabled="true"  bound="inside"  low="5"  high="7"/>
+  <monitorRange name="ADCS_Supply"   item="EPSHk_ADCSVolt"    color="green"   enabled="true"  bound="inside"  low="11"  high="13"/>
+  <monitorRange name="CDH_Supply"   item="EPSHk_CDHVolt"    color="green"   enabled="true"  bound="inside"  low="3"  high="4"/>
+
+  <!-- Payload Voltages -->
+  <monitorRange name="Atmolite_Supply"   item="EPSHk_ATMVolt"    color="green"   enabled="true"  bound="inside"  low="11"  high="13"/>
+  <monitorRange name="CIP_Supply"   item="EPSHk_CIPVolt"    color="green"   enabled="true"  bound="inside"  low="11"  high="13"/>
+  <monitorRange name="Gecko_Supply"   item="EPSHk_GeckoVolt"    color="green"   enabled="true"  bound="inside"  low="4"  high="6"/>
+
+  <!-- MPPT Charges -->
+  <monitorState name="MPPT0_C"    item="EPSHk_MPPT0Chg"   color="green"   enabled="true"    state="CHG_ON"/>
+  <monitorState name="MPPT1_C"    item="EPSHk_MPPT1Chg"   color="green"   enabled="true"    state="CHG_ON"/>
+  <monitorState name="MPPT2_C"    item="EPSHk_MPPT2Chg"   color="green"   enabled="true"    state="CHG_ON"/>
+  <monitorState name="MPPT3_C"    item="EPSHk_MPPT3Chg"   color="green"   enabled="true"    state="CHG_ON"/>
+
+  <monitorState name="MPPT0_F"    item="EPSHk_MPPT0Fault"   color="red"   enabled="true"    state="FAULT"/>
+  <monitorState name="MPPT1_F"    item="EPSHk_MPPT1Fault"   color="red"   enabled="true"    state="FAULT"/>
+  <monitorState name="MPPT2_F"    item="EPSHk_MPPT2Fault"   color="red"   enabled="true"    state="FAULT"/>
+  <monitorState name="MPPT3_F"    item="EPSHk_MPPT3Fault"   color="red"   enabled="true"    state="FAULT"/>
+
+  <!-- Solar panels -->
+  <monitorRange name="SP0"   item="BCUHk_SP0Volt"    color="green"   enabled="true"  bound="inside"  low="18"  high="19"/>
+  <monitorRange name="SP1"   item="BCUHk_SP1Volt"    color="green"   enabled="true"  bound="inside"  low="18"  high="19"/>
+  <monitorRange name="SP2"   item="BCUHk_SP2Volt"    color="green"   enabled="true"  bound="inside"  low="18"  high="19"/>
+  <monitorRange name="SP3"   item="BCUHk_SP3Volt"    color="green"   enabled="true"  bound="inside"  low="18"  high="19"/>
+
+  <!-- Batteries -->
+  <monitorRange name="Bat_voltgood"   item="BCUHk_MainBatChgVolt"    color="green"   enabled="true"  bound="inside"  low="7.8"  high="8.4"/>
+  <monitorRange name="Bat_voltbad"   item="BCUHk_MainBatChgVolt"    color="red"   enabled="true"  bound="outside"  low="7.8"  high="8.4"/>
+  <monitorRange name="Bat_soc_nominal"   item="BCUHk_MainBatSoC"    color="green"   enabled="true"  bound="inside"  low="85"  high="100"/>
+  <monitorRange name="Bat_soc_safe"   item="BCUHk_MainBatSoC"    color="yellow"   enabled="true"  bound="inside"  low="55"  high="85"/>
+  <monitorRange name="Bat_soc_pheonix"   item="BCUHk_MainBatSoC"    color="red"   enabled="true"  bound="inside"  low="0"  high="55"/>
+
+  <monitorRange name="TBat_voltgood"   item="BCUHk_ThrBatChgVolt"    color="green"   enabled="true"  bound="inside"  low="7.8"  high="8.4"/>
+  <monitorRange name="TBat_voltbad"   item="BCUHk_ThrBatChgVolt"    color="red"   enabled="true"  bound="outside"  low="7.8"  high="8.4"/>
+
+  <!-- Atmolite -->
+  <monitorRange name="Atmolite_Supply1"   item="AtmHk_SysPwrVolt"    color="green"   enabled="true"  bound="inside"  low="11"  high="13"/>
+  <monitorRange name="Atmolite_fee3v3"   item="AtmHk_FEE3v3Volt"    color="green"   enabled="true"  bound="inside"  low="3"  high="4"/>
+  <monitorRange name="Atmolite_feecold3v3"   item="AtmHk_FEE3v3ColdVolt"    color="green"   enabled="true"  bound="inside"  low="3"  high="4"/>
+  <monitorRange name="Atmolite_pxe13v3"   item="AtmHk_PXE13v3Volt"    color="green"   enabled="true"  bound="inside"  low="3"  high="4"/>
+  <monitorRange name="Atmolite_pxe11v8"   item="AtmHk_PXE11v8Volt"    color="green"   enabled="true"  bound="inside"  low="1"  high="2"/>
+  <monitorRange name="Atmolite_pxe112v"   item="AtmHk_PXE12v0Volt"    color="green"   enabled="true"  bound="inside"  low="11"  high="13"/>
+  <monitorRange name="Atmolite_pxe23v3"   item="AtmHk_PXE23v3Volt"    color="green"   enabled="true"  bound="inside"  low="3"  high="4"/>
+  <monitorRange name="Atmolite_pxe21v8"   item="AtmHk_PXE21v8Volt"    color="green"   enabled="true"  bound="inside"  low="1"  high="2"/>
+  <monitorRange name="Atmolite_pxe212v"   item="AtmHk_PXE22v8Volt"    color="green"   enabled="true"  bound="inside"  low="11"  high="13"/>
+
+  <!-- Gecko -->
+  <monitorRange name="GeckoHk_IN5vVolt"   item="GeckoHk_IN5vVolt"    color="green"   enabled="true"  bound="inside"  low="4"  high="6"/>
+  <monitorRange name="GeckoHk_FP3v3Volt"   item="GeckoHk_FP3v3Volt"    color="green"   enabled="true"  bound="inside"  low="3"  high="4"/>
+  <monitorRange name="GeckoHk_FL3v3Volt"   item="GeckoHk_FL3v3Volt"    color="green"   enabled="true"  bound="inside"  low="3"  high="4"/>
+  <monitorRange name="GeckoHk_IS3v3Volt"   item="GeckoHk_IS3v3Volt"    color="green"   enabled="true"  bound="inside"  low="3"  high="4"/>
+
+  <!-- Thruster -->
+  <monitorRange name="ThrusterHk_SupplyVoltage"   item="ThrusterHk_SupplyVoltage"    color="green"   enabled="true"  bound="inside"  low="11"  high="13"/>
+
+  <monitorState name="ThrusterHk_FiringMode1"    item="ThrusterHk_FiringMode"   color="green"   enabled="true"    state="NORMAL"/>
+  <monitorState name="ThrusterHk_FiringMode2"    item="ThrusterHk_FiringMode"   color="red"   enabled="true"    state="FULL_CAPACITY"/>
+  <monitorState name="ThrusterHk_FiringMode3"    item="ThrusterHk_FiringMode"   color="yellow"   enabled="true"    state="FAIL_SAFE"/>
+
+  <monitorState name="ThrusterHk_Status0"    item="ThrusterHk_Status"   color="yellow"   enabled="true"    state="STANDBY"/>
+  <monitorState name="ThrusterHk_Status1"    item="ThrusterHk_Status"   color="orange"   enabled="true"    state="SELF_TEST"/>
+  <monitorState name="ThrusterHk_Status2"    item="ThrusterHk_Status"   color="red"   enabled="true"    state="IGNITION"/>
+  <monitorState name="ThrusterHk_Status3"    item="ThrusterHk_Status"   color="blue"   enabled="true"    state="PREPARATION"/>
+  <monitorState name="ThrusterHk_Status4"    item="ThrusterHk_Status"   color="green"   enabled="true"    state="OPERATION"/>
+  <monitorState name="ThrusterHk_Status5"    item="ThrusterHk_Status"   color="cyan"   enabled="true"    state="GROUND_TEST"/>
+
+  <monitorRange name="ThrusterHk_ThrustValue1"   item="ThrusterHk_ThrustValue"    color="green"   enabled="true"  bound="inside"  low="0.7"  high="0.8"/>
+  <monitorRange name="ThrusterHk_ThrustValue2"   item="ThrusterHk_ThrustValue"    color="red"   enabled="true"  bound="outside"  low="0.7"  high="0.8"/>
+
+  <!-- Xband -->
+  <monitorState name="XBandHk_SystemState0"    item="XBandHk_SystemState"   color="yellow"   enabled="true"    state="SYS_AFTER_RESET"/>
+  <monitorState name="XBandHk_SystemState1"    item="XBandHk_SystemState"   color="green"   enabled="true"    state="SYS_IDLE_MODE"/>
+  <monitorState name="XBandHk_SystemState2"    item="XBandHk_SystemState"   color="red"   enabled="true"    state="SYS_TRANSMISSION_MODE"/>
+  <monitorState name="XBandHk_SystemState3"    item="XBandHk_SystemState"   color="blue"   enabled="true"    state="SYS_TO_SHUTDOWN"/>
+
+  <!-- Stale monitors -->
+  <!-- <monitorStale item="BCUHk_ThrBatChgVolt"    interval="120000"   enabled="true"/>
+  <monitorStale item="BCUHk_MainBatChgVolt"    interval="120000"   enabled="true"/>
+  <monitorStale item="BCUHk_SP0Volt"    interval="120000"   enabled="true"/>
+  <monitorStale item="BCUHk_SP1Volt"    interval="120000"   enabled="true"/>
+  <monitorStale item="BCUHk_SP2Volt"    interval="120000"   enabled="true"/>
+  <monitorStale item="BCUHk_SP3Volt"    interval="120000"   enabled="true"/>
+  <monitorStale item="CDHHk_ObcTime"    interval="120000"   enabled="true"/>
+  <monitorStale item="CDHHk_BeaconCount"    interval="120000"   enabled="true"/>
+  <monitorStale item="XBandHk_CPUTemperature"    interval="120000"   enabled="true"/>
+  <monitorStale item="AtmHk_SysPwrVolt"    interval="120000"   enabled="true"/>
+  <monitorStale item="EPSHk_CDHVolt"    interval="120000"   enabled="true"/>
+  <monitorStale item="EPSHk_SQUHFVolt"    interval="120000"   enabled="true"/>
+  <monitorStale item="EPSHk_XBandVolt"    interval="120000"   enabled="true"/>
+  <monitorStale item="EPSHk_ADCSVolt"    interval="120000"   enabled="true"/>
+  <monitorStale item="EPSHk_ATMVolt"    interval="120000"   enabled="true"/>
+  <monitorStale item="EPSHk_CIPVolt"    interval="120000"   enabled="true"/>
+  <monitorStale item="EPSHk_GeckoVolt"    interval="120000"   enabled="true"/>
+  <monitorStale item="GeckoHk_IN5vVolt"    interval="120000"   enabled="true"/>
+  <monitorStale item="SQUHFHk_Temperature"    interval="120000"   enabled="true"/>
+  <monitorStale item="ThrusterHk_SupplyVoltage"    interval="120000"   enabled="true"/> -->
+
+</hydraDef>

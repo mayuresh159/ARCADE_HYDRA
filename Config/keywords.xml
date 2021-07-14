@@ -21,7 +21,7 @@
     <keyword str="AX25_CMD_ADDR" value="0x92 0xA6 0x5A 0x62 0x40 0x40 0x60 0x84 0x86 0xa8 0x40 0x40 0x40 0xE1"/>
 
     <!-- Hardline serial port config -->
-    <keyword str="INSTR_SERIAL_PORT" value="COM31"/>
+    <keyword str="INSTR_SERIAL_PORT" value="COM7"/>
     <keyword str="INSTR_SERIAL_BAUD" value="500000"/>
     <keyword str="INSTR_SERIAL_PARITY" value="NONE"/>
     <keyword str="INSTR_SERIAL_STOP" value="1"/>

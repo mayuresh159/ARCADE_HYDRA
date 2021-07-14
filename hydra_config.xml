@@ -27,6 +27,7 @@
 	<include>Commands\gpio.xml</include>
 	<include>Config\commandbasics.xml</include>
 	<include>Config\fileio.xml</include>
+	<include>Config\monitors.xml</include>
 	<!-- Include commands folder -->
 	<include>Commands\debug.xml</include>
 	<include>Commands\cdh.xml</include>
@@ -38,6 +39,7 @@
 	<include>Commands\squhf.xml</include>
 	<include>Commands\proccomp.xml</include>
 	<include>Commands\xband.xml</include>
+
 
 	<configType name="Serial">
 	    <include>Config\serial.xml</include>

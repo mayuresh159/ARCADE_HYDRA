@@ -1,0 +1,174 @@
+<pageDef>
+
+  <size width="1500" height="1400"/>
+  <background color="BLACK"/>
+	<text color="WHITE"/>
+	<font name="Consolas" size="9"/>
+  <page title="All Telemetry">
+
+    <column>
+      <section name="On-board Computer">
+        <row item="CDHHk_SyncWord" label="SyncWord" format="HEX"/>
+        <row item="CDHHk_APID" label="ApID" format="HEX"/>
+        <row item="CDHHk_SeqNumber" label="SeqNumber"/>
+        <row item="CDHHk_ObcTime" label="OBC_Time"/>
+        <row item="CDHHk_CurrentOpMode" label="OBC_Mode"/>
+        <row item="CDHHk_ValidCommandCounter" label="Valid_Commands"/>
+        <row item="CDHHk_BeaconCount" label="Beacon_Count"/>
+      </section>
+
+      <section name="Processor Companion">
+        <row item="ProcCompHk_SeqNumber" label="SeqNumber"/>
+        <row item="ProcCompHk_PacketSize" label="PacketSize"/>
+        <spacer/>
+        <row item="ProcCompHk_DateofMonth" label="RTC_Date" format="HEX"/>
+        <row item="ProcCompHk_Month" label="RTC_Month" format="HEX"/>
+        <row item="ProcCompHk_Year" label="RTC_Year" format="HEX"/>
+        <row item="ProcCompHk_Hours" label="RTC_Hours" format="HEX"/>
+        <row item="ProcCompHk_Minutes" label="RTC_Minutes" format="HEX"/>
+        <row item="ProcCompHk_Seconds" label="RTC_Seconds" format="HEX"/>
+      </section>
+
+
+    </column>
+
+    <column>
+      <section name="Battery Charging Unit">
+        <row item="BCUHk_SeqNumber" label="Sequence Number"/>
+        <row item="BCUHk_PacketSize"  label = "Packet Size"/>
+        <spacer/>
+        <row item="BCUHk_SP0Curr"  label="SP0 Current" units="A"/>
+        <row item="BCUHk_SP0Volt"  label="SP0 Voltage" units="V"/>
+        <row item="BCUHk_SP1Curr"  label="SP1 Current" units="A"/>
+        <row item="BCUHk_SP1Volt"  label="SP1 Voltage" units="V"/>
+        <row item="BCUHk_SP2Curr"  label="SP2 Current" units="A"/>
+        <row item="BCUHk_SP2Volt"  label="SP2 Voltage" units="V"/>
+        <row item="BCUHk_SP3Curr"  label="SP3 Current" units="A"/>
+        <row item="BCUHk_SP3Volt"  label="SP3 Voltage" units="V"/>
+        <spacer/>
+        <row item="BCUHk_MainBatChgCurr"    label="Main Battery Pack Charge Current"    units="A"/>
+        <row item="BCUHk_MainBatChgVolt"    label="Main Battery Pack Voltage"    units="V"/>
+        <row item="BCUHk_MainBatVolt" label="Single Battery Voltage"    units="V"/>
+        <spacer/>
+        <row item="BCUHk_ThrBatChgCurr"    label="Thruster Battery Pack Charge Current"    units="A"/>
+        <row item="BCUHk_ThrBatChgVolt"    label="Thruster Battery Pack Charge Voltage"    units="V"/>
+        <row item="BCUHk_ThrBatVolt"    label="Single Battery Voltage"    units="V"/>
+      </section>
+
+      <section name="Power Distribution Unit">
+        <row item="EPSHk_SeqNumber" label="SeqNumber"/>
+        <row item="EPSHk_PacketSize" label="PacketSize"/>
+        <spacer/>
+        <row item="EPSHk_CDHVolt" label="CDH Voltage" units="V"/>
+				<row item="EPSHk_CDHCurr" label="CDH Current"	units="A"/>
+				<row item="EPSHk_SQUHFVolt" label="UHF Voltage"	units="V"/>
+				<row item="EPSHk_SQUHFCurr" label="UHF Current"	units="A"/>
+				<row item="EPSHk_XBandVolt" label="XBand Voltage"	units="V"/>
+				<row item="EPSHk_XBandCurr" label="XBand Current"	units="A"/>
+        <row item="EPSHk_ADCSVolt" label="ADCS Voltage" units="V"/>
+				<row item="EPSHk_ADCSCurr" label="ADCS Current"	units="A"/>
+        <row item="EPSHk_ThrusterPG" 	label="Thruster Power"/>
+        <spacer/>
+        <row item="EPSHk_ATMVolt" label="Atmolite Voltage"		units="V"/>
+				<row item="EPSHk_ATMCurr" label="Atmolite Current"		units="A"/>
+				<row item="EPSHk_CIPVolt" label="CIP Voltage"					units="V"/>
+				<row item="EPSHk_CIPCurr" label="CIP Current"					units="A"/>
+				<row item="EPSHk_GeckoVolt" label="Gecko Voltage"			units="V"/>
+				<row item="EPSHk_GeckoCurr" label="Gecko Current"			units="A"/>
+        <spacer/>
+
+
+      </section>
+
+
+
+
+    </column>
+
+    <column>
+
+      <section name="UHF Telemetry Telecommand Unit">
+        <row item="SQUHFHk_SeqNumber" label="SeqNumber"/>
+        <row item="SQUHFHk_PacketSize" label="PacketSize"/>
+        <spacer/>
+        <row item="SQUHFHk_Channel" label="Channel"/>
+        <row item="SQUHFHk_Temperature" label="Temperature"   units="C"/>
+        <row item="SQUHFHk_AFC" label="AFC"/>
+        <row item="SQUHFHk_RSSI" label="RSSI"/>
+        <row item="SQUHFHk_SwdFlag" label="SyncWordFlag"/>
+      </section>
+
+      <section name="X-Band High Speed Communication Unit">
+        <row item="XBandHk_SeqNumber" label="SeqNumber"/>
+        <row item="XBandHk_PacketSize" label="PacketSize"/>
+        <spacer/>
+        <row item="XBandHk_SystemState" label="Sys_State"/>
+        <row item="XBandHk_PATemperature" label="PowerAmp_Temp"   units="C"/>
+        <row item="XBandHk_MeasuredTxPower" label="Measured_TxPower"    units="dB"/>
+        <row item="XBandHk_CPUTemperature" label="CPU_Temp"   units="C"/>
+      </section>
+    </column>
+
+    <column>
+
+      <section name="ADCS">
+      </section>
+
+      <section name="Thruster">
+        <row item="ThrusterHk_SeqNumber" label="SeqNumber"/>
+        <row item="ThrusterHk_PacketSize" label="PacketSize"/>
+        <spacer/>
+        <row item="ThrusterHk_TelemetryRequestCount" label="Tlm_Request_Count"/>
+        <row item="ThrusterHk_CorrectFrameCount" label="Correct_Frame_Count"/>
+        <row item="ThrusterHk_LatestCommand" label="Latest_Command"/>
+        <row item="ThrusterHk_Status" label="Status"/>
+        <row item="ThrusterHk_SupplyVoltage" label="Supply_Voltage"     units="V"/>
+        <row item="ThrusterHk_CurrentConsumption" label="Current_Consumption"   units="A"/>
+        <row item="ThrusterHk_FiringMode" label="Firing_Mode"/>
+        <row item="ThrusterHk_ThrustValue" label="Thrust_Value"   units="mN"/>
+      </section>
+    </column>
+
+    <column>
+      <section name="AtmoLITE Spatial Heterodyne Limb Imager">
+        <row item="AtmHk_SeqNumber"   label="Sequence Number"/>
+        <row item="AtmHk_PacketSize"  label="Packet Size"/>
+        <spacer/>
+        <row item="AtmHk_SysPwrVolt"    label="SIB System Voltage"  units="V"/>
+        <row item ="AtmHk_SysPwrCurr"   label="SIB System Current"  units="mA"/>
+        <row item="AtmHk_FEE3v3Volt"    label="FEE 3v3 Voltage" units="V"/>
+        <row item="AtmHk_FEE3v3Curr"    label="FEE 3v3 Current" units="mA"/>
+        <row item="AtmHk_PXE13v3Volt"       label="PXE1 3v3 Voltage" units="V"/>
+        <row item="AtmHk_PXE13v3Curr"       label="PXE1 3v3 Current" units="mA"/>
+        <row item="AtmHk_PXE11v8Volt"       label="PXE1 1v8 Voltage" units="V"/>
+        <row item="AtmHk_PXE11v8Curr"       label="PXE1 1v8 Current" units="mA"/>
+        <row item="AtmHk_PXE12v0Volt"       label="PXE1 12v Voltage" units="V"/>
+        <row item="AtmHk_PXE12v0Curr"       label="PXE1 12v Current" units="mA"/>
+        <row item="AtmHk_PXE23v3Volt"     label="PXE2 3v3 Voltage" units="V"/>
+        <row item="AtmHk_PXE23v3Curr"     label="PXE2 3v3 Current" units="mA"/>
+        <row item="AtmHk_PXE21v8Volt"   label="PXE2 1v8 Voltage"   units="V"/>
+        <row item="AtmHk_PXE21v8Curr"   label="PXE2 1v8 Current"   units="mA"/>
+        <row item="AtmHk_PXE22v8Volt"   label="PXE2 2v8 Voltage"   units="V"/>
+        <row item="AtmHk_PXE22v8Curr"   label="PXE2 2v8 Current"   units="mA"/>
+      </section>
+
+      <section name="Gecko RGB Nadir Imager">
+        <row item="GeckoHk_SeqNumber" label="SeqNumber"/>
+        <row item="GeckoHk_PacketSize" label="PacketSize"/>
+        <spacer/>
+        <row item="GeckoHk_Uptime" label="Up_Time"/>
+        <row item="GeckoHk_IN5vVolt" label="In_5V_Volt"/>
+        <row item="GeckoHk_IN5vCurr" label="In_5V_Curr"/>
+        <row item="GeckoHk_FP3v3Volt" label="FPGA_3v3_Volt"/>
+        <row item="GeckoHk_FP3v3Curr" label="FPGA_3v3_Curr"/>
+        <row item="GeckoHk_FL3v3Volt" label="Flash_3v3_Volt"/>
+        <row item="GeckoHk_FL3v3Curr" label="Flash_3v3_Curr"/>
+        <row item="GeckoHk_IS3v3Volt" label="Sensor_3v3_Volt"/>
+        <row item="GeckoHk_IS3v3Curr" label="Sensor_3v3_Curr"/>
+      </section>
+    </column>
+
+  </page>
+
+
+</pageDef>
