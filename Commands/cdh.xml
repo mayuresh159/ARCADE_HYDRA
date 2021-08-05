@@ -17,6 +17,16 @@
   <keyword str="SP2DepTaskID"     value="0x49"/>
   <keyword str="SP3DepTaskID"     value="0x4A"/>
 
+  <keyword str="SQUHFBeaconTaskID" value="0x52"/>
+
+
+  <itemDef name="Ping_OpCode" type="dn8" value="0x01"/>
+  <itemDef name="Get_Opcode" type="dn8" value="0x02"/>
+  <itemDef name="Set_Opcode" type="dn8" value="0x03"/>
+  <itemDef name="CreateAx25_Opcode" type="dn8b" value="0x10"/>
+
+  <itemDef name="FSPars_FnCode" type="dn8" value="0x07"/>
+  <itemDef name="TaskID_Fncode" type="dn8" value="0x04"/>
 
   <command name="Ping" decoder="cmdDecoder">
     <header frame="IS4CmdHeader"/>
@@ -25,9 +35,120 @@
     <output name="rxlen"          value="#SW_VER_REPLY_LENGTH"/>
     <description text="Ping command to test basic working of the CDH"/>
     <field>
-      <itemDef name="Ping_OpCode" type="dn8" value="1"/>
+      <item name="Ping_OpCode"/>
     </field>
   </command>
+
+  <command name="GetTime" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="6"/>
+    <description text="Get OBC Time in TAI format number of seconds"/>
+    <field>
+      <item name="Get_Opcode"/>
+      <itemDef name="Time_Fncode" type="dn8b" value="0x00"/>
+    </field>
+  </command>
+
+  <command name="SetTime" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Set OBC Time in TAI, format number of seconds since 1-Jan-1970"/>
+    <field>
+      <item name="Set_Opcode"/>
+      <item name="Time_Fncode"/>
+      <argument id="TAITime" type="dn32l"/>
+    </field>
+  </command>
+
+  <command name="GetPars" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Get flight software parameters at specific offset and of specific length"/>
+    <field>
+      <item name="Get_Opcode"/>
+      <item name="FSPars_FnCode"/>
+      <argument id="Offset" type="dn8b"/>
+      <argument id="Length" type="dn8b"/>
+    </field>
+  </command>
+
+  <command name="SetPars" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Set flight software parameters at specific offset and of specific length"/>
+    <field>
+      <item name="Set_Opcode"/>
+      <item name="FSPars_FnCode"/>
+      <argument id="Offset" type="dn8b"/>
+      <argument id="Length" type="dn8b"/>
+      <argument id="Argument" type="dn8b"/> <!-- Fspars argument is supposed to be variable length value -->
+    </field>
+  </command>
+
+  <command name="SetTaskFlags" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Set flight software task flags for specific taskID"/>
+    <field>
+      <item name="Set_Opcode"/>
+      <item name="TaskID_Fncode"/>
+      <argument id="TaskID" type="dn8"/>
+      <argument id="Offset" type="dn8"/>
+      <argument id="Length" type="dn8"/>
+      <argument id="Flags" type="dn32b"/> <!-- Flags argument is supposed to be variable length value -->
+    </field>
+  </command>
+
+
+  <!-- SQUHF related functionality commands for the CDH -->
+  <command name="GetMaxTimeSingleSqUhfTx" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="6"/>
+    <description text="Command to get maximum time allowed for a single SQUHFTx mode. Default: 0xA0BB0D00 (900,000ms)"/>
+    <field>
+      <item name="Get_Opcode"/>
+      <item name="FSPars_FnCode"/>
+      <itemDef name="MaxTimeSingleSQUHFTx_offset" type="dn16b" value="0x30"/>
+      <itemDef name="MaxTimeSingleSQUHFTx_len" type="dn16b" value="0x04"/>
+    </field>
+  </command>
+
+  <command name="SetMaxTimeSingleSqUhfTx" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Command to Set maximum time allowed for a single SQUHFTx mode. Default: 0xA0BB0D00 (900,000ms)"/>
+    <field>
+      <item name="Set_Opcode"/>
+      <item name="FSPars_FnCode"/>
+      <item name="MaxTimeSingleSQUHFTx_offset"/>
+      <item name="MaxTimeSingleSQUHFTx_len"/>
+      <argument id="MaxTimeSingleSQUHFTx" type="dn32l"/>
+    </field>
+  </command>
+
+  <alias name="SetMaxTimeSingleSqUhfTx10s" command="SetMaxTimeSingleSqUhfTx">
+    <argument id="MaxTimeSingleSQUHFTx" value="10000"/>
+  </alias>
+
+  <alias name="SetMaxTimeSingleSqUhfTxDefault" command="SetMaxTimeSingleSqUhfTx">
+    <argument id="MaxTimeSingleSQUHFTx" value="900000"/>
+  </alias>
+
+
 
   <!-- Commands to enable/disable/run tasks with specific task IDs -->
   <command name="EnableDisableTask" decoder="cmdDecoder">
@@ -46,7 +167,7 @@
   <frameDef name="EnableDisableTask_Header" decoder="cmdDecoder">
     <header frame="IS4CmdHeader"/>
     <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
-    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="replytype"       value="#SIZE_REPLY"/>
     <output name="rxlen"          value="#ERROR_CODE_REPLY_LENGTH"/>
     <description text="Command header for enable or disable task commands based on task ID"/>
     <field>
@@ -115,14 +236,14 @@
     <description text="Command to stop Thruster hk task"/>
   </command>
 
-  <command name="RunUHFHkTask" decoder="cmdDecoder">
+  <command name="RunSQUHFHkTask" decoder="cmdDecoder">
     <header frame="EnableDisableTask_Header"/>
     <output name="TaskID"  value="#SQUHFHkTaskID"/>
     <output name="EnableDisable" value="#Task_Enable"/>
     <description text="Command to run UHF hk task"/>
   </command>
 
-  <command name="StopUHFHkTask" decoder="cmdDecoder">
+  <command name="StopSQUHFHkTask" decoder="cmdDecoder">
     <header frame="EnableDisableTask_Header"/>
     <output name="TaskID" value="#SQUHFHkTaskID"/>
     <output name="EnableDisable" value="#Task_Disable"/>
@@ -228,6 +349,67 @@
     <output name="TaskID" value="#SP3DepTaskID"/>
     <output name="EnableDisable" value="#Task_Disable"/>
     <description text="Command to stop SP3 deployment task"/>
+  </command>
+
+  <!-- SQ UHF beacon task enable disable commands -->
+  <command name="RunSqUhfBeaconTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID" value="#SQUHFBeaconTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
+    <description text="Command to enable UHF beacons"/>
+  </command>
+
+  <command name="StopSqUhfBeaconTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID" value="#SQUHFBeaconTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to disable UHF beacons"/>
+  </command>
+
+  <command name="CreateAx25FrameDummy" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#SIZE_REPLY"/>
+    <output name="rxlen" value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Create dummy AX.25 frame for testing transmission through SQUHF"/>
+    <field>
+      <item name="CreateAx25_Opcode"/>
+      <itemDef name="DummyData" num="9" value="0x31 0x32 0x33 0x34 0x35 0x36 0x37 0x38 0x39"/>
+    </field>
+  </command>
+
+  <command name="SetAx25CallSignCtrls" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#SIZE_REPLY"/>
+    <output name="rxlen" value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Command to set GDSN + Satellite calls signs + Ctrl bytes for AX25 frame"/>
+    <field>
+      <item name="Set_Opcode"/>
+      <item name="FSPars_FnCode"/>
+      <itemDef name="GDSNCallSign_offset" type="dn16b" value="0x20"/>
+      <itemDef name="AX25Hdr_length" type="dn16b" value="0x10"/>
+      <argument id="GDSNCallSign" type="dn8" num="7"/>
+      <argument id="SatCallSign" type="dn8" num="7"/>
+      <itemDef name="AX25CtrlBytes" type="dn8" num="2" value="0x03 0xF0"/>
+    </field>
+  </command>
+
+  <alias name="SetAx25CallSignCtrlsDefault" command="SetAx25CallSignCtrls">
+    <argument id="GDSNCallSign" value="0x82 0xA4 0x86 0x82 0x88 0x8A 0xE1"/>
+    <argument id="SatCallSign" value="0x82 0x70 0x8E 0xA6 0x64 0x62 0x60"/>
+  </alias>
+
+  <!-- DMA task commands -->
+  <command name="RunEmmcLoadTask" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype" value="#SIZE_REPLY"/>
+    <output name="rxlen" value="#ERROR_CODE_REPLY_LENGTH"/>
+    <description text="Run eMMC load task to start fetching data from eMMC to ground"/>
+    <field>
+      <itemDef name="RunEmmcLoadTaskOpcode" type="dn8b" num="4" value="0x08 0x2B 0x01 0x01"/>
+    </field>
   </command>
 
 </hydraDef>

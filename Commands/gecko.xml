@@ -188,16 +188,4 @@
     </field>
   </command>
 
-  <command name="RunEmmcLoadTask" decoder="cmdDecoder">
-    <header frame="IS4CmdHeader"/>
-    <output name="subsystemAddr" value="#CDH_SUBSYSTEM_ADDR"/>
-    <output name="replytype" value="#SIZE_REPLY"/>
-    <output name="rxlen" value="#ERROR_CODE_REPLY_LENGTH"/>
-    <description text="Run eMMC load task to start fetching data from eMMC to ground"/>
-    <field>
-      <itemDef name="RunEmmcLoadTaskOpcode" type="dn8b" num="4" value="0x08 0x2B 0x01 0x01"/>
-    </field>
-  </command>
-
-
 </hydraDef>

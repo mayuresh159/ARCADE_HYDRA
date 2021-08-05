@@ -1,11 +1,23 @@
 <hydraDef>
 
+  <keyword str="SQUHFBeaconTaskID" value="0x52"/>
+  <keyword str="SQUHFDownstreamTaskID" value="0x53"/>
+
+
   <command name="EnableSQUHF" decoder="cmdDecoder">
     <header frame="SetGPIOCommand_Header"/>
     <output name="instance" value="#UHF_RADIO_GPIO_INSTANCE"/>
     <output name="pin"      value="0"/>
     <output name="state"    value="#GPIO_ON"/>
     <description text="Enable the UHF transceiver internal voltage regulators"/>
+  </command>
+
+  <command name="DisableSQUHF" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#UHF_RADIO_GPIO_INSTANCE"/>
+    <output name="pin"      value="0"/>
+    <output name="state"    value="#GPIO_OFF"/>
+    <description text="Disable the UHF transceiver internal voltage regulators"/>
   </command>
 
   <command name="EnableSQUHFTREN" decoder="cmdDecoder">
@@ -22,6 +34,14 @@
     <output name="pin"      value="#SQ_UHF_TREN"/>
     <output name="state"    value="#GPIO_ON"/>
     <description text="Enable the transceiver for UHF interfaces"/>
+  </command>
+
+  <command name="ClearSQENTREN" decoder="cmdDecoder">
+    <header frame="SetGPIOCommand_Header"/>
+    <output name="instance" value="#TRANSCEIVER_ENABLES_GPIO_INSTANCE"/>
+    <output name="pin"      value="#SQ_UHF_TREN"/>
+    <output name="state"    value="#GPIO_OFF"/>
+    <description text="Disable the transceiver for UHF interfaces"/>
   </command>
 
   <command name="Escape" decoder="cmdDecoder">
@@ -269,4 +289,78 @@
     </field>
   </command>
 
+  <!-- Commands for beacon, downstream and downlink tasks -->
+  <command name="EnableBeaconTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#SQUHFBeaconTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
+    <description text="Command to run SQ UHF Beacon task"/>
+  </command>
+
+  <command name="DisableBeaconTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#SQUHFBeaconTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to run SQ UHF Beacon task"/>
+  </command>
+
+  <command name="SetBeaconTaskPeriod" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#SIZE_REPLY"/>
+    <output name="rxlen"         value="#SW_VER_REPLY_LENGTH"/>
+    <description text="Command to set SQ-UHF beacon task period"/>
+    <field>
+      <itemDef name="BeaconTaskPeriod_Opcode" type="dn8" value="0x0C"/>
+      <itemDef name="BeaconTaskPeriod_Fncode" type="dn8" value="0x52"/>
+      <itemDef name="DummyData_2" type="dn16l" value="0"/>
+      <argument id="BeaconPeriod_ms" type="dn32b"/>
+    </field>
+  </command>
+
+  <alias name="SetBeaconTaskPeriod3000Ms" command="SetBeaconTaskPeriod">
+    <argument id="BeaconPeriod_ms" value="3000"/>
+  </alias>
+
+  <alias name="SetBeaconTaskPeriod10000Ms" command="SetBeaconTaskPeriod">
+    <argument id="BeaconPeriod_ms" value="10000"/>
+  </alias>
+
+  <command name="EnableDownstreamTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#SQUHFDownstreamTaskID"/>
+    <output name="EnableDisable" value="#Task_Enable"/>
+    <description text="Command to run SQ UHF Downstream task"/>
+  </command>
+
+  <command name="DisableDownstreamTask" decoder="cmdDecoder">
+    <header frame="EnableDisableTask_Header"/>
+    <output name="TaskID"  value="#SQUHFDownstreamTaskID"/>
+    <output name="EnableDisable" value="#Task_Disable"/>
+    <description text="Command to run SQ UHF Downstream task"/>
+  </command>
+
+  <command name="EnableUHFStreamPackets" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"     value="#SIZE_REPLY"/>
+    <output name="rxlen"         value="#SW_VER_REPLY_LENGTH"/>
+    <description text="Command to start downstreaming of basic packets through UHF"/>
+    <field>
+      <item name="Set_Opcode"/>
+      <item name="TaskID_Fncode"/>
+      <item name="SQUHFDownstreamTaskID"/>
+      <itemDef name="SQUHFDownstreamTask_offset" type="dn8" value="0x03"/>
+      <itemDef name="SQUHFDownstreamTask_length" type="dn8" value="0x04"/>
+      <argument id="DebugFlags" type="dn32b"/>
+    </field>
+  </command>
+
+  <alias name="StopUHFStreaming" command="EnableUHFStreamPackets">
+    <argument id="DebugFlags" value="0"/>
+  </alias>
+
+  <alias name="StartUHFStreamingAllPackets" command="EnableUHFStreamPackets">
+    <argument id="DebugFlags" value="0x3FF"/>
+  </alias>
 </hydraDef>

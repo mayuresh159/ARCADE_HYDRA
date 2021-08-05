@@ -1,0 +1,75 @@
+<hydraDef>
+
+  <command name="SetRequestOpMode" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#SW_VER_REPLY_LENGTH"/>
+    <description text="Set satellite's requested operation mode"/>
+    <field>
+      <item name="Set_Opcode"/>
+      <item name="FSPars_FnCode"/>
+      <itemDef name="RequestOpMode_offset" type="dn16b" value="0x0D"/>
+      <itemDef name="OpMode_length" type="dn16b" value="0x01"/>
+      <argument id="OpMode" type="dn8"/>
+    </field>
+  </command>
+
+  <alias name="SetRequestOpModeNormal" command="SetRequestOpMode">
+    <argument id="OpMode" value="0"/>
+  </alias>
+
+  <alias name="SetRequestOpModePhoenix" command="SetRequestOpMode">
+    <argument id="OpMode" value="1"/>
+  </alias>
+
+  <alias name="SetRequestOpModeScience" command="SetRequestOpMode">
+    <argument id="OpMode" value="2"/>
+  </alias>
+
+  <command name="SetManualOpMode" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#SW_VER_REPLY_LENGTH"/>
+    <description text="Set satellite's manual/forced operation mode"/>
+    <field>
+      <item name="Set_Opcode"/>
+      <item name="FSPars_FnCode"/>
+      <itemDef name="ManualOpMode_offset" type="dn16b" value="0x0E"/>
+      <item name="OpMode_length"/>
+      <argument id="OpMode" type="dn8"/>
+    </field>
+  </command>
+
+  <alias name="SetManualOpModeNormal" command="SetRequestOpMode">
+    <argument id="OpMode" value="0"/>
+  </alias>
+
+  <alias name="SetManualOpModePhoenix" command="SetRequestOpMode">
+    <argument id="OpMode" value="1"/>
+  </alias>
+
+  <alias name="SetManualOpModeScience" command="SetRequestOpMode">
+    <argument id="OpMode" value="2"/>
+  </alias>
+
+  <command name="SetSoCPars" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#SW_VER_REPLY_LENGTH"/>
+    <description text="Set satellite's SoC related parameters"/>
+    <field>
+      <item name="Set_Opcode"/>
+      <item name="FSPars_FnCode"/>
+      <itemDef name="SoCPars_offset" type="dn16b" value="0x0F"/>
+      <itemDef name="SoCPars_length" type="dn16b" value="0x0C"/>
+      <argument id="MaxSoCTSDiff_ms" type="dn32b"/>
+      <argument id="SoCPhoenixEnter" type="dn16b"/>
+      <argument id="SoCScienceEnter" type="dn16b"/>
+      <argument id="SoCScienceExit" type="dn16b"/>
+    </field>
+  </command>
+
+</hydraDef>

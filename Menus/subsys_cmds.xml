@@ -27,16 +27,20 @@
       <cmd name="RunCaptureImageTask"/>
       <cmd name="RunReadImageTask"/>
       <cmd name="SetLoadEmmcFlagsForGeckoExp"/>
-      <cmd name="RunEmmcLoadTask"/>
     </menu>
     <menu name="Atmolite">
       <cmd name="SetATMLTTREN"/>
       <cmd name="SetATMLTHeater"/>
+      <cmd name="StartCDMA"/>
+      <cmd name="SetCdma0ControlRegister"/>
+      <cmd name="SetLoadEmmcFlagsAsAtmoExpSlot"/>
     </menu>
     <menu name="SQ UHF">
       <cmd name="EnableSQUHF"/>
+      <cmd name="DisableSQUHF"/>
       <cmd name="EnableSQUHFTREN"/>
       <cmd name="SetSQENTREN"/>
+      <cmd name="ClearSQENTREN"/>
       <cmd name="Escape"/>
       <cmd name="SwitchToBinaryMode"/>
       <cmd name="SwitchToDecimalMode"/>
@@ -57,6 +61,16 @@
       <cmd name="LoadSWD"/>
       <cmd name="TransmitCarrier"/>
       <cmd name="TransmitPN9Test"/>
+      <cmd name="EnableBeaconTask"/>
+      <cmd name="DisableBeaconTask"/>
+      <cmd name="SetBeaconTaskPeriod"/>
+      <cmd name="SetBeaconTaskPeriod3000Ms"/>
+      <cmd name="SetBeaconTaskPeriod10000Ms"/>
+      <cmd name="EnableDownstreamTask"/>
+      <cmd name="DisableDownstreamTask"/>
+      <cmd name="EnableUHFStreamPackets"/>
+      <cmd name="StopUHFStreaming"/>
+      <cmd name="StartUHFStreamingAllPackets"/>
     </menu>
     <menu name="XBand">
       <cmd name="SetXBandTREN"/>

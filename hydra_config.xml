@@ -31,6 +31,8 @@
 	<!-- Include commands folder -->
 	<include>Commands\debug.xml</include>
 	<include>Commands\cdh.xml</include>
+	<include>Commands\cdma.xml</include>
+	<include>Commands\opmode.xml</include>
 	<include>Commands\eps0.xml</include>
 	<include>Commands\thruster.xml</include>
 	<include>Commands\bcu.xml</include>

@@ -1,0 +1,61 @@
+<hydraDef>
+
+  <itemDef name="ArmXilinxRegister_Fncode" type="dn8" value="0x02"/>
+  <itemDef name="registerType32" type="dn8" value="0x02"/>
+
+  <itemDef name="CDMA_Opcode" type="dn8" value="0x0D"/>
+  <itemDef name="FsRt_Load_Emmc_TaskID" type="dn8" value="0x2B"/>
+
+
+  <command name="StartCDMA" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#SW_VER_REPLY_LENGTH"/>
+    <description text="Command to start capturing with Atmolite CDMA"/>
+    <field>
+      <item name="CDMA_Opcode"/>
+      <itemDef name="Atmolite_CDMA" type="dn8" value="0x00"/>
+      <argument id="InitTrfSize" type="dn32b"/>
+    </field>
+  </command>
+
+  <command name="SetCdma0ControlRegister" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#SW_VER_REPLY_LENGTH"/>
+    <description text="Command to set control register of CDMA 0 (Atmolite)"/>
+    <field>
+      <item name="Set_Opcode"/>
+      <item name="ArmXilinxRegister_Fncode"/>
+      <item name="registerType32"/>
+      <itemDef name="AtmltCDMABaseAddr" type="dn32b" value= "0x43C20000"/>
+      <itemDef name="CtrlRegOffset" type="dn16" value="0x00"/>
+      <argument id="CtrlValue" type="dn32b"/>
+    </field>
+  </command>
+
+  <!-- CDMA emmc load flags -->
+  <command name="SetLoadEmmcFlagsAsAtmoExpSlot" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr"  value="#CDH_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"          value="#SW_VER_REPLY_LENGTH"/>
+    <description text="Command to set load eMMC task flags for slot 0"/>
+    <field>
+      <item name="Set_Opcode"/>
+      <item name="TaskID_Fncode"/>
+      <item name="FsRt_Load_Emmc_TaskID"/>
+      <itemDef name="StartFlagNo" type="dn8" value= "0x03"/>
+      <itemDef name="FlagsLength" type="dn8" value="0x08"/>
+      <itemDef name="FlagRelaytoPC" type="dn8" value="0x01"/>
+      <itemDef name="FlagLastSubtask" type="dn8" value="0x00"/>
+      <itemDef name="FlagFsType" type="dn8" value="0x01"/>
+      <itemDef name="AtmltExpDataType" type="dn8" value="0x0A"/>
+      <argument id="SlotNo" type="dn32b"/>
+    </field>
+  </command>
+
+
+</hydraDef>

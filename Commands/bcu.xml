@@ -113,4 +113,33 @@
     <description text="Clear deployable GPIO for antenna deployment"/>
   </command>
 
+
+  <command name="QuickStartBat1SoC" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#EPS2_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"    value="#NO_REPLY"/>
+    <description text="Quick Start SoC computation for fuel gauge on battery 1"/>
+    <field>
+      <itemDef name="FG1SlaveAddr" type="dn8" value="0x36"/>
+      <itemDef name="ModeRegAddr" type="dn8" value="0x06"/>
+      <itemDef name="QuickStartCmd" type="dn8" value="0x40"/>
+      <itemDef name="Dummy" type="dn8" value="0x00"/>
+    </field>
+  </command>
+
+  <command name="QuickStartBat2SoC" decoder="cmdDecoder">
+    <header frame="IS4CmdHeader"/>
+    <output name="subsystemAddr" value="#EPS3_SUBSYSTEM_ADDR"/>
+    <output name="replytype"      value="#SIZE_REPLY"/>
+    <output name="rxlen"    value="#NO_REPLY"/>
+    <description text="Quick Start SoC computation for fuel gauge on battery 2"/>
+    <field>
+      <itemDef name="FG1SlaveAddr" type="dn8" value="0x36"/>
+      <itemDef name="ModeRegAddr" type="dn8" value="0x06"/>
+      <itemDef name="QuickStartCmd" type="dn8" value="0x40"/>
+      <itemDef name="Dummy" type="dn8" value="0x00"/>
+    </field>
+  </command>
+
 </hydraDef>

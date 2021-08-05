@@ -2,6 +2,10 @@
   <menu name="stack_cmds">
     <menu name="CDH">
       <cmd name="Ping"/>
+      <cmd name="SetTime"/>
+      <cmd name="SetMaxTimeSingleSqUhfTx"/>
+      <cmd name="SetMaxTimeSingleSqUhfTx10s"/>
+      <cmd name="SetMaxTimeSingleSqUhfTxDefault"/>
       <cmd name="EnableDisableTask"/>
       <cmd name="RunEpsHkTask"/>
       <cmd name="StopEpsHkTask"/>
@@ -11,8 +15,8 @@
       <cmd name="StopProcCompRoutineTask"/>
       <cmd name="RunThrusterHkTask"/>
       <cmd name="StopThrusterHkTask"/>
-      <cmd name="RunUHFHkTask"/>
-      <cmd name="StopUHFHkTask"/>
+      <cmd name="RunSQUHFHkTask"/>
+      <cmd name="StopSQUHFHkTask"/>
       <cmd name="RunXBandHkTask"/>
       <cmd name="StopXBandHkTask"/>
       <cmd name="RunGeckoHkTask"/>
@@ -27,6 +31,23 @@
       <cmd name="StopSP2DepTask"/>
       <cmd name="RunSP3DepTask"/>
       <cmd name="StopSP3DepTask"/>
+      <cmd name="RunSqUhfBeaconTask"/>
+      <cmd name="StopSqUhfBeaconTask"/>
+      <cmd name="CreateAx25FrameDummy"/>
+      <cmd name="SetAx25CallSignCtrls"/>
+      <cmd name="SetAx25CallSignCtrlsDefault"/>
+      <cmd name="RunEmmcLoadTask"/>
+    </menu>
+    <menu name="MODE">
+      <cmd name="SetRequestOpMode"/>
+      <cmd name="SetRequestOpModeNormal"/>
+      <cmd name="SetRequestOpModePhoenix"/>
+      <cmd name="SetRequestOpModeScience"/>
+      <cmd name="SetManualOpMode"/>
+      <cmd name="SetManualOpModeNormal"/>
+      <cmd name="SetManualOpModePhoenix"/>
+      <cmd name="SetManualOpModeScience"/>
+      <cmd name="SetSoCPars"/>
     </menu>
     <menu name="DEBUG">
       <cmd name="EnableDebugFlags"/>
@@ -44,9 +65,13 @@
     </menu>
     <menu name="EPS">
       <cmd name="SetPSENTREN"/>
+      <cmd name="ClearPSENTREN"/>
       <cmd name="SetEPSI2C1EN"/>
+      <cmd name="ClearEPSI2C1EN"/>
       <cmd name="SetEPSI2C2EN"/>
+      <cmd name="ClearEPSI2C2EN"/>
       <cmd name="SetEPSI2C3EN"/>
+      <cmd name="ClearEPSI2C3EN"/>
       <cmd name="SetEPSI2CRESET"/>
       <cmd name="ClearEPSI2CRESET"/>
       <cmd name="SetATMLTPSEN"/>
@@ -79,6 +104,8 @@
       <cmd name="ClearDEPSP3"/>
       <cmd name="SetANTDEP"/>
       <cmd name="ClearANTDEP"/>
+      <cmd name="QuickStartBat1SoC"/>
+      <cmd name="QuickStartBat2SoC"/>
     </menu>
     <menu name="Proc Comp">
       <cmd name="WriteEnable"/>
